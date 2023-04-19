@@ -1,6 +1,6 @@
 import React from "react";
 import './_AdminViewPage.scss'
-
+import{Link,NavLink}from'react-router-dom'
 export const AdminViewPage = ()=>{
 
 
@@ -14,6 +14,11 @@ export const AdminViewPage = ()=>{
     <h2>panel admina</h2>
     <button>ustawienia</button>
 </header>
+            <nav className={'admin-view__navigation'}>
+                <ul>
+                    {/*<Link/>*/}
+                </ul>
+            </nav>
         </div>
     )
 }
