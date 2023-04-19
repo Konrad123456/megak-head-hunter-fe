@@ -1,4 +1,9 @@
 .button {
+  display: inline-block;
   font-size: $font-size-Xmedium;
-  background-color: $color-greenish-primary;
+  background-color: $color-redish-four;
+  text-decoration: none;
+  color: $color-greyish-five;
+  cursor: pointer;
+  padding: 0 3px;
 }
