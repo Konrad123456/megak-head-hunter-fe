@@ -1,24 +1,53 @@
-import React from "react";
+import React, {useState} from "react";
 import './_AdminViewPage.scss'
-import{Link,NavLink}from'react-router-dom'
-export const AdminViewPage = ()=>{
+
+export const AdminViewPage = () => {
+    const [switches, setSwitches] = useState({
+        modalOn: false,
+        settings: false,
+        addStudents: false,
+        addHr: false,
+    })
+
+    const handleModalExit = () => {
+        setSwitches({
+            modalOn: false,
+            settings: false,
+            addStudents: false,
+            addHr: false,
+        })
+    }
+
+    const handleButtons = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        setSwitches({
+            settings: false,
+            addStudents: false,
+            addHr: false,
+            [e.currentTarget.id]: true,
+            modalOn: true,
+        })
+    }
 
 
-
-    return(
+    return (
         <div className={'admin-view'}>
-<header className={'admin-view__header'}>
-    <div className="admin-view__header-picture">
-        <img src={require('../utils/img/logo.png')} alt=""/>
-    </div>
-    <h2>panel admina</h2>
-    <button>ustawienia</button>
-</header>
+            <header className={'admin-view__header'}>
+                <div className="admin-view__header-picture">
+                    <img src={require('../utils/img/logo.png')} alt=""/>
+                </div>
+                <h2>panel administratora</h2>
+                <button onClick={handleButtons} className={'btn'}>ustawienia</button>
+            </header>
             <nav className={'admin-view__navigation'}>
-                <ul>
-                    {/*<Link/>*/}
-                </ul>
+                <div className={'admin-view__navigation-buttons'}>
+                    <button id={'addHr'} onClick={handleButtons} className={'btn'}>dodaj hr</button>
+                    <button onClick={handleButtons} className={'btn'}>importuj kursantów</button>
+                </div>
             </nav>
+            {switches.modalOn ? <div className={'admin-view__modal'}></div> : null}
+            {switches.addHr ? <div className={'admin-view__modal-form'}>HR
+                <button onClick={handleModalExit} className={'btn modal'}>zamknij</button></div> : null}
+            <button className={'admin-view__go-back-button btn'}>powrót</button>
         </div>
     )
 }
