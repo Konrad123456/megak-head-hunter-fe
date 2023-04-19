@@ -1,0 +1,14 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Catamaran', sans-serif;
+  font-size: 62.5%;
+  color: $color-greyish-five;
+  background-color: $color-blackish-primary;
+}

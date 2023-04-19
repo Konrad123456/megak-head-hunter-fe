@@ -1,5 +1,5 @@
 import React from "react";
-import '../../src/scss/AdmivViewPage.scss'
+import './_AdminViewPage.scss'
 
 export const AdminViewPage = ()=>{
 
