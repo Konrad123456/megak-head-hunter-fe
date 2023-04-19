@@ -3,3 +3,4 @@
 ## Dariusz Okoński
 
 - [MKHH-#5] Plik json do textów statycznych, plik ze stałymi dla sass
+- [MKHH-#13] Strona logowania -- Stworzenie komponentów reużywalnych: button {FE}
