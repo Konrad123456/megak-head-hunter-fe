@@ -1,55 +1,65 @@
 @import '../utils/scss/index';
 
 .admin-view {
-  &__modal-form{
+  &__modal-form {
     position: absolute;
     z-index: 3;
     top: 20px;
-    left:50%;
+    left: 50%;
     transform: translateX(-50%);
     width: 95%;
     height: 60vh;
     background-color: $color-greyish-primary;
     border-radius: 25px;
     box-shadow: 5px 5px 10px $color-greyish-primary;
+    overflow: hidden;
 
-    .btn.modal{
+    h3 {
+      font-size: $font-size-medium;
+      text-align: center;
+      padding: 20px;
+      background-color: $color-blackish-one;
+      border-radius: 25px;
+    }
+
+    .btn.modal {
       position: absolute;
-      left:50%;
+      left: 50%;
       transform: translateX(-50%);
       bottom: 20px;
     }
 
-    .btn.modal:hover{
+    .btn.modal:hover {
       transform: translateX(-50%);
     }
 
 
   }
-&__modal{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-height: 100vh;
-  z-index: 2;
 
-  background-color: rgba(0,0,0,0.9);
-}
-   .btn{
-     background-color: $color-redish-four;
-     padding: 5px 10px;
-     cursor: pointer;
-     box-shadow: 5px 5px 10px $color-redish-two;
-     border: none;
-     color: $color-greyish-five;
-     font-size: $font-size-small;
-     text-transform: uppercase;
-     border-radius: 5px;
-     transition: transform 0.3s , box-shadow 0.3s
+  &__modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.9);
   }
 
-  .btn:hover{
+  .btn {
+    background-color: $color-redish-four;
+    padding: 5px 10px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px $color-redish-two;
+    border: none;
+    color: $color-greyish-five;
+    font-size: $font-size-small;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s
+  }
+
+  .btn:hover {
     transform: scale(1.05);
     box-shadow: 0 0 35px $color-redish-two;
   }

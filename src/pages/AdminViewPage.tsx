@@ -45,7 +45,8 @@ export const AdminViewPage = () => {
                 </div>
             </nav>
             {switches.modalOn ? <div className={'admin-view__modal'}></div> : null}
-            {switches.addHr ? <div className={'admin-view__modal-form'}>HR
+            {switches.addHr ? <div className={'admin-view__modal-form'}>
+                <h3>Formularz dodawania pojedyńczego HR</h3>
                 <button onClick={handleModalExit} className={'btn modal'}>zamknij</button></div> : null}
             <button className={'admin-view__go-back-button btn'}>powrót</button>
         </div>
