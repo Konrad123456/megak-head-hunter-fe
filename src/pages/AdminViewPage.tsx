@@ -9,7 +9,7 @@ export const AdminViewPage = ()=>{
         <div className={'admin-view'}>
 <header className={'admin-view__header'}>
     <div className="admin-view__header-picture">
-        <img src={require('../assets/images/MegaK.png')} alt=""/>
+        <img src={require('../utils/img/logo.png')} alt=""/>
     </div>
     <h2>panel admina</h2>
     <button>ustawienia</button>
