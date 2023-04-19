@@ -1,4 +1,8 @@
 const staticText = {
+  navigation: {
+    account: 'Konto',
+    logout: 'Wyloguj',
+  },
   loginPage: {
     input: {
       email: 'E-mail',
@@ -41,6 +45,7 @@ const staticText = {
       pagesFromTo: ' z ',
       availableTrainee: 'Dostępni kursanci',
       toTalk: 'Do rozmowy',
+      filters: 'Filtrowanie',
     },
     button: {
       hired: 'Zatrudniony',
@@ -48,6 +53,9 @@ const staticText = {
       interviewReservation: 'Zarezerwuj rozmowę',
       showCv: 'Pokaż CV',
       employed: 'Zatrudniony',
+      cancel: 'Anuluj',
+      showResults: 'Pokaż wyniki',
+      clear: 'Wyczyść wszystkie',
     },
     input: {
       search: 'Szukaj',
