@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import './_AdminViewPage.scss'
+import {Input} from "../components/Formik/Input/Input";
+import {Formik} from "formik";
 
 export const AdminViewPage = () => {
     const [switches, setSwitches] = useState({
@@ -36,17 +38,26 @@ export const AdminViewPage = () => {
                     <img src={require('../utils/img/logo.png')} alt=""/>
                 </div>
                 <h2>panel administratora</h2>
-                <button onClick={handleButtons} className={'btn'}>ustawienia</button>
+                <button onClick={handleButtons} id={'settings'} className={'btn'}>ustawienia</button>
             </header>
             <nav className={'admin-view__navigation'}>
                 <div className={'admin-view__navigation-buttons'}>
                     <button id={'addHr'} onClick={handleButtons} className={'btn'}>dodaj hr</button>
-                    <button onClick={handleButtons} className={'btn'}>importuj kursantów</button>
+                    <button id={'addStudents'} onClick={handleButtons} className={'btn'}>importuj kursantów</button>
                 </div>
             </nav>
             {switches.modalOn ? <div className={'admin-view__modal'}></div> : null}
             {switches.addHr ? <div className={'admin-view__modal-form'}>
                 <h3>Formularz dodawania pojedyńczego HR</h3>
+
+                <button onClick={handleModalExit} className={'btn modal'}>zamknij</button></div> : null}
+            {switches.addStudents ? <div className={'admin-view__modal-form'}>
+                <h3>importuj kursantów z pliku</h3>
+
+                <button onClick={handleModalExit} className={'btn modal'}>zamknij</button></div> : null}
+            {switches.settings ? <div className={'admin-view__modal-form'}>
+                <h3>ustawienia administratora</h3>
+
                 <button onClick={handleModalExit} className={'btn modal'}>zamknij</button></div> : null}
             <button className={'admin-view__go-back-button btn'}>powrót</button>
         </div>
