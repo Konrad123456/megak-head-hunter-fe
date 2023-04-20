@@ -6,6 +6,7 @@
     "@reduxjs/toolkit": "^1.9.4",
     "@testing-library/react": "^14.0.0",
     "cra-template-typescript": "1.2.0",
+    "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.10.0",
@@ -13,7 +14,8 @@
     "react-scripts": "5.0.1",
     "sass": "^1.62.0",
     "testing-library": "^0.0.2",
-    "web-vitals": "^3.3.1"
+    "web-vitals": "^3.3.1",
+    "yup": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
