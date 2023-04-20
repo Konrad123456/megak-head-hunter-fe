@@ -1,11 +1,16 @@
-import { LoginPage } from './pages/LoginPage/LoginPage';
+import React from 'react';
+import './App.css';
+import {Routes,Route} from "react-router-dom";
 
-const App = () => {
+function App() {
+
   return (
-    <div className='App'>
-      <LoginPage />
-    </div>
-  );
-};
+  
+      <Routes>
+
+      </Routes>
+
+  )
+}
 
 export default App;
