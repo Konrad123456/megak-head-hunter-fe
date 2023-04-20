@@ -1,5 +1,11 @@
-function App() {
-  return <div className='App'></div>;
-}
+import { LoginPage } from './pages/LoginPage/LoginPage';
+
+const App = () => {
+  return (
+    <div className='App'>
+      <LoginPage />
+    </div>
+  );
+};
 
 export default App;

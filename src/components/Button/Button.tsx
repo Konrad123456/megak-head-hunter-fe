@@ -1,5 +1,4 @@
-// @flow
-import * as React from 'react';
+import './_button.scss';
 
 type Props = {
   endpoint: string;
