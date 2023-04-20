@@ -1,13 +1,13 @@
 import React from 'react';
-import './App.css';
-import {Routes,Route} from "react-router-dom";
+import {Route,Routes} from "react-router-dom";
+import {UserPage} from "./pages/UserPage/UserPage";
 
 function App() {
 
   return (
   
       <Routes>
-
+        <Route path="/" element={<UserPage/>}/>
       </Routes>
 
   )
