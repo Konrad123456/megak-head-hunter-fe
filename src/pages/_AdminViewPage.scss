@@ -1,6 +1,43 @@
 @import '../utils/scss/index';
 
 .admin-view {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px auto;
+
+    p {
+      text-align: center;
+      font-size: $font-size-small;
+      text-transform: uppercase;
+    }
+
+    input {
+      margin: 10px auto;
+      padding: 5px;
+      border-radius: 5px;
+      box-shadow: 5px 5px 5px $color-blackish-two;
+
+
+      &::file-selector-button {
+        background-color: $color-redish-four;
+        padding: 5px;
+        margin-right: 10px;
+        cursor: pointer;
+        box-shadow: 5px 5px 10px $color-redish-two;
+        border: none;
+        color: $color-greyish-five;
+        text-transform: uppercase;
+        border-radius: 5px;
+
+      }
+
+    }
+
+
+  }
+
   &__modal-form {
     position: absolute;
     z-index: 3;
@@ -8,10 +45,9 @@
     left: 50%;
     transform: translateX(-50%);
     width: 95%;
-    height: 60vh;
     background-color: $color-greyish-primary;
     border-radius: 25px;
-    box-shadow: 5px 5px 10px $color-greyish-primary;
+    box-shadow: 5px 5px 10px $color-blackish-primary;
     overflow: hidden;
 
     h3 {
@@ -23,14 +59,7 @@
     }
 
     .btn.modal {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 20px;
-    }
-
-    .btn.modal:hover {
-      transform: translateX(-50%);
+      margin: 20px auto;
     }
 
 
@@ -56,11 +85,10 @@
     font-size: $font-size-small;
     text-transform: uppercase;
     border-radius: 5px;
-    transition: transform 0.3s, box-shadow 0.3s
+    transition: box-shadow 0.3s
   }
 
   .btn:hover {
-    transform: scale(1.05);
     box-shadow: 0 0 35px $color-redish-two;
   }
 
@@ -156,12 +184,18 @@
 
 }
 
-@media (min-width: 667px) {
+@media (min-width: 653px) {
   .admin-view__go-back-button {
     font-size: $font-size-medium;
 
   }
+
+
   .admin-view {
+    &__form {
+      margin: 10px auto;
+    }
+
     &__header {
       flex-direction: row;
       align-items: center;
@@ -177,6 +211,9 @@
         width: auto;
       }
 
+      &__form {
+        margin: 10px auto;
+      }
 
     }
 

@@ -1,7 +1,10 @@
 import React, {useState} from "react";
 import './_AdminViewPage.scss'
 import {Input} from "../components/Formik/Input/Input";
-import {Formik} from "formik";
+import {Formik, Field, Form, FormikHelpers} from "formik";
+import {AdminViewFormHrAdd} from "../components/Formik/Forms/AdminViewFormHrAdd";
+import {AdminViewFormStudentsAdd} from "../components/Formik/Forms/AdminViewFormStudentsAdd";
+
 
 export const AdminViewPage = () => {
     const [switches, setSwitches] = useState({
@@ -49,16 +52,17 @@ export const AdminViewPage = () => {
             {switches.modalOn ? <div className={'admin-view__modal'}></div> : null}
             {switches.addHr ? <div className={'admin-view__modal-form'}>
                 <h3>Formularz dodawania pojedyńczego HR</h3>
-
-                <button onClick={handleModalExit} className={'btn modal'}>zamknij</button></div> : null}
+                <AdminViewFormHrAdd handleModalExit={handleModalExit}/>
+            </div> : null}
             {switches.addStudents ? <div className={'admin-view__modal-form'}>
                 <h3>importuj kursantów z pliku</h3>
-
-                <button onClick={handleModalExit} className={'btn modal'}>zamknij</button></div> : null}
+                <AdminViewFormStudentsAdd handleModalExit={handleModalExit}/>
+            </div> : null}
             {switches.settings ? <div className={'admin-view__modal-form'}>
                 <h3>ustawienia administratora</h3>
 
-                <button onClick={handleModalExit} className={'btn modal'}>zamknij</button></div> : null}
+                <button onClick={handleModalExit} className={'btn modal'}>zamknij</button>
+            </div> : null}
             <button className={'admin-view__go-back-button btn'}>powrót</button>
         </div>
     )
