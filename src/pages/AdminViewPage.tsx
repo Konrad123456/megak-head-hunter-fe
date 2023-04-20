@@ -4,6 +4,7 @@ import {Input} from "../components/Formik/Input/Input";
 import {Formik, Field, Form, FormikHelpers} from "formik";
 import {AdminViewFormHrAdd} from "../components/Formik/Forms/AdminViewFormHrAdd";
 import {AdminViewFormStudentsAdd} from "../components/Formik/Forms/AdminViewFormStudentsAdd";
+import {AdminViewPasswordChangeForm} from "../components/Formik/Forms/AdminViewPasswordChangeForm";
 
 
 export const AdminViewPage = () => {
@@ -59,9 +60,8 @@ export const AdminViewPage = () => {
                 <AdminViewFormStudentsAdd handleModalExit={handleModalExit}/>
             </div> : null}
             {switches.settings ? <div className={'admin-view__modal-form'}>
-                <h3>ustawienia administratora</h3>
-
-                <button onClick={handleModalExit} className={'btn modal'}>zamknij</button>
+                <h3>ustawienia konta administratora</h3>
+                <AdminViewPasswordChangeForm handleModalExit={handleModalExit}/>
             </div> : null}
             <button className={'admin-view__go-back-button btn'}>powrót</button>
         </div>
