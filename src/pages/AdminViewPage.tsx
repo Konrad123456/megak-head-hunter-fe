@@ -1,7 +1,5 @@
 import React, {useState} from "react";
 import './_AdminViewPage.scss'
-import {Input} from "../components/Formik/Input/Input";
-import {Formik, Field, Form, FormikHelpers} from "formik";
 import {AdminViewFormHrAdd} from "../components/Formik/Forms/AdminViewFormHrAdd";
 import {AdminViewFormStudentsAdd} from "../components/Formik/Forms/AdminViewFormStudentsAdd";
 import {AdminViewPasswordChangeForm} from "../components/Formik/Forms/AdminViewPasswordChangeForm";

@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import {Formik, Form, Field, FormikHelpers} from 'formik';
-import * as yup from 'yup';
+import React from 'react';
+import {Formik, Form,  FormikHelpers} from 'formik';
 import {Input} from "../Input/Input";
 interface Props{
     handleModalExit:()=>void;
