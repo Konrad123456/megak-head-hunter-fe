@@ -1,12 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {AdminViewPage} from "./pages/AdminViewPage";
+import {Routes,Route} from "react-router-dom";
 
 function App() {
+
   return (
-   <AdminViewPage/>
-  );
+
+      <Routes>
+
+      </Routes>
+
+  )
 }
 
 export default App;
