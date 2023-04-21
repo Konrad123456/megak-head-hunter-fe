@@ -1,6 +1,7 @@
 import React from "react";
 import {Form, Formik, FormikHelpers} from "formik";
 import {Input} from "../Input/Input";
+import * as Yup from 'yup'
 interface Values {
     fullName: string;
     company: string;
@@ -22,6 +23,16 @@ export const AdminViewFormHrAdd = (props:Props)=>{
                email: '',
                maxReservedStudents:0,
            }}
+           validationSchema={Yup.object({
+               fullName:Yup.string()
+                   .required("Pole wymagane")
+                   .min(4,"Imię musi mieć minimum 4 znaki"),
+               company:Yup.string()
+                   .required("Pole wymagane")
+                   .min(3,"Nazwa firmy musi mieć minimum 4 znaki"),
+               email:Yup.string().required("Pole wymagane").email("niepoprawny adres e-mail"),
+               maxReservedStudents:Yup.number().required("Pole wymagane").min(1,"ilość musi być większa niż o").max(999,"zbyt duża ilość"),
+           })}
            onSubmit={(
                values: Values,
                { setSubmitting }: FormikHelpers<Values>
