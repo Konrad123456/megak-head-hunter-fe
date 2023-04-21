@@ -9,14 +9,13 @@
 
     p {
       text-align: center;
-      font-size: $font-size-small;
+      font-size: $font-size-medium;
       text-transform: uppercase;
     }
 
     input {
       margin: 10px auto;
       padding: 5px;
-
 
 
       &::file-selector-button {
@@ -47,8 +46,9 @@
     overflow: hidden;
 
     h3 {
-      font-size: $font-size-medium;
+      font-size: $font-size-large;
       text-align: center;
+      text-transform: uppercase;
       padding: 20px;
       background-color: $color-blackish-one;
     }
@@ -76,13 +76,13 @@
     cursor: pointer;
     border: none;
     color: $color-greyish-five;
-    font-size: $font-size-small;
+    font-size: $font-size-medium;
     text-transform: uppercase;
-    transition: box-shadow 0.3s
+    transition: 0.3s;
   }
 
   .btn:hover {
-    //box-shadow: 0 0 35px $color-redish-two;
+    filter: brightness(80%);
   }
 
   position: relative;
@@ -106,13 +106,12 @@
     margin: 25px auto;
 
 
-
     h2 {
       text-align: center;
       text-transform: uppercase;
       width: 100%;
       color: $color-greyish-four;
-      font-size: $font-size-small;
+      font-size: $font-size-Xlarge;
       padding: 20px 10px;
     }
 
@@ -156,7 +155,7 @@
       width: 80%;
       margin: 15px auto;
       text-transform: uppercase;
-      font-size: $font-size-small;
+      font-size: $font-size-medium;
       background-color: $color-redish-four;
       padding: 5px 10px;
       cursor: pointer;
@@ -190,7 +189,11 @@
       flex-direction: row;
       align-items: center;
 
-      h2, button {
+      h2 {
+        font-size: $font-size-Xlarge;
+      }
+
+      button {
         font-size: $font-size-medium;
       }
 
@@ -233,7 +236,7 @@
       }
 
       button {
-        font-size: $font-size-small;
+        font-size: $font-size-medium;
       }
     }
   }
@@ -249,12 +252,12 @@
 
 
       h2 {
-        font-size: $font-size-large;
+        font-size: $font-size-XXlarge;
         background: none;
       }
 
       button {
-        font-size: $font-size-small;
+        font-size: $font-size-medium;
       }
 
       button.btn {
