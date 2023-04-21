@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import './_AdminViewPage.scss'
-import {AdminViewFormHrAdd} from "../components/Formik/Forms/AdminViewFormHrAdd";
-import {AdminViewFormStudentsAdd} from "../components/Formik/Forms/AdminViewFormStudentsAdd";
-import {AdminViewPasswordChangeForm} from "../components/Formik/Forms/AdminViewPasswordChangeForm";
+import {AdminViewFormHrAdd} from "../../components/Formik/Forms/AdminViewFormHrAdd";
+import {AdminViewFormStudentsAdd} from "../../components/Formik/Forms/AdminViewFormStudentsAdd";
+import {AdminViewPasswordChangeForm} from "../../components/Formik/Forms/AdminViewPasswordChangeForm";
 
 
 export const AdminViewPage = () => {
@@ -37,7 +37,7 @@ export const AdminViewPage = () => {
         <div className={'admin-view'}>
             <header className={'admin-view__header'}>
                 <div className="admin-view__header-picture">
-                    <img src={require('../utils/img/logo.png')} alt=""/>
+                    <img src={require('../../utils/img/logo.png')} alt=""/>
                 </div>
                 <h2>panel administratora</h2>
                 <button onClick={handleButtons} id={'settings'} className={'btn'}>ustawienia</button>
