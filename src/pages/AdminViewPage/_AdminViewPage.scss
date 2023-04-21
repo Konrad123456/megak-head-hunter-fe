@@ -1,21 +1,47 @@
 @import '../../utils/scss/index';
 
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0a0a0a;
+}
+
 .admin-view {
+
+
   &__form {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 10px auto;
 
-    p {
+    .input-box{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 15px auto;
+    }
+
+
+
+    p,div.error,label {
       text-align: center;
-      font-size: $font-size-medium;
+      font-size: $font-size-small;
       text-transform: uppercase;
+    }
+
+    div.error{
+      color: $color-redish-primary;
+      padding: 8px;
+      background-color: rgba(0,0,0,0.5);
+      font-size: $font-size-small;
     }
 
     input {
       margin: 10px auto;
       padding: 5px;
+      text-align: center;
 
 
       &::file-selector-button {
@@ -102,7 +128,7 @@
     align-items: center;
     flex-grow: 1;
     justify-content: flex-end;
-    background-color: $color-blackish-two;
+    background-color: $color-blackish-primary;
     margin: 25px auto;
 
 
@@ -142,7 +168,7 @@
   flex-direction: column;
   justify-content: center;
   flex-grow: 2;
-  background-color: $color-blackish-two;
+  background-color: $color-blackish-primary;
   width: 95%;
   margin-top: 20px;
 
@@ -218,7 +244,7 @@
 
   .admin-view__navigation {
     flex-grow: 2;
-    background-color: $color-blackish-two;
+    background-color: $color-blackish-primary;
     width: 95%;
     margin-top: 20px;
 

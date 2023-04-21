@@ -44,14 +44,10 @@ export const AdminViewFormHrAdd = (props:Props)=>{
            }}
        >
            <Form className={'admin-view__form'}>
-               <p>imię i nazwisko</p>
-               <Input label={''} name={'fullName'} type={'text'} placeholder={'imię i nazwisko'}/>
-               <p>nazwa firmy</p>
-               <Input label={''} name={'company'} type={'text'} placeholder={'nazwa firmy'}/>
-               <p>adres e-mail</p>
-               <Input label={''} name={'email'} type={'email'} placeholder={'adres e-mail'}/>
-               <p>maksymalna liczba kursantów</p>
-               <Input label={''} name={'maxReservedStudents'} type={'number'} placeholder={'max liczba kursantów'}/>
+               <Input label={'imię i nazwisko'} name={'fullName'} type={'text'} placeholder={'imię i nazwisko'}/>
+               <Input label={'nazwa firmy'} name={'company'} type={'text'} placeholder={'nazwa firmy'}/>
+               <Input label={'adres email'} name={'email'} type={'email'} placeholder={'adres e-mail'}/>
+               <Input label={'maksymalna liczba kursantów'} name={'maxReservedStudents'} type={'number'} placeholder={'max liczba kursantów'}/>
                <button className={'btn'} type="submit">wyślij</button>
                <button onClick={props.handleModalExit} className={'btn modal'}>zamknij</button>
            </Form>

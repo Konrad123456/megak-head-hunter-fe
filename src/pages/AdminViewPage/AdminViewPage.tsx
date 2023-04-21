@@ -34,6 +34,7 @@ export const AdminViewPage = () => {
 
 
     return (
+        <div className="wrapper">
         <div className={'admin-view'}>
             <header className={'admin-view__header'}>
                 <div className="admin-view__header-picture">
@@ -62,6 +63,7 @@ export const AdminViewPage = () => {
                 <AdminViewPasswordChangeForm handleModalExit={handleModalExit}/>
             </div> : null}
             <button className={'admin-view__go-back-button btn'}>powrót</button>
+        </div>
         </div>
     )
 }
