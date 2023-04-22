@@ -1,1 +1,93 @@
 @import '../../utils/scss/constants';
+
+.user-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: $color-blackish-primary;
+
+  &__header{
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__inputs {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  &__col1, &__col2, &__col3, &__col4{
+    width: 48%;
+
+    .input_col1, {
+      width: 70%;
+    }
+    .input_col2{
+      width: 25%;
+      .checkbox{
+        height: 330px;
+      }
+    }
+  }
+
+
+  &__input-box {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+    background-color: $color-blackish-three;
+    padding: 10px;
+    border: 0;
+    color: $color-greyish-two;
+    outline: none;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  input{
+    background-color: $color-blackish-three;
+  }
+
+  select{
+    background-color: blue;
+  }
+
+  textarea{
+    background-color: green;
+  }
+
+  h2 {
+    font-size:15px;
+  }
+
+  .logo{
+    margin: 0;
+  }
+
+  .btn {
+    display: inline-block;
+    border: none;
+    font-size: $font-size-Xsmall;
+    background-color: $color-redish-four;
+    text-decoration: none;
+    color: $color-greyish-five;
+    cursor: pointer;
+    padding: 4px 8px;
+    font-weight: 100;
+  }
+}
