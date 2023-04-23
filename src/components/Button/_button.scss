@@ -1,0 +1,13 @@
+
+@import '../../utils/scss/constants';
+
+.button {
+  display: inline-block;
+  font-size: $font-size-Xsmall;
+  background-color: $color-redish-four;
+  text-decoration: none;
+  color: $color-greyish-five;
+  cursor: pointer;
+  padding: 4px 8px;
+  font-weight: 100;
+}
