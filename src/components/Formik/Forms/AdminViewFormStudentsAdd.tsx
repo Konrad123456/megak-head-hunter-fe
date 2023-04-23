@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import {Form, Formik, FormikHelpers, useField} from "formik";
 import {Input} from "../Input/Input";
 import {Button} from "../../Button/Button";
@@ -13,9 +13,18 @@ interface Props {
     handleModalExit: () => void;
 }
 
+const fileTypes = [
+    'application/json',
+    "text/csv"
+]
+
+const maxFilesize = 3145728;
+
 
 
 export const AdminViewFormStudentsAdd = (props: Props) => {
+    const fileRef = useRef(null)
+
 
     return (
         <Formik
@@ -23,28 +32,61 @@ export const AdminViewFormStudentsAdd = (props: Props) => {
                 studentsFile: null,
             }}
             validationSchema={Yup.object({
-                studentsFile:Yup.mixed().required('Musisz dodać plik')
-            })
-           }
-
+                studentsFile: Yup.mixed().required('Musisz dodać plik')
+                    .test("fileFormat",
+                        "Niewłaściwy typ pliku",
+                        () => {
+                            const filesReference: any = fileRef.current;
+                            const fileToCheck = filesReference.files[0];
+                            if(fileToCheck){
+                                return fileTypes.includes(fileToCheck.type)
+                            }else return true
+                        }
+                    ).
+                    test(
+                        "fileSize",
+                        "Plik jest zbyt duży",
+                        () => {
+                            const fileList: any = fileRef.current
+                            const singleFile = fileList.files[0];
+                            if (singleFile) {
+                                return singleFile.size <= maxFilesize
+                            } else {
+                                return true
+                            }
+                        }
+                    )
+            })}
 
             onSubmit={(
                 values: Values,
                 {setSubmitting}: FormikHelpers<Values>
             ) => {
                 setTimeout(() => {
-                    console.log(typeof values.studentsFile)
                     alert(JSON.stringify(values, null, 2));
+                    // @ts-ignore
+                    console.log(fileRef.current.files[0])
                     setSubmitting(false);
                 }, 500);
             }}
         >
-            <Form className={'admin-view__form'}>
-                {/*<Input label={'Importuj listę kursantów'} name={'studentsFile'} type={'file'} placeholder={''}/>*/}
+            {formik => (<Form className={'admin-view__form'}>
+                <input type="file"
+                       id='studentsFile'
+                       name='studentsFile'
+                       ref={fileRef}
+                       multiple={false}
+                       onChange={formik.handleChange}
+                       onBlur={formik.handleBlur}
+                    // value={formik.values.studentsFile}
+                />
+                {formik.touched.studentsFile && formik.errors.studentsFile ? (
+                    <div className={'error'}>{formik.errors.studentsFile}</div>
+                ) : null}
                 {/*<Button endpoint={'#'} text={'wyślij'}/>*/}
-                <input onChange={(event)=>event.currentTarget.files?console.log(event.currentTarget.files[0]):null} type="file" name={'studentsFile'}/>
                 <button type={'submit'} className="btn">wyslij</button>
-                <button onClick={props.handleModalExit} className={'btn modal'}>zamknij</button>
-            </Form>
+                <div onClick={props.handleModalExit} className={'btn modal'}>zamknij</div>
+            </Form>)}
         </Formik>
-    )}
+    )
+}

@@ -32,6 +32,7 @@ export const AdminViewPasswordChangeForm = (props: Props) => {
                 })}
                 onSubmit={(
                     values: Password,
+
                     {setSubmitting}: FormikHelpers<Password>
                 ) => {
                     setTimeout(() => {
@@ -42,8 +43,9 @@ export const AdminViewPasswordChangeForm = (props: Props) => {
             <Form className={'admin-view__form'}>
                 <Input label={'Nowe hasło'} name={'password'} type={'password'} placeholder={'hasło'}/>
                 <Input label={'Powtórz hasło'} name={'passwordCheck'} type={'confirm'} placeholder={'powtórz hasło'}/>
-                <Button endpoint={'#'} text={'wyślij'}/>
-                <button onClick={props.handleModalExit} className={'btn modal'}>zamknij</button>
+                {/*<Button endpoint={'#'} text={'wyślij'}/>*/}
+                <button type={'submit'} className="btn">wyślij</button>
+                <div onClick={props.handleModalExit} className={'btn modal'}>zamknij</div>
             </Form>
         </Formik>
     )
