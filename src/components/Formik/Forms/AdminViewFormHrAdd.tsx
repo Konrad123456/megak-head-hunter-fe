@@ -29,7 +29,7 @@ export const AdminViewFormHrAdd = (props:Props)=>{
                    .min(4,"Imię musi mieć minimum 4 znaki"),
                company:Yup.string()
                    .required("Pole wymagane")
-                   .min(3,"Nazwa firmy musi mieć minimum 4 znaki"),
+                   .min(4,"Nazwa firmy musi mieć minimum 4 znaki"),
                email:Yup.string().required("Pole wymagane").email("niepoprawny adres e-mail"),
                maxReservedStudents:Yup.number().required("Pole wymagane").min(1,"ilość musi być większa niż o").max(999,"zbyt duża ilość"),
            })}
