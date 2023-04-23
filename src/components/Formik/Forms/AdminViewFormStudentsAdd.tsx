@@ -1,6 +1,7 @@
 import React from "react";
 import {Form, Formik, FormikHelpers} from "formik";
 import {Input} from "../Input/Input";
+import {Button} from "../../Button/Button";
 interface Values {
     studentsFile: null;
 
@@ -17,6 +18,9 @@ export const AdminViewFormStudentsAdd = (props:Props)=>{
             initialValues={{
                studentsFile:null,
             }}
+
+
+
             onSubmit={(
                 values: Values,
                 { setSubmitting }: FormikHelpers<Values>
@@ -28,10 +32,8 @@ export const AdminViewFormStudentsAdd = (props:Props)=>{
             }}
         >
             <Form className={'admin-view__form'}>
-                <p>importuj listę kursantów</p>
-                <Input label={''} name={'studentsFile'} type={'file'} placeholder={''}/>
-
-                <button className={'btn'} type="submit">wyślij</button>
+                <Input label={'Importuj listę kursantów'} name={'studentsFile'} type={'file'} placeholder={''}/>
+                <Button endpoint={'#'} text={'wyślij'}/>
                 <button onClick={props.handleModalExit} className={'btn modal'}>zamknij</button>
             </Form>
         </Formik>
