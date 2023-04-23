@@ -15,10 +15,10 @@ interface Props {
 
 const fileTypes = [
     'application/json',
-    "text/csv"
+    'text/csv',
 ]
 
-const maxFilesize = 3145728;
+const maxFilesize = 2097152;
 
 
 
@@ -64,8 +64,6 @@ export const AdminViewFormStudentsAdd = (props: Props) => {
             ) => {
                 setTimeout(() => {
                     alert(JSON.stringify(values, null, 2));
-                    // @ts-ignore
-                    console.log(fileRef.current.files[0])
                     setSubmitting(false);
                 }, 500);
             }}
@@ -78,7 +76,6 @@ export const AdminViewFormStudentsAdd = (props: Props) => {
                        multiple={false}
                        onChange={formik.handleChange}
                        onBlur={formik.handleBlur}
-                    // value={formik.values.studentsFile}
                 />
                 {formik.touched.studentsFile && formik.errors.studentsFile ? (
                     <div className={'error'}>{formik.errors.studentsFile}</div>
