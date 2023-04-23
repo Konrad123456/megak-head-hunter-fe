@@ -2,6 +2,7 @@ import React from "react";
 import {Form, Formik, FormikHelpers} from "formik";
 import {Input} from "../Input/Input";
 import * as Yup from 'yup'
+import {Button} from "../../Button/Button";
 interface Values {
     fullName: string;
     company: string;
@@ -48,7 +49,7 @@ export const AdminViewFormHrAdd = (props:Props)=>{
                <Input label={'nazwa firmy'} name={'company'} type={'text'} placeholder={'nazwa firmy'}/>
                <Input label={'adres email'} name={'email'} type={'email'} placeholder={'adres e-mail'}/>
                <Input label={'maksymalna liczba kursantów'} name={'maxReservedStudents'} type={'number'} placeholder={'max liczba kursantów'}/>
-               <button className={'btn'} type="submit">wyślij</button>
+               <Button endpoint={'#'} text={'wyślij'}/>
                <button onClick={props.handleModalExit} className={'btn modal'}>zamknij</button>
            </Form>
        </Formik>
