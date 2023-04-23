@@ -26,7 +26,10 @@ export const AdminViewPasswordChangeForm = (props: Props) => {
                 validationSchema={Yup.object({
                     password: Yup.string()
                         .required("Pole wymagane")
-                        .min(4, "Hasło musi mieć minimum 4 znaki"),
+                        .min(8, "Hasło musi mieć minimum 8 znaki")
+                        .matches(/[A-Z]+/, 'Jeden duży znak')
+                        .matches(/\d+/, 'Numer')
+                        .matches(/[@$!%*#?&]+/, "Jeden znak specjalny"),
                     passwordCheck: Yup.string().label('Powtórz hasło')
                         .required("Pole wymagane").oneOf([Yup.ref('password')], 'Hasła muszą być takie same')
                 })}
