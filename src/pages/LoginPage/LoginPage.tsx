@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './_login_page.scss';
 import { Logo } from '../../components/Logo/Logo';
-import { Button } from '../../components/Button/Button';
 import staticText from '../../languages/en.pl';
+import { SubmitButton } from '../../components/Button/SubmitButton';
 
 export const LoginPage = () => {
   const [email, setEmail] = useState<string>('');
@@ -42,7 +42,7 @@ export const LoginPage = () => {
             {staticText.loginPage.text.haveAccount}{' '}
             <a href='#'>{staticText.loginPage.text.register}</a>
           </p>
-          <Button endpoint='#' text={staticText.loginPage.button.login} />
+          <SubmitButton text={staticText.loginPage.button.login} />
         </div>
       </form>
     </div>
