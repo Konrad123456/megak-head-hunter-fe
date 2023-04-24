@@ -1,9 +1,6 @@
 import React from "react";
 import '../Input/input.scss'
-
 import { useField } from "formik";
-
-
 
 
 interface Props {
