@@ -114,7 +114,7 @@ export const UserPage = () => (
 
                 </div>
                 <div className="user-page__submit-box">
-                    <button className="btn">Zapisz</button>
+                    <button className="btn user-submit-btn">Zapisz</button>
                 </div>
             </div>
         </div>
