@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import './_login_page.scss';
+import { useState } from 'react';
 import { Logo } from '../../components/Logo/Logo';
 import staticText from '../../languages/en.pl';
 import { SubmitButton } from '../../components/Button/SubmitButton';
@@ -15,7 +14,7 @@ export const LoginPage = () => {
   return (
     <div className='login-page'>
       <form onSubmit={handleSubmit} className='login-page__container'>
-        <Logo />
+        <Logo classType='logo' />
 
         <div className='login-page__inputs-box'>
           <input

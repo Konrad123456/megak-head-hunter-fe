@@ -1,5 +1,3 @@
-import './_button.scss';
-
 type Props = {
   endpoint: string;
   text: string;
