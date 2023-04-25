@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Logo } from '../../components/Logo/Logo';
 import staticText from '../../languages/en.pl';
-import { SubmitButton } from '../../components/Button/SubmitButton';
+import { Button } from '../../components/Button/Button';
 
 export const LoginPage = () => {
   const [email, setEmail] = useState<string>('');
@@ -41,7 +41,7 @@ export const LoginPage = () => {
             {staticText.loginPage.text.haveAccount}{' '}
             <a href='#'>{staticText.loginPage.text.register}</a>
           </p>
-          <SubmitButton text={staticText.loginPage.button.login} />
+          <Button text={staticText.loginPage.button.login} />
         </div>
       </form>
     </div>
