@@ -116,7 +116,13 @@ const staticText = {
     },
   },
   adminPage:{
-    
+adminPanel:'panel administratora',
+    settings:'ustawienia',
+    addHr:'dodaj hr',
+    importStudents:'importuj kursantów',
+    singleHrForm:'Formularz dodawania pojedyńczego HR',
+    importStudentsFromFile:'importuj kursantów z pliku',
+    adminSettings:'ustawienia konta administratora',
   },
   mainPages: {
     text: {
