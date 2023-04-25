@@ -123,6 +123,13 @@ adminPanel:'panel administratora',
     singleHrForm:'Formularz dodawania pojedyńczego HR',
     importStudentsFromFile:'importuj kursantów z pliku',
     adminSettings:'ustawienia konta administratora',
+    close:'zamknij',
+    newPassword:'nowe hasło',
+    confirmPassword:'powtórz hasło',
+    fileIsTooBig:'Plik jest zbyt duży',
+    wrongFileType:'Niewłaściwy typ pliku',
+    noFileAdded:'Musisz dodać plik',
+
   },
   mainPages: {
     text: {
