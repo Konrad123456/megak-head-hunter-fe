@@ -3,9 +3,12 @@
   background-color: $color-blackish-three;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding: 10px;
+  padding-top: 20px;
+  max-height: 730px;
+  margin-bottom: 5px;
 
   &__img {
     width: 150px;
