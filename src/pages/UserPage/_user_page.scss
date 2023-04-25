@@ -1,8 +1,9 @@
 @import '../../utils/scss/constants';
 
 .user-page {
-  width: 100vw;
-  height: 100vh;
+  max-width: 1366px;
+  min-height: 100vh;
+  margin: 0 auto;
   background-color: $color-blackish-primary;
 
   &__header{
@@ -76,6 +77,11 @@
     border: 0;
     color: #7e7e7e;
     outline: none;
+  }
+
+  textarea{
+    max-width: 100%;
+    min-width: 100%;
   }
 
   h1 {
