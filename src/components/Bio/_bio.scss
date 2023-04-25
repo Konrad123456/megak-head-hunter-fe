@@ -1,5 +1,4 @@
 .bio {
-  min-height: 200px;
   width: 100%;
   background-color: $color-blackish-three;
   display: flex;
@@ -64,10 +63,12 @@
   &__about-me {
     margin-top: 20px;
     font-size: $font-size-Xmedium;
+    font-weight: 100;
   }
 
   &__about-me-header {
     color: $color-greyish-primary;
+    font-weight: 500;
   }
 
   &__buttons {

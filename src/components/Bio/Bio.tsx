@@ -11,8 +11,14 @@ export const Bio = () => {
 
       <div className='bio__details'>
         <p className='bio__name'>Jan Kowalski</p>
-        <a href='#' className='bio__link' target='_blank'>
+        <a
+          href='https://github.com'
+          className='bio__link'
+          target='_blank'
+          rel='noreferrer'
+        >
           <img src={logoGithub} alt='logo' className='bio__logo' />
+          {/* name to take from backend */}
           <span className='bio__link-name'>jankowalski</span>
         </a>
       </div>
@@ -20,10 +26,12 @@ export const Bio = () => {
       <div className='bio__contact'>
         <p className='bio__contact-details'>
           <span className='material-symbols-outlined'>call</span>
+          {/* phone number to take from backend */}
           +48 566 972 227
         </p>
         <p className='bio__contact-details'>
           <span className='material-symbols-outlined'>mail</span>
+          {/* email to take from backend */}
           jankowalski@gmail.com
         </p>
       </div>
@@ -33,6 +41,7 @@ export const Bio = () => {
           {staticText.mainPages.text.aboutMe}
         </p>
         <p>
+          {/* description to take from backend */}
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
           quisquam architecto mollitia reprehenderit? Aut, doloremque eum
           repellendus, minus quis corrupti laudantium laborum sit nostrum
