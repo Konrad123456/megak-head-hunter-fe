@@ -39,28 +39,28 @@ export const LoginForm = () => (
             }
         >
             <Form>
-                <div className='login-page__inputs-box'>
+                <div className="login-page__inputs-box">
                     <Input
-                        label=''
+                        label=""
                         placeholder={staticText.loginPage.input.email}
-                        name='login'
-                        type='text'
+                        name="login"
+                        type="text"
                     />
                     <Input
-                        label=''
+                        label=""
                         placeholder={staticText.loginPage.input.password}
-                        name='password'
-                        type='text'
+                        name="password"
+                        type="text"
                     />
                 </div>
-                <p className='login-page__forget-account'>
+                <p className="login-page__forget-account">
                     {staticText.loginPage.text.forgetAccont}
                 </p>
 
-                <div className='login-page__login-info'>
-                    <p className='login-page__have-account'>
-                        {staticText.loginPage.text.haveAccount}{' '}
-                        <a href='#'>{staticText.loginPage.text.register}</a>
+                <div className="login-page__login-info">
+                    <p className="login-page__have-account">
+                        {staticText.loginPage.text.haveAccount}{" "}
+                        <a href="#">{staticText.loginPage.text.register}</a>
                     </p>
                     <SubmitBtn text={staticText.loginPage.button.login}/>
                 </div>
