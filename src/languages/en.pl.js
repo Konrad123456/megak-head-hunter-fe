@@ -12,7 +12,7 @@ const staticText = {
       login: 'Zaloguj się',
     },
     text: {
-      forgetAccont: 'Zapomniałeś hasła?',
+      forgetAccount: 'Zapomniałeś hasła?',
       haveAccount: 'Nie masz konta?',
       register: 'Zarejestruj się',
     },
@@ -40,7 +40,7 @@ const staticText = {
       portfolio: 'Portfolio',
       scrumProject: 'Projekt w zespole Scrumowym',
       completionProject: 'Projekt na zaliczenie',
-      rezervationTo: 'Rezerwacja do',
+      reservationTo: 'Rezerwacja do',
       numberOfElements: 'Ilość elementów',
       pagesFromTo: ' z ',
       availableTrainee: 'Dostępni kursanci',
