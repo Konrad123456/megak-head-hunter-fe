@@ -1,0 +1,40 @@
+.portfolio-score-item {
+  width: 100%;
+  font-size: 14px;
+  padding: 5px;
+  font-weight: 100;
+  color: #cfcfcf;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  &__text {
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  &__stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4d4d4d;
+  }
+
+  &__score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-right: 7px;
+
+    b {
+      color: #cfcfcf;
+    }
+  }
+
+  .red {
+    color: red;
+  }
+}
