@@ -1,8 +1,8 @@
-import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { LoginPage } from './pages/LoginPage/LoginPage';
 import { Navigation } from './components/Navigation/Navigation';
 import { PortfolioPage } from './pages/PortfolioPage/PortfolioPage';
+import { AdminViewPage } from './pages/AdminViewPage/AdminViewPage';
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
           </>
         }
       />
+      <Route path={'/admin'} element={<AdminViewPage />} />
     </Routes>
   );
 }
