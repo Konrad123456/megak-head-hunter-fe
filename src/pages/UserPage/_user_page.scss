@@ -67,7 +67,7 @@
   }
 
   label {
-    font-size: 14px;
+    font-size: $font-size-Xsmall;
   }
 
   input, select, textarea{
@@ -75,7 +75,7 @@
     background-color: $color-blackish-three;
     padding: 10px;
     border: 0;
-    color: #7e7e7e;
+    color: $color-greyish-two;
     outline: none;
   }
 
@@ -85,11 +85,11 @@
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: $font-size-large;
   }
 
   h2 {
-    font-size: 1.4rem;
+    font-size: $font-size-Xsmall;
   }
 
   .logo{
@@ -109,7 +109,7 @@
   }
 
   .user-submit-btn{
-    font-size: 2rem;
+    font-size: $font-size-large;
     padding: 5px 20px;
     margin-top: 10px;
   }
