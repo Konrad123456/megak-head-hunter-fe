@@ -1,0 +1,187 @@
+@import '../../utils/scss/constants';
+
+.user-page {
+  width: 98%;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: $color-blackish-primary;
+
+
+  &__header {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+
+    h1 {
+      width: 49%;
+      font-size: $font-size-medium;
+    }
+
+    button {
+      width: 60%
+    }
+
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  &__inputs {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  &__col1, &__col2, &__col3, &__col4 {
+    width: 98%;
+    text-align: center;
+
+
+  }
+
+  &__input-box {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+    background-color: $color-blackish-one;
+    padding: 10px;
+    border: 0;
+    color: $color-greyish-two;
+    outline: none;
+  }
+
+  .input-container {
+    flex-direction: column;
+
+    .input_col1, {
+      width: 98%;
+    }
+
+    .input_col2 {
+      display: flex;
+      width: 98%;
+
+      .checkbox {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+    }
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  input, select, textarea {
+    margin: 5px 0;
+    background-color: $color-blackish-three;
+    padding: 10px;
+    border: 0;
+    color: #7e7e7e;
+    outline: none;
+    min-width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .logo {
+    margin: 0;
+  }
+
+  .btn {
+    display: inline-block;
+    border: none;
+    font-size: $font-size-Xsmall;
+    background-color: $color-redish-four;
+    text-decoration: none;
+    color: $color-greyish-five;
+    cursor: pointer;
+    padding: 4px 8px;
+    font-weight: 100;
+  }
+
+  .user-submit-btn {
+    font-size: 2rem;
+    padding: 5px 20px;
+    margin: 10px auto;
+  }
+}
+
+@media (min-width: 1024px) {
+
+
+  .user-page {
+    max-width: 1366px;
+
+    &__header {
+      height: 100px;
+      flex-direction: row;
+      justify-content: space-between;
+
+      h1 {
+        width: auto;
+        text-align: center;
+        font-size: $font-size-XXlarge;
+      }
+
+      button {
+        width: auto
+      }
+
+    }
+
+    &__inputs {
+      flex-direction: row;
+
+    }
+
+    &__col1, &__col2, &__col3, &__col4 {
+      width: 48%;
+      text-align: left;
+
+    }
+
+    .input-container {
+      display: flex;
+      flex-direction: row;
+
+      .input_col1, {
+        width: 75%;
+        margin-right: 2%;
+      }
+
+      .input_col2 {
+        width: 25%;
+
+      }
+    }
+
+
+    input, select, textarea {
+      text-align: left;
+    }
+
+  }
+}
