@@ -1,3 +1,9 @@
+### Sprint 2 30/04/2023
+
+## Dariusz Okoński
+
+- [MKHH-#34] Strona portfolio [FE]
+
 ### Sprint 1 23/04/2023
 
 ## Dariusz Okoński
