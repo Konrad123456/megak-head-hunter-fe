@@ -3,7 +3,8 @@ import { LoginPage } from './pages/LoginPage/LoginPage';
 import { Navigation } from './components/Navigation/Navigation';
 import { PortfolioPage } from './pages/PortfolioPage/PortfolioPage';
 import { AdminViewPage } from './pages/AdminViewPage/AdminViewPage';
-import {UserPage} from "./pages/userPage/UserPage";
+import {UserPage} from "./pages/UserPage/UserPage";
+
 
 function App() {
   return (
