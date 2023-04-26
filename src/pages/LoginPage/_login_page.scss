@@ -9,7 +9,7 @@
   background-color: $color-blackish-primary;
 
   &__container {
-    width: 320px;
+    width: 95%;
   }
 
   &__inputs-box {
@@ -20,8 +20,8 @@
 
   &__forget-account {
     margin-top: 10px;
-    font-size: $font-size-Xsmall;
-    text-align: right;
+    font-size: $font-size-Xmedium;
+    text-align: center;
   }
 
   &__login-info {
@@ -29,13 +29,53 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: column;
+    button{
+      margin-top: 15px;
+      width: 100%;
+    }
   }
 
   &__have-account {
-    font-size: $font-size-Xsmall;
+    font-size: $font-size-Xmedium;
 
     a {
       color: inherit;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+
+  .login-page {
+
+
+    &__container {
+      width:320px;
+    }
+
+
+
+    &__forget-account {
+      font-size: $font-size-Xsmall;
+      text-align: right;
+    }
+
+    &__login-info {
+      flex-direction: row;
+
+      button{
+        margin-top: 0;
+        width: auto;
+      }
+    }
+
+    &__have-account {
+      font-size: $font-size-Xsmall;
+
+      a {
+        color: inherit;
+      }
     }
   }
 }
