@@ -1,7 +1,8 @@
 import './_login_page.scss';
 import { Logo } from '../../components/Logo/Logo';
 import staticText from '../../languages/en.pl';
-import { SubmitButton } from '../../components/Button/SubmitButton';
+import { SubmitButton } from '../../components/common/Button/SubmitButton';
+import {useState} from "react";
 
 export const LoginPage = () => {
   const [email, setEmail] = useState<string>('');
