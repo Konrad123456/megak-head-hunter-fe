@@ -6,18 +6,7 @@ import { PortfolioPage } from './pages/PortfolioPage/PortfolioPage';
 function App() {
   return (
     <>
-      <Routes>
-        <Route path='/' element={<LoginPage />} />
-        <Route
-          path='/portfolio'
-          element={
-            <>
-              <Navigation />
-              <PortfolioPage />
-            </>
-          }
-        />
-      </Routes>
+      <Routes></Routes>
     </>
   );
 }
