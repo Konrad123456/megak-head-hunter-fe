@@ -10,7 +10,7 @@ export const UserPage = () => (
     <>
         <div className='user-page'>
             <div className='user-page__header'>
-                <Logo />
+                <Logo classType={'logo'} />
                 <h1>{userPageText.header.title}</h1>
                 <button className="btn">{staticText.navigation.logout}</button>
             </div>

@@ -2,7 +2,6 @@ import React from 'react';
 import {Formik, Form, FormikHelpers} from 'formik';
 import {Input} from "../Input/Input";
 import * as Yup from "yup";
-import {Button} from "../../common/Button/Button";
 
 interface Props {
     handleModalExit: () => void;
@@ -42,7 +41,7 @@ export const AdminViewPasswordChangeForm = (props: Props) => {
                 }}>
             <Form className={'admin-view__form'}>
                 <Input label={'Nowe hasło'} name={'password'} type={'password'} placeholder={'hasło'}/>
-                <Input label={'Powtórz hasło'} name={'passwordCheck'} type={'confirm'} placeholder={'powtórz hasło'}/>
+                <Input label={'Powtórz hasło'} name={'passwordCheck'} type={'pasword'} placeholder={'powtórz hasło'}/>
                 {/*<Button endpoint={'#'} text={'wyślij'}/>*/}
                 <button type={'submit'} className="btn">wyślij</button>
                 <div onClick={props.handleModalExit} className={'btn modal'}>zamknij</div>
