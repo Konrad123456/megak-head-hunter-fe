@@ -2,10 +2,9 @@ import React from "react";
 import * as Yup from "yup"
 import {Form,Formik,FormikHelpers} from "formik";
 
-import "./LoginForm.scss"
-import staticText from "../../languages/en.pl";
-import {Input} from "../Formik/Input/Input";
-import {SubmitBtn} from "../common/SubmitBtn/SubmitBtn";
+import staticText from "../../../languages/en.pl";
+import {Input} from "../Input/Input";
+import {SubmitBtn} from "../../common/SubmitBtn/SubmitBtn";
 
 interface LoginValues {
     login:string,
@@ -60,7 +59,7 @@ export const LoginForm = () => (
                 <div className="login-page__login-info">
                     <p className="login-page__have-account">
                         {staticText.loginPage.text.haveAccount}{" "}
-                        <a href="#">{staticText.loginPage.text.register}</a>
+                        <a href="src/components/Formik/Forms/LoginForm#">{staticText.loginPage.text.register}</a>
                     </p>
                     <SubmitBtn text={staticText.loginPage.button.login}/>
                 </div>

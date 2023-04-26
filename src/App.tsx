@@ -2,6 +2,7 @@ import React from 'react';
 import {Route,Routes} from "react-router-dom";
 import {UserPage} from "./pages/UserPage/UserPage";
 import {LoginPage} from "./pages/LoginPage/LoginPage";
+import {AdminViewPage} from "./pages/AdminViewPage/AdminViewPage";
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
       <Routes>
           <Route path="/" element={<LoginPage/>}/>
           <Route path="/user/:id" element={<UserPage/>}/>
+          <Route path="/admin" element={<AdminViewPage/>}/>
       </Routes>
   )
 }
