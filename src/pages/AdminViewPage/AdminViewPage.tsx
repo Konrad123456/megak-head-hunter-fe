@@ -6,8 +6,6 @@ import {AdminViewPasswordChangeForm} from "../../components/Formik/Forms/AdminVi
 import staticText from '../../languages/en.pl';
 
 
-
-
 export const AdminViewPage = () => {
     const [switches, setSwitches] = useState({
         modalOn: false,

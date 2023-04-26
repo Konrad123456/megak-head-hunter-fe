@@ -4,6 +4,7 @@ import {Input} from "../Input/Input";
 import {Button} from "../../Button/Button";
 import * as Yup from "yup";
 import staticText from "../../../languages/en.pl";
+import * as Yup from "yup";
 
 interface Values {
     studentsFile: null;
@@ -88,3 +89,4 @@ export const AdminViewFormStudentsAdd = (props: Props) => {
         </Formik>
     )
 }
+

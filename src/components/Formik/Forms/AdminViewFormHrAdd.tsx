@@ -5,6 +5,7 @@ import * as Yup from 'yup'
 import {Button} from "../../Button/Button";
 import staticText from "../../../languages/en.pl";
 
+
 interface Values {
     fullName: string;
     company: string;
@@ -59,4 +60,5 @@ export const AdminViewFormHrAdd = (props: Props) => {
             </Form>
         </Formik>
     )
+
 }

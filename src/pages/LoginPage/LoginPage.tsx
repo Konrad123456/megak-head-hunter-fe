@@ -1,25 +1,36 @@
 import './_login_page.scss';
 import { Logo } from '../../components/Logo/Logo';
-import { Button } from '../../components/Button/Button';
 import staticText from '../../languages/en.pl';
+import { SubmitButton } from '../../components/common/Button/SubmitButton';
+import {useState} from "react";
 
-type Props = {};
-export const LoginPage = (props: Props) => {
+export const LoginPage = () => {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  const handleSubmit = () => {
+    console.log('axios request to backend');
+  };
+
   return (
     <div className='login-page'>
-      <div className='login-page__container'>
+      <form onSubmit={handleSubmit} className='login-page__container'>
         <Logo />
 
         <div className='login-page__inputs-box'>
           <input
             placeholder={staticText.loginPage.input.email}
             className='login-page__input'
-            type='text'
+            type='email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             placeholder={staticText.loginPage.input.password}
             className='login-page__input'
-            type='text'
+            type='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <p className='login-page__forget-account'>
@@ -31,9 +42,9 @@ export const LoginPage = (props: Props) => {
             {staticText.loginPage.text.haveAccount}{' '}
             <a href='#'>{staticText.loginPage.text.register}</a>
           </p>
-          <Button endpoint='#' text={staticText.loginPage.button.login} />
+          <SubmitButton text={staticText.loginPage.button.login} />
         </div>
-      </div>
+      </form>
     </div>
   );
 };
