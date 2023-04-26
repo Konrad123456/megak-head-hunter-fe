@@ -2,7 +2,7 @@ import React from 'react';
 import {Formik, Form, FormikHelpers} from 'formik';
 import {Input} from "../Input/Input";
 import * as Yup from "yup";
-import {Button} from "../../Button/Button";
+import {Button} from "../../common/Button/Button";
 
 interface Props {
     handleModalExit: () => void;

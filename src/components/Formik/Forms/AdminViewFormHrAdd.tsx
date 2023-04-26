@@ -2,7 +2,7 @@ import React from "react";
 import {Form, Formik, FormikHelpers} from "formik";
 import {Input} from "../Input/Input";
 import * as Yup from 'yup'
-import {Button} from "../../Button/Button";
+import {Button} from "../../common/Button/Button";
 interface Values {
     fullName: string;
     company: string;
