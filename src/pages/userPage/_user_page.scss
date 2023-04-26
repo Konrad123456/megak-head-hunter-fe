@@ -18,8 +18,6 @@
     h1 {
       width: 49%;
       font-size: $font-size-medium;
-      text-align: center;
-      text-transform: uppercase;
     }
 
     button {
@@ -127,7 +125,7 @@
   .user-submit-btn {
     font-size: 2rem;
     padding: 5px 20px;
-    margin: 10px auto 40px;
+    margin: 10px auto;
   }
 }
 
@@ -144,6 +142,7 @@
 
       h1 {
         width: auto;
+        text-align: center;
         font-size: $font-size-XXlarge;
       }
 
