@@ -5,13 +5,11 @@ import {LoginPage} from "./pages/LoginPage/LoginPage";
 
 function App() {
 
-  return (
-  
+  return (  
       <Routes>
           <Route path="/" element={<LoginPage/>}/>
           <Route path="/user/:id" element={<UserPage/>}/>
       </Routes>
-
   )
 }
 
