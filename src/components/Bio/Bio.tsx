@@ -1,6 +1,6 @@
 import staticText from '../../languages/en.pl';
 import logoGithub from '../../utils/img/github.png';
-import { Button } from '../Button/Button';
+import { Button } from '../common/Button/Button';
 
 export const Bio = () => {
   return (
@@ -50,8 +50,8 @@ export const Bio = () => {
       </div>
 
       <div className='bio__buttons'>
-        <Button text={staticText.mainPages.button.noInterest} />
-        <Button text={staticText.mainPages.button.employed} />
+        <Button endpoint='#' text={staticText.mainPages.button.noInterest} />
+        <Button endpoint='#' text={staticText.mainPages.button.employed} />
       </div>
     </div>
   );
