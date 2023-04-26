@@ -2,9 +2,9 @@ import React, {useRef} from "react";
 import {Form, Formik, FormikHelpers, useField} from "formik";
 import {Input} from "../Input/Input";
 import {Button} from "../../common/Button/Button";
-import * as Yup from "yup";
 import staticText from "../../../languages/en.pl";
 import * as Yup from "yup";
+import {SubmitBtn} from "../../common/SubmitBtn/SubmitBtn";
 
 interface Values {
     studentsFile: null;
@@ -82,8 +82,7 @@ export const AdminViewFormStudentsAdd = (props: Props) => {
                 {formik.touched.studentsFile && formik.errors.studentsFile ? (
                     <div className={'error'}>{formik.errors.studentsFile}</div>
                 ) : null}
-                {/*<Button endpoint={'#'} text={'wyślij'}/>*/}
-                <button type={'submit'} className="btn">{staticText.userPage.submitButton.text}</button>
+                <SubmitBtn text={staticText.userPage.submitButton.text}/>
                 <div onClick={props.handleModalExit} className={'btn modal'}>{staticText.adminPage.close}</div>
             </Form>)}
         </Formik>
