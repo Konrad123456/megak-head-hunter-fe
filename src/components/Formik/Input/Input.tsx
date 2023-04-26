@@ -1,21 +1,17 @@
 import {useField} from "formik";
 import React from "react";
 import '../Input/input.scss'
-
-
 interface Props {
     label:string;
     name:string;
     type:string;
     placeholder:string;
 }
-
 export const Input = (props: Props) => {
     const [field, meta] = useField({
         name: props.name,
         type: props.type,
     });
-
     return(
         <div className="input-box">
             <label htmlFor={props.name}>{props.label}</label>
