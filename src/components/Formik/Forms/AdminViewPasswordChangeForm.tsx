@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import {Button} from "../../Button/Button";
 import staticText from '../../../languages/en.pl';
 
+
 interface Props {
     handleModalExit: () => void;
 }
