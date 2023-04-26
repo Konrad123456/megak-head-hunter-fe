@@ -2,6 +2,7 @@
   margin: 0 auto;
   margin-top: $navigation-hight;
   max-width: $max-page-width;
+  padding: 0 10px;
 
   display: grid;
   grid-template-columns: minmax(auto, 250px) 1fr;
