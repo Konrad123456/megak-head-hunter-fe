@@ -1,5 +1,5 @@
 .portfolio-work-expectations-item {
-  font-size: 14px;
+  font-size: $font-size-Xsmall;
 
   display: flex;
   flex-direction: column;
@@ -12,6 +12,6 @@
   }
 
   &__info {
-    font-size: 16px;
+    font-size: $font-size-Xmedium;
   }
 }
