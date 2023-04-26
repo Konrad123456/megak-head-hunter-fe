@@ -17,6 +17,104 @@ const staticText = {
       register: 'Zarejestruj się',
     },
   },
+  userPage:{
+    header:{
+      title: 'Widok użytkownika',
+    },
+    columnTitle:{
+      personalData: 'Dane osobowe:',
+      employmentData: 'Dane na temat zatrudnienia:',
+      aboutMe: 'O sobie:',
+      experience: 'Wykształcenie i doświadczenie:',
+    },
+    input:{
+      firstName:{
+        label:'Imię',
+        placeholder: 'np. Andrzej',
+      },
+      lastName:{
+        label:'Nazwisko',
+        placeholder: 'np. Władysławowicz',
+      },
+      email:{
+        label:'E-mail',
+        placeholder: 'np. xyz@gmail.com',
+      },
+      tel:{
+        label:'Nr telefonu',
+        placeholder: 'np. 755 455 366',
+      },
+      githubUsername:{
+        label:'GitHub',
+        placeholder: 'Nazwa konta github',
+      },
+      targetWorkCity:{
+        label:'Preferowane miasto',
+        placeholder: 'np. Kraków',
+      },
+      expectedSalary:{
+        label:'Oczekiwane wynagrodzenie',
+        placeholder: 'np. 7600',
+      },
+      monthsOfCommercialExp:{
+        label:'Doświadcznie w miesiącach',
+        placeholder: 'np. 18',
+      },
+    },
+    select:{
+      expectedTypeWork:{
+        label:'Preferowane miejsce pracy',
+        option:{
+          main:'Bez znaczenia',
+          onSite:'Na miejscu',
+          move: 'Gotowość do przeprowadzki',
+          remote: 'Wyłączenie zdalnie',
+          partiallyRemote: 'Hybrydowo'
+        }
+      },
+      expectedContractType:{
+        label:'Preferowana forma zatrudnienia',
+        option:{
+          main:'Brak preferencji',
+          coe: 'Umowa o pracę',
+          b2b: 'B2B',
+          mandate: 'Umowa zlecenie / umowa o dzieło',
+        }
+      }
+    },
+    textarea: {
+      bio:{
+        label:'O mnie',
+        placeholder: 'Biografia...'
+      },
+      portfolioUrls:{
+        label:'Linki do portfolio',
+        placeholder: 'linki rozdzielane enterem...'
+      },
+      projectUrls:{
+        label:'Linki do projektu',
+        placeholder: 'linki rozdzielane enterem...'
+      },
+      education:{
+        label:'Wykształcenie',
+        placeholder: 'Opisz swoje wykształcenie'
+      },
+      workExperience:{
+        label:'Doświadczenie zawodowe',
+        placeholder: 'Opisz swoje doświadczenie zawodowe...'
+      },
+      courses:{
+        label:'Kursy i certyfikaty',
+        placeholder: 'Kursy i certyfikaty...'
+      },
+    },
+    checkbox:{
+      canTakeApprenticeship: 'Zgoda na bezpłatne praktyki'
+    },
+    submitButton:{
+      text:'Zapisz',
+    },
+  },
   mainPages: {
     text: {
       back: 'Wróć',
