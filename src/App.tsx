@@ -8,14 +8,12 @@ import {UserPage} from "./pages/userPage/UserPage";
 function App() {
 
     return (
-
         <Routes>
             <Route path={'/'} element={<LoginPage/>}/>
             <Route path={'/admin'} element={<AdminViewPage/>}/>
             <Route path={'/user'} element={<UserPage/>}/>
             <Route path={'*'} element={<LoginPage/>}/>
         </Routes>
-
     )
 }
 
