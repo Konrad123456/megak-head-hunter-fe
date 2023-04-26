@@ -1,7 +1,7 @@
 import {useField} from "formik";
 import React from "react";
+import '../Input/input.scss'
 
-import "./Input.scss";
 
 interface Props {
     label:string;
