@@ -4,6 +4,7 @@ import {AdminViewFormHrAdd} from "../../components/Formik/Forms/AdminViewFormHrA
 import {AdminViewFormStudentsAdd} from "../../components/Formik/Forms/AdminViewFormStudentsAdd";
 import {AdminViewPasswordChangeForm} from "../../components/Formik/Forms/AdminViewPasswordChangeForm";
 import staticText from '../../languages/en.pl';
+import {Logo} from "../../components/Logo/Logo";
 
 
 export const AdminViewPage = () => {
@@ -39,7 +40,7 @@ export const AdminViewPage = () => {
             <div className={'admin-view'}>
                 <header className={'admin-view__header'}>
                     <div className="admin-view__header-picture">
-                        <img src={require('../../utils/img/logo.png')} alt=""/>
+                        <Logo/>
                     </div>
                     <h2>{staticText.adminPage.adminPanel}</h2>
                     <button onClick={handleButtons} id={'settings'} className={'btn'}>{staticText.adminPage.settings}</button>
