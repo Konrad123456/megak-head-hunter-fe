@@ -3,8 +3,30 @@ import React from "react";
 import "./_user_page.scss"
 import {Logo} from "../../components/Logo/Logo";
 import staticText from "../../languages/en.pl";
+import {UserViewForm} from "../../components/Formik/Forms/UserViewForm";
+import {ContractType,expectedTypeWorkEntity,OneStudentResponse} from "types";
 
 const userPageText = staticText.userPage
+
+const userMockupData:OneStudentResponse = {
+    firstName: "Katarzyna",
+    lastName: "Testowana",
+    email: "xyz@testowe.pl",
+    tel: "5572813",
+    githubUsername: "ktoś",
+    portfolioUrls: ["pierwszy link","drugi link"],
+    projectUrls: ["pierwszy link","drugi link"],
+    bio: "sialsadlasldaslasldals",
+    expectedContractType: ContractType.B2B_POSSIBLE,
+    expectedTypeWork: expectedTypeWorkEntity.IRRELAVANT,
+    targetWorkCity: "Rzeszów",
+    expectedSalary: 12000,
+    canTakeApprenticeship: 0,
+    monthsOfCommercialExp: 5,
+    education: "Bardzo długa edukacja",
+    workExperience: "brak doświadczenia",
+    courses: "megaK ukończone z wyróżnieniem",
+}
 
 export const UserPage = () => (
     <>
@@ -16,29 +38,30 @@ export const UserPage = () => (
             </div>
             <div className="user-page__container">
                 <div className="user-page__inputs">
-                    <div className="user-page__col1">
-                        <h2>{userPageText.columnTitle.personalData}</h2>
-                        <div className="user-page__input-box">
-                            <label htmlFor="firstName">{userPageText.input.firstName.label}</label>
-                            <input id="firstName" type="text" placeholder={userPageText.input.firstName.placeholder}/>
-                        </div>
-                        <div className="user-page__input-box">
-                            <label htmlFor="lastName">{userPageText.input.lastName.label}</label>
-                            <input id="lastName" type="text" placeholder={userPageText.input.lastName.placeholder}/>
-                        </div>
-                        <div className="user-page__input-box">
-                            <label htmlFor="email">{userPageText.input.email.label}</label>
-                            <input id="email" type="email" placeholder={userPageText.input.email.placeholder}/>
-                        </div>
-                        <div className="user-page__input-box">
-                            <label htmlFor="tel">{userPageText.input.tel.label}</label>
-                            <input id="tel" type="text" placeholder={userPageText.input.tel.placeholder}/>
-                        </div>
-                        <div className="user-page__input-box">
-                            <label htmlFor="githubUsername">{userPageText.input.githubUsername.label}</label>
-                            <input id="githubUsername" type="text" placeholder={userPageText.input.githubUsername.placeholder}/>
-                        </div>
-                    </div>
+                    {/*<div className="user-page__col1">*/}
+                    {/*    <h2>{userPageText.columnTitle.personalData}</h2>*/}
+                    {/*    <div className="user-page__input-box">*/}
+                    {/*        <label htmlFor="firstName">{userPageText.input.firstName.label}</label>*/}
+                    {/*        <input id="firstName" type="text" placeholder={userPageText.input.firstName.placeholder}/>*/}
+                    {/*    </div>*/}
+                    {/*    <div className="user-page__input-box">*/}
+                    {/*        <label htmlFor="lastName">{userPageText.input.lastName.label}</label>*/}
+                    {/*        <input id="lastName" type="text" placeholder={userPageText.input.lastName.placeholder}/>*/}
+                    {/*    </div>*/}
+                    {/*    <div className="user-page__input-box">*/}
+                    {/*        <label htmlFor="email">{userPageText.input.email.label}</label>*/}
+                    {/*        <input id="email" type="email" placeholder={userPageText.input.email.placeholder}/>*/}
+                    {/*    </div>*/}
+                    {/*    <div className="user-page__input-box">*/}
+                    {/*        <label htmlFor="tel">{userPageText.input.tel.label}</label>*/}
+                    {/*        <input id="tel" type="text" placeholder={userPageText.input.tel.placeholder}/>*/}
+                    {/*    </div>*/}
+                    {/*    <div className="user-page__input-box">*/}
+                    {/*        <label htmlFor="githubUsername">{userPageText.input.githubUsername.label}</label>*/}
+                    {/*        <input id="githubUsername" type="text" placeholder={userPageText.input.githubUsername.placeholder}/>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
+                    <UserViewForm userData={userMockupData}/>
                     <div className="user-page__col2">
                         <h2>{userPageText.columnTitle.employmentData}</h2>
                         <div className="input-container">
