@@ -2,7 +2,9 @@ import React, {useRef} from "react";
 import {Form, Formik, FormikHelpers, useField} from "formik";
 import {Input} from "../Input/Input";
 import {Button} from "../../common/Button/Button";
+import staticText from "../../../languages/en.pl";
 import * as Yup from "yup";
+import {SubmitBtn} from "../../common/SubmitBtn/SubmitBtn";
 
 interface Values {
     studentsFile: null;
@@ -32,9 +34,9 @@ export const AdminViewFormStudentsAdd = (props: Props) => {
                 studentsFile: null,
             }}
             validationSchema={Yup.object({
-                studentsFile: Yup.mixed().required('Musisz dodać plik')
+                studentsFile: Yup.mixed().required(staticText.adminPage.noFileAdded)
                     .test("fileFormat",
-                        "Niewłaściwy typ pliku",
+                        staticText.adminPage.wrongFileType,
                         () => {
                             const filesReference: any = fileRef.current;
                             const fileToCheck = filesReference.files[0];
@@ -45,7 +47,7 @@ export const AdminViewFormStudentsAdd = (props: Props) => {
                     ).
                     test(
                         "fileSize",
-                        "Plik jest zbyt duży",
+                        staticText.adminPage.fileIsTooBig,
                         () => {
                             const fileList: any = fileRef.current
                             const singleFile = fileList.files[0];
@@ -80,10 +82,10 @@ export const AdminViewFormStudentsAdd = (props: Props) => {
                 {formik.touched.studentsFile && formik.errors.studentsFile ? (
                     <div className={'error'}>{formik.errors.studentsFile}</div>
                 ) : null}
-                {/*<Button endpoint={'#'} text={'wyślij'}/>*/}
-                <button type={'submit'} className="btn">wyslij</button>
-                <div onClick={props.handleModalExit} className={'btn modal'}>zamknij</div>
+                <SubmitBtn text={staticText.userPage.submitButton.text}/>
+                <div onClick={props.handleModalExit} className={'btn modal'}>{staticText.adminPage.close}</div>
             </Form>)}
         </Formik>
     )
 }
+
