@@ -5,9 +5,7 @@
   min-height: 100vh;
   background-color: #0a0a0a;
 }
-
 .admin-view {
-
   &__logo {
     display: flex;
     align-items: center;
@@ -16,24 +14,24 @@
     width: 100%;
     background-color: $color-blackish-one;
     padding: 8px;
-
-    h3 {
-      width: 100%;
-      text-align: center;
-
+    .logo{
+      width: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-
-    .logo__image {
+    h3 {
+      text-align: center;
+    }
+    .logo__image,img {
       width: 80px;
     }
   }
-
   &__form {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 10px auto;
-
     .input-box {
       display: flex;
       flex-direction: column;
@@ -41,29 +39,24 @@
       align-items: center;
       margin: 15px auto;
     }
-
-
     p, div.error, label {
       text-align: center;
       font-size: $font-size-small;
       text-transform: uppercase;
       margin-bottom: 20px;
     }
-
     div.error {
       color: $color-redish-primary;
       padding: 8px;
       background-color: rgba(0, 0, 0, 0.5);
       font-size: $font-size-small;
     }
-
     input {
       margin: 10px auto;
       padding: 5px;
       text-align: center;
       background-color: $color-blackish-three;
       color: $color-greyish-two;
-
 
       &::file-selector-button {
         background-color: $color-redish-four;
@@ -73,15 +66,9 @@
         border: none;
         color: $color-greyish-five;
         text-transform: uppercase;
-
-
       }
-
     }
-
-
   }
-
   &__modal-form {
     position: absolute;
     z-index: 3;
@@ -91,22 +78,16 @@
     width: 95%;
     background-color: $color-greyish-primary;
     overflow: hidden;
-
     h3 {
       font-size: $font-size-large;
       text-align: center;
       text-transform: uppercase;
       padding: 20px;
-      //background-color: $color-blackish-one;
     }
-
     .btn.modal {
       margin: 20px auto;
     }
-
-
   }
-
   &__modal {
     position: absolute;
     top: 0;
@@ -116,7 +97,6 @@
     z-index: 2;
     background-color: rgba(0, 0, 0, 0.9);
   }
-
   .btn {
     background-color: $color-redish-four;
     padding: 5px 10px;
@@ -131,7 +111,6 @@
   .btn:hover {
     filter: brightness(80%);
   }
-
   position: relative;
   z-index: 1;
   min-height: 80vh;
@@ -140,7 +119,6 @@
   justify-content: space-around;
   align-items: center;
   margin: 0 auto;
-
 
   &__header {
     display: flex;
@@ -152,7 +130,6 @@
     background-color: $color-blackish-primary;
     margin: 25px auto;
 
-
     h2 {
       text-align: center;
       text-transform: uppercase;
@@ -161,29 +138,19 @@
       font-size: $font-size-Xlarge;
       padding: 20px 10px;
     }
-
     button {
-
       margin-bottom: 20px;
       width: 80%;
-
     }
-
   }
-
   &__header-picture {
     overflow: hidden;
     width: 40%;
-    margin-left: 20px;
-
     img {
       width: 100%;
     }
   }
-
-
 }
-
 .admin-view__navigation {
   display: flex;
   flex-direction: column;
@@ -208,61 +175,48 @@
       cursor: pointer;
       border: none;
       color: $color-greyish-five;
-
     }
   }
 }
-
 .admin-view__go-back-button {
   display: block;
   width: 80%;
   margin-top: 60px;
-
 }
-
 @media (min-width: 653px) {
   .admin-view__go-back-button {
     font-size: $font-size-medium;
-
   }
-
-
   .admin-view {
     &__form {
       margin: 10px auto;
     }
-
     &__header {
       flex-direction: row;
       align-items: center;
-
+      div.logo {
+        width: 80px;
+      }
       h2 {
         font-size: $font-size-Xlarge;
       }
-
       button {
         font-size: $font-size-medium;
       }
-
       button.btn {
         padding: 8px 16px;
         margin-right: 20px;
         margin-bottom: 0;
         width: auto;
       }
-
       &__form {
         margin: 10px auto;
       }
-
     }
-
     &__header-picture {
       width: 20%;
     }
-
   }
-
   .admin-view__navigation {
     flex-grow: 2;
     background-color: $color-blackish-primary;
@@ -278,16 +232,12 @@
 
         font-size: $font-size-medium;
         padding: 8px 16px;
-
-
       }
-
       button {
         font-size: $font-size-medium;
       }
     }
   }
-
 }
 
 @media (min-width: 1024px) {
@@ -301,65 +251,49 @@
       width: 100%;
       flex-wrap: nowrap;
 
-      h3 {
-        width: 80%;
-        margin-left: 20px;
+      h3{
+        width: 100%;
+        margin-right: 80px;
       }
 
       .logo__image {
         width: 80px;
       }
     }
-
-
     &__header {
-
-
       h2 {
         font-size: $font-size-XXlarge;
         background: none;
       }
-
       button {
         font-size: $font-size-medium;
       }
-
       button.btn {
         padding: 8px 16px;
         margin-right: 20px;
         margin-bottom: 0;
         width: auto;
       }
-
-
     }
-
     &__header-picture {
       width: 14%;
       margin-left: 20px;
     }
   }
-
   .admin-view__navigation {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
-
     &-buttons {
       width: 100%;
       display: flex;
       flex-direction: row;
       align-items: center;
-
-
       button {
         width: 40%;
         font-size: $font-size-medium;
         padding: 8px 16px;
-
-
       }
     }
   }
