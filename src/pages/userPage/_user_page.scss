@@ -1,12 +1,9 @@
 @import '../../utils/scss/constants';
-
 .user-page {
   width: 98%;
   margin: 0 auto;
   min-height: 100vh;
   background-color: $color-blackish-primary;
-
-
   &__header {
     height: auto;
     display: flex;
@@ -14,20 +11,16 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 30px;
-
     h1 {
       width: 49%;
       font-size: $font-size-medium;
       text-transform: uppercase;
       text-align: center;
     }
-
     button {
       width: 60%
     }
-
   }
-
   &__container {
     width: 100%;
     display: flex;
@@ -35,8 +28,6 @@
     align-items: center;
     justify-content: center;
   }
-
-
   &__inputs {
     margin-top: 15px;
     width: 100%;
@@ -45,14 +36,10 @@
     justify-content: space-around;
     flex-wrap: wrap;
   }
-
   &__col1, &__col2, &__col3, &__col4 {
     width: 98%;
     text-align: center;
-
-
   }
-
   &__input-box {
     display: flex;
     flex-direction: column;
@@ -63,18 +50,15 @@
     color: $color-greyish-two;
     outline: none;
   }
-
   .input-container {
     flex-direction: column;
 
     .input_col1, {
       width: 98%;
     }
-
     .input_col2 {
       display: flex;
       width: 98%;
-
       .checkbox {
         align-items: center;
         display: flex;
@@ -83,11 +67,9 @@
       }
     }
   }
-
   label {
     font-size: 14px;
   }
-
   input, select, textarea {
     margin: 5px 0;
     background-color: $color-blackish-three;
@@ -132,7 +114,6 @@
 }
 
 @media (min-width: 1024px) {
-
 
   .user-page {
     max-width: 1366px;
