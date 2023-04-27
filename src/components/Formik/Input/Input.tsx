@@ -3,6 +3,7 @@ import React from "react";
 import '../Input/input.scss'
 
 interface Props {
+    classType:string
     label:string;
     name:string;
     type:string;
@@ -16,7 +17,7 @@ export const Input = (props: Props) => {
     });
 
     return(
-        <div className="input-box">
+        <div className={`${props.classType}__input-box`}>
             <label htmlFor={props.name}>{props.label}</label>
             <input className={props.name} id={props.name} {...field} {...props}/>
             {
