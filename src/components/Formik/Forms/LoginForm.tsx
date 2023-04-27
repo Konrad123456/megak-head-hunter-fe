@@ -40,12 +40,14 @@ export const LoginForm = () => (
             <Form>
                 <div className="login-page__inputs-box">
                     <Input
+                        classType="login-page"
                         label=""
                         placeholder={staticText.loginPage.input.email}
                         name="login"
                         type="text"
                     />
                     <Input
+                        classType="login-page"
                         label=""
                         placeholder={staticText.loginPage.input.password}
                         name="password"

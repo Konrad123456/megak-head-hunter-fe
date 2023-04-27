@@ -2,7 +2,7 @@ import React from "react";
 import {Form, Formik, FormikHelpers} from "formik";
 import {Input} from "../Input/Input";
 import * as Yup from 'yup'
-import {Button} from "../../common/Button/Button";
+
 interface Values {
     fullName: string;
     company: string;
@@ -45,10 +45,10 @@ export const AdminViewFormHrAdd = (props:Props)=>{
            }}
        >
            <Form className={'admin-view__form'}>
-               <Input label={'imię i nazwisko'} name={'fullName'} type={'text'} placeholder={'imię i nazwisko'}/>
-               <Input label={'nazwa firmy'} name={'company'} type={'text'} placeholder={'nazwa firmy'}/>
-               <Input label={'adres email'} name={'email'} type={'email'} placeholder={'adres e-mail'}/>
-               <Input label={'maksymalna liczba kursantów'} name={'maxReservedStudents'} type={'number'} placeholder={'max liczba kursantów'}/>
+               <Input classType={'admin-view'} label={'imię i nazwisko'} name={'fullName'} type={'text'} placeholder={'imię i nazwisko'}/>
+               <Input classType={'admin-view'} label={'nazwa firmy'} name={'company'} type={'text'} placeholder={'nazwa firmy'}/>
+               <Input classType={'admin-view'} label={'adres email'} name={'email'} type={'email'} placeholder={'adres e-mail'}/>
+               <Input classType={'admin-view'} label={'maksymalna liczba kursantów'} name={'maxReservedStudents'} type={'number'} placeholder={'max liczba kursantów'}/>
                {/*<Button endpoint={'#'} text={'wyślij'}/>*/}
                <button type={'submit'} className="btn">wyślij</button>
                <div onClick={props.handleModalExit} className={'btn modal'}>zamknij</div>
