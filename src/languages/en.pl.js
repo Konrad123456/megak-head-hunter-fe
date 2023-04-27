@@ -116,7 +116,7 @@ const staticText = {
     },
   },
   adminPage:{
-adminPanel:'panel administratora',
+    adminPanel:'panel administratora',
     settings:'ustawienia',
     addHr:'dodaj hr',
     importStudents:'importuj kursantów',
@@ -144,6 +144,7 @@ adminPanel:'panel administratora',
     maxReservedStudents:'maksymalna liczba kursantów',
 
   },
+
   mainPages: {
     text: {
       back: 'Wróć',
