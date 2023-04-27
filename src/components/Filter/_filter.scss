@@ -1,0 +1,32 @@
+.filter {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba($color: #000000, $alpha: 0.6);
+
+  &__container {
+    background-color: #0a0a0a;
+    padding: 15px;
+    width: 100%;
+    max-width: 520px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 22px;
+    color: #f7f7f7;
+  }
+}

@@ -1,0 +1,26 @@
+.filter-score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 40px;
+  background-color: #292a2b;
+  padding: 4px 6px;
+  margin-right: 4px;
+  cursor: pointer;
+  &--clicked {
+    background-color: #e02735;
+  }
+
+  &__points {
+    font-size: 14px;
+    margin-right: 3px;
+  }
+
+  &__star {
+    font-size: 16px;
+    color: #e02735;
+    &--clicked {
+      color: #f4f4f4;
+    }
+  }
+}

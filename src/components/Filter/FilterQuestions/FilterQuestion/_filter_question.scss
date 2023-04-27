@@ -1,0 +1,14 @@
+.filter-question {
+  display: inline-block;
+  padding: 6px 8px;
+  background-color: #292a2b;
+  margin-right: 4px;
+  cursor: pointer;
+  &--clicked {
+    background-color: #e02735;
+  }
+
+  &__text {
+    font-size: 12px;
+  }
+}

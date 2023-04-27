@@ -1,18 +1,32 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { UserPage } from './pages/UserPage/UserPage';
 import { LoginPage } from './pages/LoginPage/LoginPage';
 import { AdminViewPage } from './pages/AdminViewPage/AdminViewPage';
+import { PortfolioPage } from './pages/PortfolioPage/PortfolioPage';
+import { Navigation } from './components/Navigation/Navigation';
 
 function App() {
+  const location = useLocation();
+
+  console.log(location);
+
+  const displayNavigation = () => {
+    if (location.pathname === '/portfolio') return <Navigation />;
+  };
+
   return (
-    <Routes>
-      <Route path={'/'} element={<LoginPage />} />
-      <Route path={'/admin'} element={<AdminViewPage />} />
-      <Route path='/user/:id' element={<UserPage />} />
-      <Route path={'/user'} element={<UserPage />} />
-      <Route path={'*'} element={<LoginPage />} />
-    </Routes>
+    <>
+      {displayNavigation()}
+      <Routes>
+        <Route path={'/'} element={<LoginPage />} />
+        <Route path={'/portfolio'} element={<PortfolioPage />} />
+        <Route path={'/admin'} element={<AdminViewPage />} />
+        <Route path='/user/:id' element={<UserPage />} />
+        <Route path={'/user'} element={<UserPage />} />
+        <Route path={'*'} element={<LoginPage />} />
+      </Routes>
+    </>
   );
 }
 
