@@ -1,0 +1,17 @@
+.portfolio-work-expectations-item {
+  font-size: $font-size-Xsmall;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px 0;
+
+  &__title {
+    font-weight: 100;
+    margin-bottom: 10px;
+  }
+
+  &__info {
+    font-size: $font-size-Xmedium;
+  }
+}
