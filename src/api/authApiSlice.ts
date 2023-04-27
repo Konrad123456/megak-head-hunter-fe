@@ -3,11 +3,11 @@ import { User, withToken } from "../store/auth/types";
 
 export const authApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
-        login: builder.mutation({
-            query: (credentials) => ({
-                url: '/auth/login',
+        login: builder.mutation<{user: User} & withToken, {email: string, password: string}>({
+            query: ({ email, password }) => ({
+                url: '/login',
                 method: "POST",
-                body: { ...credentials }
+                body: { email, password }
             })
         }),
         refresh: builder.mutation<{user: User} & withToken, {}>({
