@@ -1,25 +1,29 @@
-import React from "react";
-import {Formik,FormikHelpers} from "formik";
+import React,{useState} from "react";
+import {Form,Formik,FormikHelpers} from "formik";
 import * as Yup from "yup";
-import {choiceYesNO, ContractType,expectedTypeWorkEntity, StudentsCVResponse} from 'types'
+import {ContractType,expectedTypeWorkEntity,OneStudentResponse} from 'types'
+
+import {Input} from "../Input/Input";
+import staticText from "../../../languages/en.pl";
 
 const expectedContractTypesValues = Object.keys(ContractType).filter(e => e.length > 1 )
 const expectedTypeWorkValues = Object.keys(expectedTypeWorkEntity).filter(e => e.length > 1 )
+const userPageText = staticText.userPage
 
-interface userFullData extends StudentsCVResponse{
+export interface userFullData{
     firstName:string;
     lastName:string;
     email:string;
     tel:string;
     githubUsername:string;
-    portfolioUrls:string[];
-    projectUrls:string[];
+    portfolioUrls:string;
+    projectUrls:string;
     bio:string;
-    expectedContractType: ContractType
-    expectedTypeWork: expectedTypeWorkEntity
+    expectedContractType: string,
+    expectedTypeWork: string,
     targetWorkCity:string;
     expectedSalary: number;
-    canTakeApprenticeship: choiceYesNO;
+    canTakeApprenticeship: 0 | 1;
     monthsOfCommercialExp: number;
     education: string;
     workExperience: string;
@@ -27,17 +31,24 @@ interface userFullData extends StudentsCVResponse{
 }
 
 interface Props {
-    userData:userFullData
+    userData:OneStudentResponse
 }
 
 export const UserViewForm = (props:Props) => {
+    const [userFEData, setUserFEData] = useState<userFullData>({
+        ...props.userData,
+        portfolioUrls:props.userData.portfolioUrls.reduce((prev,curr) => prev + "\n" + curr,""),
+        projectUrls:props.userData.projectUrls.reduce((prev,curr) => prev + "\n" + curr,""),
+        expectedContractType:expectedContractTypesValues[props.userData.expectedContractType],
+        expectedTypeWork:expectedTypeWorkValues[props.userData.expectedTypeWork],
+    })
 
 
     return(
         <>
             <Formik
                 initialValues={{
-                    ...props.userData
+                    ...userFEData
                 }}
                 validationSchema={Yup.object({
                     email:Yup.string()
@@ -80,7 +91,8 @@ export const UserViewForm = (props:Props) => {
                         .required("Pole wymagane")
                         .oneOf(expectedContractTypesValues),
                     expectedSalary:Yup.string(),
-                    canTakeApprenticeship: Yup.boolean(),
+                    canTakeApprenticeship: Yup.number()
+                        .oneOf([0,1]),
                     monthsOfCommercialExp: Yup.number()
                         .required("Pole wymagane"),
                     education: Yup.string(),
@@ -97,7 +109,20 @@ export const UserViewForm = (props:Props) => {
                     }
                 }
             >
+            <Form>
+                <div className="user-page__col1">
+                    <h2>{userPageText.columnTitle.personalData}</h2>
+                        <Input classType={"user-page"} label={userPageText.input.firstName.label} name={"firstName"} type={"text"} placeholder={userPageText.input.firstName.placeholder}/>
+                        <Input classType={"user-page"} label={userPageText.input.lastName.label} name={"lastName"} type={"text"} placeholder={userPageText.input.lastName.placeholder}/>
 
+                        <Input classType={"user-page"} label={userPageText.input.email.label} name={"email"} type={"email"} placeholder={userPageText.input.email.placeholder}/>
+
+                        <Input classType={"user-page"} label={userPageText.input.tel.label} name={"tel"} type={"text"} placeholder={userPageText.input.tel.placeholder}/>
+
+                        <Input classType={"user-page"} label={userPageText.input.githubUsername.label} name={"githubUsername"} type={"text"} placeholder={userPageText.input.githubUsername.placeholder}/>
+
+                </div>
+            </Form>
             </Formik>
         </>
 
