@@ -18,6 +18,8 @@
     h1 {
       width: 49%;
       font-size: $font-size-medium;
+      text-transform: uppercase;
+      text-align: center;
     }
 
     button {
@@ -142,7 +144,6 @@
 
       h1 {
         width: auto;
-        text-align: center;
         font-size: $font-size-XXlarge;
       }
 
