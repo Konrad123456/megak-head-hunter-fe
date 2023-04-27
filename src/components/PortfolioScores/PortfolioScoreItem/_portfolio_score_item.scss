@@ -1,0 +1,40 @@
+.portfolio-score-item {
+  width: 100%;
+  font-size: $font-size-Xsmall;
+  padding: 5px;
+  font-weight: 100;
+  color: $color-greyish-four;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  &__text {
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  &__stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-greyish-primary;
+  }
+
+  &__score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $font-size-XXmedium;
+    margin-right: 7px;
+
+    b {
+      color: $color-greyish-four;
+    }
+  }
+
+  .red {
+    color: $color-redish-four;
+  }
+}
