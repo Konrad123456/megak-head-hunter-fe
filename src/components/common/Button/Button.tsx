@@ -10,4 +10,5 @@ export const Button = ({ endpoint, text }: Props) => {
       {text}
     </a>
   );
+  
 };

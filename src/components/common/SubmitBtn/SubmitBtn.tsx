@@ -1,12 +1,12 @@
 import "./_SubmitBtn.scss";
 
 type Props = {
-  text: string;
+    text: string;
 };
 export const SubmitBtn = ({ text }: Props) => {
-  return (
-    <button type="submit" className="submit-button">
-      {text}
-    </button>
-  );
+    return (
+        <button type="submit" className="submit-button">
+            {text}
+        </button>
+    );
 };

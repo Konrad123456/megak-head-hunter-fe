@@ -2,23 +2,22 @@ import {useField} from "formik";
 import React from "react";
 import '../Input/input.scss'
 
+
 interface Props {
     label:string;
     name:string;
     type:string;
     placeholder:string;
 }
-
-export const Input = (props: Props) => {
+export const Input = ({name, type, label,placeholder}: Props) => {
     const [field, meta] = useField({
-        name: props.name,
-        type: props.type,
+        name: name,
+        type: type,
     });
-
     return(
         <div className="input-box">
-            <label htmlFor={props.name}>{props.label}</label>
-            <input className={props.name} id={props.name} {...field} {...props}/>
+            <label htmlFor={name}>{label}</label>
+            <input className={name} id={name} {...field} {...{name, type, label,placeholder}}/>
             {
                 meta.touched && meta.error ?
                     <div className="error">{meta.error}</div>
