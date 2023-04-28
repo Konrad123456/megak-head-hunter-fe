@@ -51,7 +51,7 @@ export const LoginForm = () => (
                         label=""
                         placeholder={staticText.loginPage.input.password}
                         name="password"
-                        type="text"
+                        type="password"
                     />
                 </div>
                 <p className="login-page__forget-account">
