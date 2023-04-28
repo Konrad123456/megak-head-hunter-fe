@@ -10,16 +10,16 @@ interface Props {
     placeholder:string;
 }
 
-export const Input = (props: Props) => {
+export const Input = ({classType,label,name,type,placeholder}: Props) => {
     const [field, meta] = useField({
-        name: props.name,
-        type: props.type,
+        name,
+        type,
     });
 
     return(
-        <div className={`${props.classType}__input-box`}>
-            <label htmlFor={props.name}>{props.label}</label>
-            <input className={props.name} id={props.name} {...field} {...props}/>
+        <div className={`${classType}__input-box`}>
+            <label htmlFor={name}>{label}</label>
+            <input className={name} id={name} {...field} {...{classType,label,name,type,placeholder}}/>
             {
                 meta.touched && meta.error ?
                     <div className="error">{meta.error}</div>
