@@ -39,7 +39,7 @@ export const AdminViewPage = () => {
             <div className={'admin-view'}>
                 <header className={'admin-view__header'}>
                     <div className="admin-view__header-picture">
-                        <Logo/>
+                        <Logo classType={'admin-view__img'}/>
                     </div>
                     <h2>{staticText.adminPage.adminPanel}</h2>
                     <button onClick={handleButtons} id={'settings'}
@@ -56,21 +56,21 @@ export const AdminViewPage = () => {
                 {switches.modalOn && <div className={'admin-view__modal'}></div>}
                 {switches.addHr && <div className={'admin-view__modal-form'}>
                     <div className="admin-view__logo">
-                        <Logo/>
+                        <Logo classType={'admin-view__logo-img'}/>
                         <h3>{staticText.adminPage.singleHrForm}
                         </h3></div>
                     <AdminViewFormHrAdd handleModalExit={handleModalExit}/>
                 </div>}
                 {switches.addStudents && <div className={'admin-view__modal-form'}>
                     <div className="admin-view__logo">
-                        <Logo/>
+                        <Logo classType={'admin-view__logo-img'}/>
                         <h3>{staticText.adminPage.importStudentsFromFile}
                         </h3></div>
                     <AdminViewFormStudentsAdd handleModalExit={handleModalExit}/>
                 </div>}
                 {switches.settings && <div className={'admin-view__modal-form'}>
                     <div className="admin-view__logo">
-                        <Logo/>
+                        <Logo classType={'admin-view__logo-img'}/>
                         <h3>{staticText.adminPage.adminSettings}
                         </h3></div>
                     <AdminViewPasswordChangeForm handleModalExit={handleModalExit}/>
