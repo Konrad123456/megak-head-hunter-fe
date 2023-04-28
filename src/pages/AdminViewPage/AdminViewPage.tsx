@@ -1,40 +1,39 @@
-import React, {useState} from "react";
-import './_AdminViewPage.scss'
-import {AdminViewFormHrAdd} from "../../components/Formik/Forms/AdminViewFormHrAdd";
-import {AdminViewFormStudentsAdd} from "../../components/Formik/Forms/AdminViewFormStudentsAdd";
-import {AdminViewPasswordChangeForm} from "../../components/Formik/Forms/AdminViewPasswordChangeForm";
+import React, { useState } from 'react';
+import './_AdminViewPage.scss';
+import { AdminViewFormHrAdd } from '../../components/Formik/Forms/AdminViewFormHrAdd';
+import { AdminViewFormStudentsAdd } from '../../components/Formik/Forms/AdminViewFormStudentsAdd';
+import { AdminViewPasswordChangeForm } from '../../components/Formik/Forms/AdminViewPasswordChangeForm';
 import staticText from '../../languages/en.pl';
-import {Logo} from "../../components/Logo/Logo";
-
+import { Logo } from '../../components/Logo/Logo';
 
 export const AdminViewPage = () => {
-    const [switches, setSwitches] = useState({
-        modalOn: false,
-        settings: false,
-        addStudents: false,
-        addHr: false,
-    })
+  const [switches, setSwitches] = useState({
+    modalOn: false,
+    settings: false,
+    addStudents: false,
+    addHr: false,
+  });
 
-    const handleModalExit = () => {
-        setSwitches({
-            modalOn: false,
-            settings: false,
-            addStudents: false,
-            addHr: false,
-        })
-    }
+  const handleModalExit = () => {
+    setSwitches({
+      modalOn: false,
+      settings: false,
+      addStudents: false,
+      addHr: false,
+    });
+  };
 
-    const handleButtons = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        setSwitches({
-            settings: false,
-            addStudents: false,
-            addHr: false,
-            [e.currentTarget.id]: true,
-            modalOn: true,
-        })
-    }
-
-
+  const handleButtons = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    setSwitches({
+      settings: false,
+      addStudents: false,
+      addHr: false,
+      [e.currentTarget.id]: true,
+      modalOn: true,
+    });
+  };
     return (
         <div className="wrapper">
             <div className={'admin-view'}>
@@ -81,3 +80,4 @@ export const AdminViewPage = () => {
         </div>
     )
 }
+

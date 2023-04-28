@@ -1,0 +1,9 @@
+.portfolio-headers {
+  background-color: $color-blackish-three;
+  padding: 10px 10px;
+  margin-bottom: 5px;
+
+  &__description {
+    font-size: $font-size-large;
+  }
+}

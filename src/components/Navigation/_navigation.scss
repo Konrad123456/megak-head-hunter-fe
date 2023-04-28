@@ -1,0 +1,21 @@
+.navigation {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+
+  background-color: $color-blackish-one;
+
+  &__container {
+    padding: 13px 10px 12px;
+    max-width: $max-page-width;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 340px) {
+      flex-direction: column;
+    }
+  }
+}

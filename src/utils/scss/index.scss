@@ -1,6 +1,21 @@
+// icons webpage
+// https://fonts.google.com/icons
+
 @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;300;500;700&display=swap');
 
 @import './constants';
 @import './reset';
 
+@import '../../pages/PortfolioPage/portfolio_page';
 @import '../../pages/LoginPage/login_page';
+@import '../../components//LoginUser/login-user';
+@import '../../components/Navigation/navigation';
+@import '../../components/Bio/bio';
+@import '../../components/Skills/skills';
+@import '../../components/PortfolioHeaders/portfolio_headers';
+@import '../../components/PortfolioLinks/portfolio_links';
+@import '../../components/PortfolioText/portfolio_text';
+@import '../../components/PortfolioScores/portfolio_scores';
+@import '../../components/PortfolioScores/PortfolioScoreItem/portfolio_score_item';
+@import '../../components/PortfolioWorkExpectations/portfolio_work_expectations';
+@import '../../components/PortfolioWorkExpectations/PortfolioWorkExpectationsItem/portfolio_work_expectations_item';

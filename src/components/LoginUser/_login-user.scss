@@ -1,0 +1,52 @@
+.login-user {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-greyish-three;
+
+  &__img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+  }
+
+  &__name {
+    font-size: $font-size-XXmedium;
+    color: inherit;
+    margin-left: 10px;
+    font-weight: 100;
+  }
+
+  &__arrow {
+    margin-left: 20px;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  &__list {
+    position: absolute;
+    left: 0;
+    bottom: -85px;
+    width: 100%;
+    padding: 5px 10px;
+    background-color: $color-blackish-one;
+  }
+
+  &__list-item {
+    list-style-type: none;
+    font-size: $font-size-XXmedium;
+    font-weight: 100;
+    cursor: pointer;
+  }
+
+  @media (max-width: 340px) {
+    &__list {
+      bottom: -80px;
+    }
+  }
+}

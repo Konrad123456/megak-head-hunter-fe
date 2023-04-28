@@ -1,0 +1,17 @@
+.portfolio-links {
+  background-color: transparent;
+  padding: 10px 5px;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: $font-size-Xmedium;
+    color: $color-bluish-primary;
+    text-decoration: none;
+  }
+
+  &__link {
+    margin-left: 5px;
+  }
+}
