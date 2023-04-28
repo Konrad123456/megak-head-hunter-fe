@@ -4,3 +4,9 @@
 @import './reset';
 
 @import '../../pages/LoginPage/login_page';
+@import '../../pages/UserPage/user_page';
+
+
+@import "../../components/Formik/Input/input";
+@import "../../components/Formik/Select/Select";
+@import "../../components/Formik/Textarea/Textarea";
