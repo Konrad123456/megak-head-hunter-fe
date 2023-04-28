@@ -16,7 +16,7 @@ export const Checkbox = ({classType,name,label}:Props) =>{
     return(
         <div className={`${classType}__checkbox-box`}>
             <label htmlFor={name}>{label}</label>
-            <input type="checkbox" className={name} id={name} {...field} {...{classType,name,label}}/>
+            <input type="checkbox" className={name} id={name} {...field} {...{name,label}}/>
             {
                 meta.touched && meta.error ?
                     <div className="error">{meta.error}</div>

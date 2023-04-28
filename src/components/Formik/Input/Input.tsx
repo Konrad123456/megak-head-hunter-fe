@@ -19,7 +19,7 @@ export const Input = ({classType,label,name,type,placeholder}: Props) => {
     return(
         <div className={`${classType}__input-box`}>
             <label htmlFor={name}>{label}</label>
-            <input className={name} id={name} {...field} {...{classType,label,name,type,placeholder}}/>
+            <input className={name} id={name} {...field} {...{label,name,type,placeholder}}/>
             {
                 meta.touched && meta.error ?
                     <div className="error">{meta.error}</div>
