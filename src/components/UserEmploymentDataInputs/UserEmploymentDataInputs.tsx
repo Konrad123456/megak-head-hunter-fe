@@ -29,7 +29,7 @@ export const UserEmploymentDataInputs = () => (
                 >
                     {
                         // @ts-ignore
-                        expectedTypeWorkValues.map((e,i) => <option key={i} value={e}>{userPageText.select.expectedTypeWork.option[e]}</option>)
+                        expectedTypeWorkValues.map((e,i) => <option key={i} value={e}>{userPageText.select.expectedTypeWork.option[e] ?? "Missing translation..."}</option>)
                     }
                 </Select>
                 <Select
@@ -39,7 +39,7 @@ export const UserEmploymentDataInputs = () => (
                 >
                     {
                         // @ts-ignore
-                        expectedContractTypesValues.map((e,i) => <option key={i} value={e}>{userPageText.select.expectedContractType.option[e]}</option>)
+                        expectedContractTypesValues.map((e,i) => <option key={i} value={e}>{userPageText.select.expectedContractType.option[e]  ?? "Missing translation..."}</option>)
                     }
                 </Select>
                 <Input
