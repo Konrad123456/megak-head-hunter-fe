@@ -3,8 +3,12 @@ import {Input} from "../Formik/Input/Input";
 import staticText from "../../languages/en.pl";
 import {Select} from "../Formik/Select/Select";
 import {Checkbox} from "../Formik/Checkbox/Checkbox";
+import { ContractType, expectedTypeWorkEntity } from "types";
 
 const userPageText = staticText.userPage;
+const expectedContractTypesValues = Object.keys(ContractType).filter(e => e.length > 1 )
+const expectedTypeWorkValues = Object.keys(expectedTypeWorkEntity).filter(e => e.length > 1 )
+
 
 export const UserEmploymentDataInputs = () => (
     <div className="user-page__col2">
@@ -23,21 +27,20 @@ export const UserEmploymentDataInputs = () => (
                     label={userPageText.select.expectedTypeWork.label}
                     name={"expectedTypeWork"}
                 >
-                    <option value="IRRELEVANT">{userPageText.select.expectedTypeWork.option.main}</option>
-                    <option value="ATLOCATION">{userPageText.select.expectedTypeWork.option.onSite}</option>
-                    <option value="READY_TO_CARRYOUT">{userPageText.select.expectedTypeWork.option.move}</option>
-                    <option value="ONLY_REMOTELY">{userPageText.select.expectedTypeWork.option.remote}</option>
-                    <option value="HYBRID">{userPageText.select.expectedTypeWork.option.partiallyRemote}</option>
+                    {
+                        // @ts-ignore
+                        expectedTypeWorkValues.map((e,i) => <option key={i} value={e}>{userPageText.select.expectedTypeWork.option[e]}</option>)
+                    }
                 </Select>
                 <Select
                     classType={"user-page"}
                     label={userPageText.select.expectedContractType.label}
                     name={"expectedContractType"}
                 >
-                    <option value="NO_PREFERENCE">{userPageText.select.expectedContractType.option.main}</option>
-                    <option value="UOP_ONLY">{userPageText.select.expectedContractType.option.coe}</option>
-                    <option value="B2B_POSSIBLE">{userPageText.select.expectedContractType.option.b2b}</option>
-                    <option value="UZ_UOD_POSSIBLE">{userPageText.select.expectedContractType.option.mandate}</option>
+                    {
+                        // @ts-ignore
+                        expectedContractTypesValues.map((e,i) => <option key={i} value={e}>{userPageText.select.expectedContractType.option[e]}</option>)
+                    }
                 </Select>
                 <Input
                     classType={"user-page"}
