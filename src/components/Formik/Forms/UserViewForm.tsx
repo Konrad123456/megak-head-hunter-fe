@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import {Form,Formik,FormikHelpers} from "formik";
 import * as Yup from "yup";
-import {ContractType,expectedTypeWorkEntity,OneStudentResponse} from 'types'
+import {OneStudentResponse} from 'types'
 
 import staticText from "../../../languages/en.pl";
 import {SubmitBtn} from "../../common/SubmitBtn/SubmitBtn";
@@ -9,10 +9,8 @@ import {UserPersonalDataInputs} from "../../UserPersonalDataInputs/UserPersonalD
 import {UserEmploymentDataInputs} from "../../UserEmploymentDataInputs/UserEmploymentDataInputs";
 import {UserAboutMeInputs} from "../../UserAboutMeInputs/UserAboutMeInputs";
 import {UserExperienceInputs} from "../../UserExperienceInputs/UserExperienceInputs";
+import {expectedContractTypesValues,expectedTypeWorkValues} from "../../../utils/enumKeys/enumKeys";
 
-const expectedContractTypesValues = Object.keys(ContractType).filter(e => e.length > 1 )
-const expectedTypeWorkValues = Object.keys(expectedTypeWorkEntity).filter(e => e.length > 1 )
-const userPageText = staticText.userPage
 
 export interface userFullData{
     firstName:string;
@@ -64,25 +62,6 @@ export const UserViewForm = (props:Props) => {
                         .required("Pole wymagane"),
                     githubUsername: Yup.string()
                         .required("Pole wymagane"),
-                        // Taki test jest ok ale nie tutaj, yup robi to po każdej literce, przy długim loginie ktoś zabije rate-limiter na githubie
-                        //  .test(
-                        //     "APi check",
-                        //     "Taki login nie istnieje",
-                        //     (value) => {
-                        //
-                        //         (async () => {
-                        //             const res = await fetch(`https://api.github.com/users/${value}`);
-                        //             if(res.status === 200){
-                        //                 console.log("jest ok")
-                        //                 return true;
-                        //             } else {
-                        //                 console.log("jest źle")
-                        //                 return false;
-                        //             }
-                        //         })()
-                        //
-                        //     }
-                        // ),
                     tel:Yup.string(),
                     portfolioUrls:Yup.string(),
                     projectUrls:Yup.string()
@@ -109,6 +88,15 @@ export const UserViewForm = (props:Props) => {
                         {setSubmitting}:FormikHelpers<userFullData>
                     ) => {
                         console.log(values);
+                        //Github account validation, in future result should be displayed in toast
+                        const res = await fetch(`https://api.github.com/users/${values.githubUsername}`);
+                        if(res.status === 200){
+                            console.log("Istnieje")
+                        } else if (res.status === 404) {
+                            console.log("Nie istnieje")
+                        } else {
+                            console.log("Błąd inny")
+                        }
                         setSubmitting(false);
                     }
                 }
@@ -121,7 +109,7 @@ export const UserViewForm = (props:Props) => {
                     <UserExperienceInputs/>
                 </div>
                 <div className="user-page__submit-box">
-                    <SubmitBtn text={userPageText.submitButton.text} classType={"user-submit-btn"}/>
+                    <SubmitBtn text={staticText.userPage.submitButton.text} classType={"user-submit-btn"}/>
                 </div>
             </Form>
             </Formik>

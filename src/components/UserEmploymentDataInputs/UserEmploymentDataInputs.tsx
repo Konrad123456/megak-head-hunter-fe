@@ -3,11 +3,9 @@ import {Input} from "../Formik/Input/Input";
 import staticText from "../../languages/en.pl";
 import {Select} from "../Formik/Select/Select";
 import {Checkbox} from "../Formik/Checkbox/Checkbox";
-import { ContractType, expectedTypeWorkEntity } from "types";
+import {expectedContractTypesValues,expectedTypeWorkValues} from "../../utils/enumKeys/enumKeys";
 
 const userPageText = staticText.userPage;
-const expectedContractTypesValues = Object.keys(ContractType).filter(e => e.length > 1 )
-const expectedTypeWorkValues = Object.keys(expectedTypeWorkEntity).filter(e => e.length > 1 )
 
 
 export const UserEmploymentDataInputs = () => (
