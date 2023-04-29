@@ -38,7 +38,7 @@ export const UserPage = () => {
         projectUrls:[''],
         bio:'',
         expectedContractType: ContractType.NO_PREFERENCE,
-        expectedTypeWork: expectedTypeWorkEntity.IRRELEVANT,
+        expectedTypeWork: expectedTypeWorkEntity.IRRELAVANT,
         targetWorkCity:'',
         expectedSalary: 0,
         canTakeApprenticeship: choiceYesNO.NO,
