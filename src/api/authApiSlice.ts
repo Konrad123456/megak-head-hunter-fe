@@ -12,19 +12,13 @@ export const authApiSlice = apiSlice.injectEndpoints({
         }),
         refresh: builder.mutation<{user: User} & withToken, {}>({
             query: () => ({
-                url: '/auth/refresh',
-                method: "GET",
-            })
-        }),
-        authenticated: builder.mutation<boolean, {}>({
-            query: () => ({
-                url: '/auth/authenticated',
+                url: '/refresh-token',
                 method: "GET",
             })
         }),
         logout: builder.mutation({
             query: () => ({
-                url: '/auth/logout',
+                url: '/logout',
                 method: "POST",
             })
         }),
@@ -34,6 +28,5 @@ export const authApiSlice = apiSlice.injectEndpoints({
 export const {
     useLoginMutation,
     useRefreshMutation,
-    useAuthenticatedMutation,
     useLogoutMutation,
 } = authApiSlice;

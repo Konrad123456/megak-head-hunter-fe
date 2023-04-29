@@ -3,16 +3,34 @@ import React from 'react';
 import './_user_page.scss';
 import { Logo } from '../../components/Logo/Logo';
 import staticText from '../../languages/en.pl';
+import {useLogoutMutation} from "../../api/authApiSlice";
+import {useDispatch} from "react-redux";
+import {logOut} from "../../store/auth/authSlice";
+import {useNavigate} from "react-router";
 
 const userPageText = staticText.userPage;
 
-export const UserPage = () => (
-  <>
+export const UserPage = () => {
+  const [logout] = useLogoutMutation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const onLogOutHandler = async () => {
+    try {
+      await logout({}).unwrap();
+      dispatch(logOut());
+      navigate('/');
+    } catch (e) {
+
+    }
+  }
+
+  return <>
     <div className='user-page'>
       <div className='user-page__header'>
         <Logo classType='logo' />
         <h1>{userPageText.header.title}</h1>
-        <button className='btn'>{staticText.navigation.logout}</button>
+        <button className='btn' onClick={onLogOutHandler}>{staticText.navigation.logout}</button>
       </div>
       <div className='user-page__container'>
         <div className='user-page__inputs'>
@@ -229,4 +247,4 @@ export const UserPage = () => (
       </div>
     </div>
   </>
-);
+};

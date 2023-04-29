@@ -5,8 +5,16 @@ import { AdminViewFormStudentsAdd } from '../../components/Formik/Forms/AdminVie
 import { AdminViewPasswordChangeForm } from '../../components/Formik/Forms/AdminViewPasswordChangeForm';
 import staticText from '../../languages/en.pl';
 import { Logo } from '../../components/Logo/Logo';
+import {logOut} from "../../store/auth/authSlice";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router";
+import {useLogoutMutation} from "../../api/authApiSlice";
 
 export const AdminViewPage = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [logout] = useLogoutMutation();
+
   const [switches, setSwitches] = useState({
     modalOn: false,
     settings: false,
@@ -34,6 +42,16 @@ export const AdminViewPage = () => {
       modalOn: true,
     });
   };
+
+  const onLogOutHandler = async () => {
+    try {
+      await logout({}).unwrap();
+      dispatch(logOut());
+      navigate('/');
+    } catch (e) {
+
+    }
+  }
 
   return (
     <div className='wrapper'>
@@ -80,7 +98,7 @@ export const AdminViewPage = () => {
             <AdminViewPasswordChangeForm handleModalExit={handleModalExit} />
           </div>
         ) : null}
-        <button className={'admin-view__go-back-button btn'}>
+        <button className={'admin-view__go-back-button btn'} onClick={onLogOutHandler}>
           {staticText.navigation.logout}
         </button>
       </div>
