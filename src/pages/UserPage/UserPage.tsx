@@ -6,9 +6,6 @@ import staticText from "../../languages/en.pl";
 import {UserViewForm} from "../../components/Formik/Forms/UserViewForm";
 import {choiceYesNO, ContractType,expectedTypeWorkEntity,OneStudentResponse} from "types";
 
-
-const userPageText = staticText.userPage
-
 const userMockupData:OneStudentResponse = {
     firstName: "Katarzyna",
     lastName: "Testowana",
@@ -61,8 +58,8 @@ export const UserPage = () => {
         <>
             <div className='user-page'>
                 <div className='user-page__header'>
-                    <Logo />
-                    <h1>{userPageText.header.title}</h1>
+                    <Logo classType='logo'/>
+                    <h1>{staticText.userPage.header.title}</h1>
                     <button className="btn">{staticText.navigation.logout}</button>
                 </div>
                 <div className="user-page__container">

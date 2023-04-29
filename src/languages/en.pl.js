@@ -12,7 +12,7 @@ const staticText = {
       login: 'Zaloguj się',
     },
     text: {
-      forgetAccont: 'Zapomniałeś hasła?',
+      forgetAccount: 'Zapomniałeś hasła?',
       haveAccount: 'Nie masz konta?',
       register: 'Zarejestruj się',
     },
@@ -115,6 +115,36 @@ const staticText = {
       text:'Zapisz',
     },
   },
+  adminPage:{
+    adminPanel:'panel administratora',
+    settings:'ustawienia',
+    addHr:'dodaj hr',
+    importStudents:'importuj kursantów',
+    singleHrForm:'Formularz dodawania pojedyńczego HR',
+    importStudentsFromFile:'importuj kursantów z pliku',
+    adminSettings:'ustawienia konta administratora',
+    close:'zamknij',
+    newPassword:'nowe hasło',
+    confirmPassword:'powtórz hasło',
+    fileIsTooBig:'Plik jest zbyt duży',
+    wrongFileType:'Niewłaściwy typ pliku',
+    noFileAdded:'Musisz dodać plik',
+    fieldRequired:'Pole wymagane',
+    repeatPassword:'Powtórz hasło',
+    passwordStrengthRequired:'Hasło musi posiadać co najmniej jeden duży znak, jedną liczbę i jeden znak specjalny',
+    passwordsMustBeTheSame:'Hasła muszą być takie same',
+    nameMustHaveFourChar:'Imię musi mieć minimum 4 znaki',
+    companyNameMustHaveFourChar:'Nazwa firmy musi mieć minimum 4 znaki',
+    wrongEmail:'niepoprawny adres e-mail',
+    mustBeMoreThanZero:'ilość musi być większa niż 0',
+    toBigNumber:'zbyt duża ilość',
+    fullName:'imię i nazwisko',
+    companyName:'nazwa firmy',
+    email:'adres email',
+    maxReservedStudents:'maksymalna liczba kursantów',
+
+  },
+
   mainPages: {
     text: {
       back: 'Wróć',
@@ -130,7 +160,7 @@ const staticText = {
       contractType: 'Oczekiwany typ kontraktu',
       salaryExpectations: 'Oczekiwane wynagrodzenia miesięczne netto',
       apprenticeshipsAgreement:
-        'Zgoda na odbycie bezpłatnych praktyk/stażu na początek',
+          'Zgoda na odbycie bezpłatnych praktyk/stażu na początek',
       commercialExperience: 'Komercyjne doświadczenia w programowaniu',
       education: 'Edukacja',
       courses: 'Kursy',
@@ -138,7 +168,7 @@ const staticText = {
       portfolio: 'Portfolio',
       scrumProject: 'Projekt w zespole Scrumowym',
       completionProject: 'Projekt na zaliczenie',
-      rezervationTo: 'Rezerwacja do',
+      reservationTo: 'Rezerwacja do',
       numberOfElements: 'Ilość elementów',
       pagesFromTo: ' z ',
       availableTrainee: 'Dostępni kursanci',
@@ -161,5 +191,4 @@ const staticText = {
     },
   },
 };
-
 export default staticText;

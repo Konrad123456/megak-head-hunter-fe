@@ -55,7 +55,7 @@ export const LoginForm = () => (
                     />
                 </div>
                 <p className="login-page__forget-account">
-                    {staticText.loginPage.text.forgetAccont}
+                    {staticText.loginPage.text.forgetAccount}
                 </p>
 
                 <div className="login-page__login-info">

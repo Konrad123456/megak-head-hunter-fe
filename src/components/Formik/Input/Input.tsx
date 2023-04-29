@@ -15,7 +15,6 @@ export const Input = ({classType,label,name,type,placeholder}: Props) => {
         name,
         type,
     });
-
     return(
         <div className={`${classType}__input-box`}>
             <label htmlFor={name}>{label}</label>

@@ -1,58 +1,66 @@
 import React from "react";
 import {Form, Formik, FormikHelpers} from "formik";
 import {Input} from "../Input/Input";
-import * as Yup from 'yup'
+import * as Yup from 'yup';
+import staticText from "../../../languages/en.pl";
+import {SubmitBtn} from "../../common/SubmitBtn/SubmitBtn";
+
 
 interface Values {
     fullName: string;
     company: string;
     email: string;
-    maxReservedStudents:number;
+    maxReservedStudents: number;
 }
+
 interface Props {
-    handleModalExit:()=>void;
+    handleModalExit: () => void;
 }
 
-export const AdminViewFormHrAdd = (props:Props)=>{
+export const AdminViewFormHrAdd = (props: Props) => {
 
 
-   return (
-       <Formik
-           initialValues={{
-               fullName: '',
-               company: '',
-               email: '',
-               maxReservedStudents:0,
-           }}
-           validationSchema={Yup.object({
-               fullName:Yup.string()
-                   .required("Pole wymagane")
-                   .min(4,"Imię musi mieć minimum 4 znaki"),
-               company:Yup.string()
-                   .required("Pole wymagane")
-                   .min(4,"Nazwa firmy musi mieć minimum 4 znaki"),
-               email:Yup.string().required("Pole wymagane").email("niepoprawny adres e-mail"),
-               maxReservedStudents:Yup.number().required("Pole wymagane").min(1,"ilość musi być większa niż o").max(999,"zbyt duża ilość"),
-           })}
-           onSubmit={(
-               values: Values,
-               { setSubmitting }: FormikHelpers<Values>
-           ) => {
-               setTimeout(() => {
-                   alert(JSON.stringify(values, null, 2));
-                   setSubmitting(false);
-               }, 500);
-           }}
-       >
-           <Form className={'admin-view__form'}>
-               <Input classType={'admin-view'} label={'imię i nazwisko'} name={'fullName'} type={'text'} placeholder={'imię i nazwisko'}/>
-               <Input classType={'admin-view'} label={'nazwa firmy'} name={'company'} type={'text'} placeholder={'nazwa firmy'}/>
-               <Input classType={'admin-view'} label={'adres email'} name={'email'} type={'email'} placeholder={'adres e-mail'}/>
-               <Input classType={'admin-view'} label={'maksymalna liczba kursantów'} name={'maxReservedStudents'} type={'number'} placeholder={'max liczba kursantów'}/>
-               {/*<Button endpoint={'#'} text={'wyślij'}/>*/}
-               <button type={'submit'} className="btn">wyślij</button>
-               <div onClick={props.handleModalExit} className={'btn modal'}>zamknij</div>
-           </Form>
-       </Formik>
-   )
+    return (
+        <Formik
+            initialValues={{
+                fullName: '',
+                company: '',
+                email: '',
+                maxReservedStudents: 0,
+            }}
+            validationSchema={Yup.object({
+                fullName: Yup.string()
+                    .required(staticText.adminPage.fieldRequired)
+                    .min(4, staticText.adminPage.nameMustHaveFourChar),
+                company: Yup.string()
+                    .required(staticText.adminPage.fieldRequired)
+                    .min(4, staticText.adminPage.companyNameMustHaveFourChar),
+                email: Yup.string().required(staticText.adminPage.fieldRequired).email(staticText.adminPage.wrongEmail),
+                maxReservedStudents: Yup.number().required(staticText.adminPage.fieldRequired).min(1, staticText.adminPage.mustBeMoreThanZero).max(999, staticText.adminPage.toBigNumber),
+            })}
+            onSubmit={(
+                values: Values,
+                {setSubmitting}: FormikHelpers<Values>
+            ) => {
+                setTimeout(() => {
+                    alert(JSON.stringify(values, null, 2));
+                    setSubmitting(false);
+                }, 500);
+            }}
+        >
+            <Form className={'admin-view__form'}>
+                <Input classType={'admin-view'} label={staticText.adminPage.fullName} name={'fullName'} type={'text'}
+                       placeholder={staticText.adminPage.fullName}/>
+                <Input classType={'admin-view'} label={staticText.adminPage.companyName} name={'company'} type={'text'}
+                       placeholder={staticText.adminPage.companyName}/>
+                <Input classType={'admin-view'} label={staticText.adminPage.email} name={'email'} type={'email'}
+                       placeholder={staticText.adminPage.email}/>
+                <Input classType={'admin-view'} label={staticText.adminPage.maxReservedStudents} name={'maxReservedStudents'} type={'number'}
+                       placeholder={staticText.adminPage.maxReservedStudents}/>
+                <SubmitBtn text={staticText.userPage.submitButton.text}/>
+                <div onClick={props.handleModalExit} className={'btn modal'}>{staticText.adminPage.close}</div>
+            </Form>
+        </Formik>
+    )
+
 }

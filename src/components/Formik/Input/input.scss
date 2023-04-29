@@ -1,5 +1,15 @@
 @import '../../../utils/scss/constants';
 
+.passwordCheck{
+  width: 100%;
+  margin: 5px 0;
+  background-color: $color-blackish-three;
+  padding: 10px;
+  border: 0;
+  color: $color-greyish-two;
+  outline: none;
+}
+
 .error{
   color: $color-redish-five;
   display: flex;
