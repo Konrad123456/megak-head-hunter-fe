@@ -1,0 +1,13 @@
+.filter-free-practice-agreement {
+  margin-top: 10px;
+  font-size: 14px;
+
+  &__input {
+    padding: 8px;
+    border: none;
+    outline: none;
+    background-color: #292a2b;
+    color: #686868;
+    max-width: 95px;
+  }
+}

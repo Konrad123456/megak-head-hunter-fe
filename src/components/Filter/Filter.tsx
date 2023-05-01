@@ -1,6 +1,10 @@
 import { ClearButton } from '../common/ClearButton/ClearButton';
 import { FilterScores } from './FilterScores/FilterScores';
 import { FilterQuestions } from './FilterQuestions/FilterQuestions';
+import { FilterSalaryExpectations } from './FilterSalaryExpectations/FilterSalaryExpectations';
+import { FilterApprenticeshipsAgreement } from './FilterApprenticeshipsAgreement/FilterApprenticeshipsAgreement';
+import { FilterFreePracticeAgreement } from './FilterFreePracticeAgreement/FilterFreePracticeAgreement';
+import { SubmitButton } from '../common/Button/SubmitButton';
 
 export const Filter = () => {
   return (
@@ -25,6 +29,17 @@ export const Filter = () => {
           question='Oczekiwany typ kontraktu'
           answers={['Umowa o pracę', 'B2B', 'Umowa zlecenie', 'Umowa o dzieło']}
         />
+
+        <FilterSalaryExpectations question='Oczekiwane wynagrodzenie miesięczne netto' />
+
+        <FilterApprenticeshipsAgreement question='Zgoda na odbycie bezpłatnych praktyk/stażu na początek' />
+
+        <FilterFreePracticeAgreement question='Ilość miesięcy doświadczenia komercyjnego kandydata w programowaniu' />
+
+        <div className='filter__buttons'>
+          <SubmitButton text='Anuluj' />
+          <SubmitButton text='Pokaż wyniki' />
+        </div>
       </div>
     </div>
   );

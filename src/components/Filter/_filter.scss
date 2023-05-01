@@ -17,6 +17,7 @@
     padding: 15px;
     width: 100%;
     max-width: 520px;
+    margin: 5px;
   }
 
   &__header {
@@ -28,5 +29,35 @@
   &__title {
     font-size: 22px;
     color: #f7f7f7;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .button {
+      border: none;
+      margin: 5px;
+      padding: 10px;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .filter {
+    overflow: scroll;
+    min-height: 110vh;
+    margin: 0 auto;
+    &__container {
+      position: absolute;
+      top: 0;
+      left: auto;
+      right: auto;
+      width: 100%;
+      min-height: 100vh;
+      padding: 10px;
+      margin: 0;
+    }
   }
 }
