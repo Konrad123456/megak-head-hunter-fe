@@ -1,7 +1,6 @@
 @import '../../../utils/scss/constants';
 
-.login,
-.password {
+.login,.password{
   width: 100%;
   margin: 5px 0;
   background-color: $color-blackish-three;
@@ -11,10 +10,10 @@
   outline: none;
 }
 
-.error {
+.error{
   color: $color-redish-five;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: $font-size-small;
+  font-size: 12px;
 }
