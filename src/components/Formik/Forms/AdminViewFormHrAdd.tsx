@@ -49,13 +49,13 @@ export const AdminViewFormHrAdd = (props: Props) => {
             }}
         >
             <Form className={'admin-view__form'}>
-                <Input label={staticText.adminPage.fullName} name={'fullName'} type={'text'}
+                <Input classType={'admin-view'} label={staticText.adminPage.fullName} name={'fullName'} type={'text'}
                        placeholder={staticText.adminPage.fullName}/>
-                <Input label={staticText.adminPage.companyName} name={'company'} type={'text'}
+                <Input classType={'admin-view'} label={staticText.adminPage.companyName} name={'company'} type={'text'}
                        placeholder={staticText.adminPage.companyName}/>
-                <Input label={staticText.adminPage.email} name={'email'} type={'email'}
+                <Input classType={'admin-view'} label={staticText.adminPage.email} name={'email'} type={'email'}
                        placeholder={staticText.adminPage.email}/>
-                <Input label={staticText.adminPage.maxReservedStudents} name={'maxReservedStudents'} type={'number'}
+                <Input classType={'admin-view'} label={staticText.adminPage.maxReservedStudents} name={'maxReservedStudents'} type={'number'}
                        placeholder={staticText.adminPage.maxReservedStudents}/>
                 <SubmitBtn text={staticText.userPage.submitButton.text}/>
                 <div onClick={props.handleModalExit} className={'btn modal'}>{staticText.adminPage.close}</div>

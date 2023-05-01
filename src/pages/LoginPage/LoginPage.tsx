@@ -1,6 +1,6 @@
 import './_login_page.scss';
 import { Logo } from '../../components/Logo/Logo';
-import { LoginForm } from '../../components/LoginForm/LoginForm';
+import { LoginForm } from '../../components/Formik/Forms/LoginForm';
 type Props = {};
 export const LoginPage = (props: Props) => {
   return (

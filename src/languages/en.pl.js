@@ -65,20 +65,20 @@ const staticText = {
       expectedTypeWork:{
         label:'Preferowane miejsce pracy',
         option:{
-          main:'Bez znaczenia',
-          onSite:'Na miejscu',
-          move: 'Gotowość do przeprowadzki',
-          remote: 'Wyłączenie zdalnie',
-          partiallyRemote: 'Hybrydowo'
+          IRRELEVANT:'Bez znaczenia',
+          ATLOCATION:'Na miejscu',
+          READY_TO_CARRYOUT: 'Gotowość do przeprowadzki',
+          ONLY_REMOTELY: 'Wyłączenie zdalnie',
+          HYBRID: 'Hybrydowo'
         }
       },
       expectedContractType:{
         label:'Preferowana forma zatrudnienia',
         option:{
-          main:'Brak preferencji',
-          coe: 'Umowa o pracę',
-          b2b: 'B2B',
-          mandate: 'Umowa zlecenie / umowa o dzieło',
+          NO_PREFERENCE:'Brak preferencji',
+          UOP_ONLY: 'Umowa o pracę',
+          B2B_POSSIBLE: 'B2B',
+          UZ_UOD_POSSIBLE: 'Umowa zlecenie / umowa o dzieło',
         }
       }
     },
