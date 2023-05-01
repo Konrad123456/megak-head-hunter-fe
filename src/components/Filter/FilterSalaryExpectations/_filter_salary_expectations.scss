@@ -1,6 +1,6 @@
 .filter-salary-expectations {
   margin-top: 15px;
-  font-size: 14px;
+  font-size: $font-size-Xsmall;
 
   &__container {
     display: flex;
@@ -15,8 +15,8 @@
     margin: 0 5px;
     border: none;
     outline: none;
-    background-color: #292a2b;
-    color: #686868;
+    background-color: $color-blackish-three;
+    color: $color-greyish-six;
     max-width: 95px;
   }
 

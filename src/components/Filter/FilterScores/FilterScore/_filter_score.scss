@@ -3,24 +3,24 @@
   align-items: center;
   justify-content: center;
   max-width: 40px;
-  background-color: #292a2b;
+  background-color: $color-blackish-three;
   padding: 4px 6px;
   margin-right: 4px;
   cursor: pointer;
   &--clicked {
-    background-color: #e02735;
+    background-color: $color-redish-four;
   }
 
   &__points {
-    font-size: 14px;
+    font-size: $font-size-Xsmall;
     margin-right: 3px;
   }
 
   &__star {
-    font-size: 16px;
-    color: #e02735;
+    font-size: $font-size-Xmedium;
+    color: $color-redish-four;
     &--clicked {
-      color: #f4f4f4;
+      color: $color-greyish-seven;
     }
   }
 }
