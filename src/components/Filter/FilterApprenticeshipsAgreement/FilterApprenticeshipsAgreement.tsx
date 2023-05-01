@@ -1,3 +1,5 @@
+import staticText from '../../../languages/en.pl';
+
 interface Props {
   question: string;
 }
@@ -13,7 +15,7 @@ export const FilterApprenticeshipsAgreement = ({ question }: Props) => {
           name='question'
           id='yes'
         />
-        Tak
+        {staticText.mainPages.text.yes}
       </label>
       <label className='filter-apprenticeships-agreement__label' htmlFor='no'>
         <input
@@ -22,7 +24,7 @@ export const FilterApprenticeshipsAgreement = ({ question }: Props) => {
           name='question'
           id='no'
         />
-        Nie
+        {staticText.mainPages.text.no}
       </label>
     </div>
   );

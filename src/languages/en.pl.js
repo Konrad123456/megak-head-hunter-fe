@@ -147,6 +147,10 @@ const staticText = {
 
   mainPages: {
     text: {
+      onoThousand: 'np.1000 zł',
+      tenThousand: 'np.10000 zł',
+      yes: 'Tak',
+      no: 'Nie',
       back: 'Wróć',
       aboutMe: 'O mnie',
       scores: 'Oceny',

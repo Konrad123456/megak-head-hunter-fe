@@ -10,7 +10,7 @@ export const FilterScores = ({ text }: Props) => {
   const createArray = (max: number = MAX_STARS) => {
     const starsNumber: boolean[] = [];
 
-    for (let index = 0; index < MAX_STARS; index++) {
+    for (let index = 0; index < max; index++) {
       starsNumber.push(true);
     }
 
@@ -21,7 +21,7 @@ export const FilterScores = ({ text }: Props) => {
     <div className='filter-scores'>
       <p className='filter-scores__header'>{text}</p>
       <div className='filter-scores__box'>
-        {createArray(MAX_STARS).map((element, index) => (
+        {createArray(MAX_STARS).map((_, index) => (
           <FilterScore key={index} score={MAX_STARS - index} />
         ))}
       </div>

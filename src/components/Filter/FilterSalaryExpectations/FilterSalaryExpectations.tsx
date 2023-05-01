@@ -1,3 +1,5 @@
+import staticText from '../../../languages/en.pl';
+
 interface Props {
   question: string;
 }
@@ -12,7 +14,7 @@ export const FilterSalaryExpectations = ({ question }: Props) => {
           <input
             className='filter-salary-expectations__input'
             type='number'
-            placeholder='np.1000 zł'
+            placeholder={staticText.mainPages.text.onoThousand}
             min={0}
           />
         </label>
@@ -21,7 +23,7 @@ export const FilterSalaryExpectations = ({ question }: Props) => {
           <input
             className='filter-salary-expectations__input'
             type='number'
-            placeholder='np.10000zł'
+            placeholder={staticText.mainPages.text.tenThousand}
             min={0}
           />
         </label>

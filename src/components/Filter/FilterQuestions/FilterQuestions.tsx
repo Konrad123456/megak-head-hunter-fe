@@ -1,4 +1,3 @@
-import React from 'react';
 import { FilterQuestion } from './FilterQuestion/FilterQuestion';
 
 interface Props {
