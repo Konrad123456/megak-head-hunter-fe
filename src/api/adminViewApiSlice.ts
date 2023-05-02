@@ -18,6 +18,13 @@ export const adminViewApiSlice = apiSlice.injectEndpoints({
                 method:'POST',
                 body:hrRegisterData,
             })
+        }),
+        sendStudentsFile:builder.mutation({
+            query:(file:File)=>({
+                headers:'multipart/form-data Content-Type',
+                url:'add_students', /*temporary url*/
+                body:file,
+            })
         })
     })
 })

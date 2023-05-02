@@ -4,7 +4,7 @@ import {Input} from "../Input/Input";
 import * as Yup from 'yup';
 import staticText from "../../../languages/en.pl";
 import {SubmitBtn} from "../../common/SubmitBtn/SubmitBtn";
-import {useSendHrMutation} from "../../../api/adminViewApiSlice";
+import {useSendHrMutation} from '../../../api/adminViewApiSlice';
 
 
 interface Values {
