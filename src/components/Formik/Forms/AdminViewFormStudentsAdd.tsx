@@ -62,7 +62,7 @@ const [sendStudentsList,{isLoading,isError,error}]= useSendStudentsListMutation(
                 {setSubmitting}: FormikHelpers<Values>
             ) => {
                 // @ts-ignore
-                await sendStudentsList(fileRef.current.files[0])
+                await sendStudentsList(fileRef.current.files[0]).unwrap()
                 setTimeout(() => {
                     setSubmitting(false);
                 }, 500);
