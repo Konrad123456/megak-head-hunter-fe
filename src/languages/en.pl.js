@@ -3,6 +3,12 @@ const staticText = {
     account: 'Konto',
     logout: 'Wyloguj',
   },
+  humanResourcesPage: {
+    button: {
+      availableStudents: 'Dostępni kursanci',
+      toTalk: 'Do rozmowy',
+    },
+  },
   loginPage: {
     input: {
       email: 'E-mail',
