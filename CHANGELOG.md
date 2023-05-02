@@ -3,6 +3,7 @@
 ## Dariusz Okoński
 
 - [MKHH-#34] Strona portfolio [FE]
+- [MKHH-#47] Stworzenie widoku filtrowania [FE]
 
 ### Sprint 1 23/04/2023
 

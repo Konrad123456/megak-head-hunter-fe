@@ -1,0 +1,26 @@
+.filter-score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 40px;
+  background-color: $color-blackish-three;
+  padding: 4px 6px;
+  margin-right: 4px;
+  cursor: pointer;
+  &--clicked {
+    background-color: $color-redish-four;
+  }
+
+  &__points {
+    font-size: $font-size-Xsmall;
+    margin-right: 3px;
+  }
+
+  &__star {
+    font-size: $font-size-Xmedium;
+    color: $color-redish-four;
+    &--clicked {
+      color: $color-greyish-seven;
+    }
+  }
+}

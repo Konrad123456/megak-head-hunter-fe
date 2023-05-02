@@ -1,0 +1,11 @@
+.filter-scores {
+  margin-top: 15px;
+  &__box {
+    display: flex;
+  }
+
+  &__header {
+    color: $color-greyish-five;
+    font-size: $font-size-Xsmall;
+  }
+}

@@ -1,0 +1,32 @@
+.filter-salary-expectations {
+  margin-top: 15px;
+  font-size: $font-size-Xsmall;
+
+  &__container {
+    display: flex;
+  }
+
+  &__label {
+    margin-right: 5px;
+  }
+
+  &__input {
+    padding: 8px;
+    margin: 0 5px;
+    border: none;
+    outline: none;
+    background-color: $color-blackish-three;
+    color: $color-greyish-six;
+    max-width: 95px;
+  }
+
+  @media (max-width: 460px) {
+    &__container {
+      flex-direction: column;
+    }
+
+    &__label {
+      margin: 5px 0;
+    }
+  }
+}
