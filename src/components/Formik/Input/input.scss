@@ -1,6 +1,6 @@
 @import '../../../utils/scss/constants';
 
-.passwordCheck{
+.login,.password{
   width: 100%;
   margin: 5px 0;
   background-color: $color-blackish-three;
@@ -15,5 +15,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: $font-size-small;
+  font-size: 12px;
 }
