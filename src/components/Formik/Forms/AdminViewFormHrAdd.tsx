@@ -43,7 +43,8 @@ export const AdminViewFormHrAdd = (props: Props) => {
                 values: Values,
                 {setSubmitting}: FormikHelpers<Values>
             ) => {
-
+                await sendHr(values)
+                console.log(isError,isLoading,error)
                 setTimeout(() => {
                     setSubmitting(false);
                 }, 500);
