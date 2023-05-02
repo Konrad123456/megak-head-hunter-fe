@@ -18,7 +18,7 @@ interface LoginValues {
 }
 
 export const LoginForm = () => {
-    const [login, {isLoading, isError}] = useLoginMutation();
+    const [login,{isLoading, isError}] = useLoginMutation();
     const dispatch = useDispatch();
     const navigator = useNavigate();
 

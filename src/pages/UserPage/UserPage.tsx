@@ -21,7 +21,7 @@ export const UserPage = () => {
       dispatch(logOut());
       navigate('/');
     } catch (e) {
-
+      console.log(e);
     }
   }
 
