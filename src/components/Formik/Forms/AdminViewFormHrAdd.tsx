@@ -60,6 +60,8 @@ export const AdminViewFormHrAdd = (props: Props) => {
                 <Input classType={'admin-view'} label={staticText.adminPage.maxReservedStudents}
                        name={'maxReservedStudents'} type={'number'}
                        placeholder={staticText.adminPage.maxReservedStudents}/>
+                {isLoading&&<div className={'error'}>zapisywanie...</div>}
+                {isError&&<div className={'error'}>Oh NO !</div>}
                 <SubmitBtn text={staticText.userPage.submitButton.text}/>
                 <div onClick={props.handleModalExit} className={'btn modal'}>{staticText.adminPage.close}</div>
             </Form>
