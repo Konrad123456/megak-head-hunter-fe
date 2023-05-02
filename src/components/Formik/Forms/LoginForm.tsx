@@ -3,10 +3,10 @@ import * as Yup from "yup"
 import {Form,Formik,FormikHelpers} from "formik";
 
 import "./LoginForm.scss"
-import {useLoginMutation} from "../../api/authApiSlice";
+import {useLoginMutation} from "../../../api/authApiSlice";
 import {useDispatch} from "react-redux";
-import {setCredentials} from "../../store/auth/authSlice";
-import {navigateToDefaultRoute} from "../../utils/navigation/navigation";
+import {setCredentials} from "../../../store/auth/authSlice";
+import {navigateToDefaultRoute} from "../../../utils/navigation/navigation";
 import {useNavigate} from "react-router";
 import staticText from "../../../languages/en.pl";
 import {Input} from "../Input/Input";

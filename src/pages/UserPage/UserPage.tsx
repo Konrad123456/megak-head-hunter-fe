@@ -4,7 +4,7 @@ import "./_user_page.scss"
 import {Logo} from "../../components/Logo/Logo";
 import staticText from "../../languages/en.pl";
 import {UserViewForm} from "../../components/Formik/Forms/UserViewForm";
-import {choiceYesNO, ContractType,expectedTypeWorkEntity,OneStudentResponse} from "types";
+import {choiceYesNO, ContractType, expectedTypeWorkEntity, OneStudentResponse} from "types";
 import {useLogoutMutation} from "../../api/authApiSlice";
 import {useDispatch} from "react-redux";
 import {logOut} from "../../store/auth/authSlice";
