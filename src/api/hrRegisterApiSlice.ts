@@ -1,5 +1,6 @@
 import { apiSlice} from "./apiSlice";
 import { User, withToken } from "../store/auth/types";
+import {authApiSlice} from "./authApiSlice";
 
 interface HrRegisterData {
     fullName:string;
@@ -20,3 +21,5 @@ export const hrRegisterApiSlice = apiSlice.injectEndpoints({
         })
     })
 })
+
+export const {useSendHrMutation}= hrRegisterApiSlice
