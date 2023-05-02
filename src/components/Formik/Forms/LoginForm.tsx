@@ -2,7 +2,6 @@ import React from "react";
 import * as Yup from "yup"
 import {Form,Formik,FormikHelpers} from "formik";
 
-import "./LoginForm.scss"
 import {useLoginMutation} from "../../../api/authApiSlice";
 import {useDispatch} from "react-redux";
 import {setCredentials} from "../../../store/auth/authSlice";
