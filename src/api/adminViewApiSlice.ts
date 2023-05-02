@@ -10,7 +10,7 @@ interface HrRegisterData {
 
 }
 
-export const hrRegisterApiSlice = apiSlice.injectEndpoints({
+export const adminViewApiSlice = apiSlice.injectEndpoints({
     endpoints:(builder)=>({
         sendHr:builder.mutation({
             query:(hrRegisterData:HrRegisterData)=>({
@@ -22,4 +22,4 @@ export const hrRegisterApiSlice = apiSlice.injectEndpoints({
     })
 })
 
-export const {useSendHrMutation}= hrRegisterApiSlice
+export const {useSendHrMutation}= adminViewApiSlice
