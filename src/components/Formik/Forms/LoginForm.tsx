@@ -2,6 +2,12 @@ import React from "react";
 import * as Yup from "yup"
 import {Form,Formik,FormikHelpers} from "formik";
 
+import "./LoginForm.scss"
+import {useLoginMutation} from "../../api/authApiSlice";
+import {useDispatch} from "react-redux";
+import {setCredentials} from "../../store/auth/authSlice";
+import {navigateToDefaultRoute} from "../../utils/navigation/navigation";
+import {useNavigate} from "react-router";
 import staticText from "../../../languages/en.pl";
 import {Input} from "../Input/Input";
 import {SubmitBtn} from "../../common/SubmitBtn/SubmitBtn";
@@ -11,8 +17,12 @@ interface LoginValues {
     password:string,
 }
 
-export const LoginForm = () => (
-    <>
+export const LoginForm = () => {
+    const [login,{isLoading, isError}] = useLoginMutation();
+    const dispatch = useDispatch();
+    const navigator = useNavigate();
+
+    return <>
         <Formik
             initialValues={{
                 login: "",
@@ -20,21 +30,28 @@ export const LoginForm = () => (
             }
             }
             validationSchema={Yup.object({
-                login:Yup.string()
+                login: Yup.string()
                     .required("Pole wymagane")
-                    .min(4,"Login musi mieć minimum 4 znaki"),
-                password:Yup.string()
+                    .min(4, "Login musi mieć minimum 4 znaki"),
+                password: Yup.string()
                     .required("Pole wymagane")
-                    .min(4,"Hasło musi mieć minimum 4 znaki"),
+                    .min(4, "Hasło musi mieć minimum 4 znaki"),
             })}
             onSubmit={
-            async (
-                values:LoginValues,
-                {setSubmitting}: FormikHelpers<LoginValues>
-            ) => {
-                console.log(values.login,values.password);
-                setSubmitting(false);
-            }
+                async (
+                    values: LoginValues,
+                    {setSubmitting}: FormikHelpers<LoginValues>
+                ) => {
+                    try {
+                        const userData = await login({email: values.login, password: values.password}).unwrap();
+                        setSubmitting(true);
+                        dispatch(setCredentials(userData));
+                        navigator(navigateToDefaultRoute(userData.user));
+                    } catch (e) {
+                        console.log('Fail');
+                    }
+                    setSubmitting(false);
+                }
             }
         >
             <Form>
@@ -68,4 +85,4 @@ export const LoginForm = () => (
             </Form>
         </Formik>
     </>
-)
+}
