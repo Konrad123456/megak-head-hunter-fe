@@ -2,5 +2,10 @@
   margin: 0 auto;
   margin-top: $navigation-hight;
   max-width: $max-page-width;
-  background-color: #292a2b;
+  background-color: #222224;
+
+  &__container {
+    background-color: #292a2b;
+    padding: 10px 15px;
+  }
 }
