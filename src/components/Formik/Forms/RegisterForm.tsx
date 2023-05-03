@@ -69,7 +69,7 @@ export const RegisterForm = () => {
                         type="confirm"
                     />
                 </div>
-                <div className="login-page__login-info">
+                <div className="login-page__login-info-button">
                     {isLoading && <div className={'error'}>zapisywanie...</div>}
                     <SubmitBtn text={'zapisz'}/>
                 </div>
