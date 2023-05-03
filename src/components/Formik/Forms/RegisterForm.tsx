@@ -17,7 +17,7 @@ interface LoginValues {
 export const RegisterForm = () => {
     const [register, {isLoading, isError}] = useRegisterMutation();
     const[response, setResponse] = useState('')
-    const[modalOn,setModalOn]=useState(true)
+    const[modalOn,setModalOn]=useState(false)
     const {userId,registerToken} = useParams()
     return <>
         <Formik
@@ -45,6 +45,7 @@ export const RegisterForm = () => {
                         const response = await register(body)
                         // @ts-ignore
                         setResponse(response.data.message)
+                        setTimeout(()=>{setModalOn(true)},600)
                     } catch (e) {
                         console.log('Fail', e);
                         setResponse('Błąd rejestracji')
@@ -71,10 +72,10 @@ export const RegisterForm = () => {
                     />
                 </div>
                 <div className="login-page__login-info-button">
-                    {isLoading && <div className={'error'}>zapisywanie...</div>}
-                    {response&&<div className={'error'}>{response}</div>}
                     <SubmitBtn text={'zapisz'}/>
                 </div>
+                {isLoading && <div className={'error'}>zapisywanie...</div>}
+                {response&&<div className={'error'}>{response}</div>}
                 {modalOn&&<ConfirmModal/>}
             </Form>
 
