@@ -1,14 +1,14 @@
 import './_login_page.scss';
 import { Logo } from '../components/Logo/Logo';
-import { LoginForm } from '../components/Formik/Forms/LoginForm';
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../store/auth/authSlice";
 import {useEffect} from "react";
 import {navigateToDefaultRoute} from "../utils/navigation/navigation";
 import {useNavigate} from "react-router";
-type Props = {};
+import {RegisterForm} from "../components/Formik/Forms/RegisterForm";
 
-export const LoginPage = (props: Props) => {
+
+export const RegisterPage = () => {
     const user = useSelector(selectCurrentUser);
     const navigator = useNavigate();
 
@@ -22,7 +22,7 @@ export const LoginPage = (props: Props) => {
     <div className='login-page'>
       <div className='login-page__container'>
         <Logo classType='logo' />
-        <LoginForm />
+        <RegisterForm />
       </div>
     </div>
   );
