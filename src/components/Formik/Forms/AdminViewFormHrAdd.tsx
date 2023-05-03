@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Form, Formik, FormikHelpers} from "formik";
 import {Input} from "../Input/Input";
 import * as Yup from 'yup';
@@ -20,6 +20,7 @@ interface Props {
 
 export const AdminViewFormHrAdd = (props: Props) => {
     const [sendHr, {isLoading, isError, error}] = useSendHrMutation()
+    const[serverResponse,setServerResponse]=useState<string>()
 
     return (
         <Formik
@@ -43,7 +44,11 @@ export const AdminViewFormHrAdd = (props: Props) => {
                 values: Values,
                 {setSubmitting}: FormikHelpers<Values>
             ) => {
-                await sendHr(values).unwrap()
+                try{
+              const response =  await sendHr(values).unwrap()
+                setServerResponse(response.message)}catch (e:any) {
+                    setServerResponse(e.data.message)
+                }
                 setTimeout(() => {
                     setSubmitting(false);
                 }, 500);
@@ -60,7 +65,7 @@ export const AdminViewFormHrAdd = (props: Props) => {
                        name={'maxReservedStudents'} type={'number'}
                        placeholder={staticText.adminPage.maxReservedStudents}/>
                 {isLoading&&<div className={'error'}>zapisywanie...</div>}
-                {isError&&<div className={'error'}>Oh NO !</div>}
+                {serverResponse&&<div className={'error'}>{serverResponse}</div>}
                 <SubmitBtn text={staticText.userPage.submitButton.text}/>
                 <div onClick={props.handleModalExit} className={'btn modal'}>{staticText.adminPage.close}</div>
             </Form>
