@@ -1,10 +1,9 @@
 import React, {useRef} from "react";
-import {Form, Formik, FormikHelpers, useField} from "formik";
-import {Input} from "../Input/Input";
-import {Button} from "../../common/Button/Button";
+import {Form, Formik, FormikHelpers} from "formik";
 import staticText from "../../../languages/en.pl";
 import * as Yup from "yup";
 import {SubmitBtn} from "../../common/SubmitBtn/SubmitBtn";
+import {useSendStudentsListMutation} from "../../../api/adminViewApiSlice";
 
 interface Values {
     studentsFile: null;
@@ -23,10 +22,9 @@ const fileTypes = [
 const maxFilesize = 2097152;
 
 
-
 export const AdminViewFormStudentsAdd = (props: Props) => {
     const fileRef = useRef(null)
-
+const [sendStudentsList,{isLoading,isError,error}]= useSendStudentsListMutation()
 
     return (
         <Formik
@@ -40,12 +38,11 @@ export const AdminViewFormStudentsAdd = (props: Props) => {
                         () => {
                             const filesReference: any = fileRef.current;
                             const fileToCheck = filesReference.files[0];
-                            if(fileToCheck){
+                            if (fileToCheck) {
                                 return fileTypes.includes(fileToCheck.type)
-                            }else return true
+                            } else return true
                         }
-                    ).
-                    test(
+                    ).test(
                         "fileSize",
                         staticText.adminPage.fileIsTooBig,
                         () => {
@@ -60,12 +57,13 @@ export const AdminViewFormStudentsAdd = (props: Props) => {
                     )
             })}
 
-            onSubmit={(
+            onSubmit={async (
                 values: Values,
                 {setSubmitting}: FormikHelpers<Values>
             ) => {
+                // @ts-ignore
+                await sendStudentsList(fileRef.current.files[0]).unwrap()
                 setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
                     setSubmitting(false);
                 }, 500);
             }}
@@ -82,6 +80,8 @@ export const AdminViewFormStudentsAdd = (props: Props) => {
                 {formik.touched.studentsFile && formik.errors.studentsFile ? (
                     <div className={'error'}>{formik.errors.studentsFile}</div>
                 ) : null}
+                {isLoading&&<div className={'error'}>wysyłam...</div>}
+                {isError&&<div className={'error'}>Oh NO !</div>}
                 <SubmitBtn text={staticText.userPage.submitButton.text}/>
                 <div onClick={props.handleModalExit} className={'btn modal'}>{staticText.adminPage.close}</div>
             </Form>)}
