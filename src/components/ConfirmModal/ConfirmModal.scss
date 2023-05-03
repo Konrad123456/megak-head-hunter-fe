@@ -1,0 +1,74 @@
+@import '../../utils/scss/index';
+
+.confirm-modal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  min-height: 45vh;
+  background-color: $color-greyish-primary;
+
+  &-logo {
+    width: 100%;
+    background-color: $color-blackish-primary;
+    padding: 5px;
+  }
+
+  &__img {
+    width: 40%;
+    margin: 15px auto;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: $font-size-medium;
+    padding: 20px;
+  }
+
+  .btn {
+    width: 80%;
+    padding: 8px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    background-color: $color-redish-four;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: $font-size-medium;
+  }
+}
+
+@media (min-width: 540px) {
+  .confirm-modal {
+    min-height: 85vh;
+    justify-content: space-between;
+
+    &__img {
+      width: 20%;
+
+    }
+
+  }
+
+
+}
+
+@media (min-width: 1024px) {
+  .confirm-modal {
+    min-height: 70vh;
+    max-width: 1366px;
+
+
+    &__img {
+      width: 15%;
+
+    }
+
+  }
+}
