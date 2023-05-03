@@ -7,27 +7,21 @@ import staticText from "../../../languages/en.pl";
 import {Input} from "../Input/Input";
 import {SubmitBtn} from "../../common/SubmitBtn/SubmitBtn";
 import {useRegisterMutation} from "../../../api/registerApiSlice";
-import {useLoginMutation} from "../../../api/authApiSlice";
-import {navigateToDefaultRoute} from "../../../utils/navigation/navigation";
+import {ConfirmModal} from "../../ConfirmModal/ConfirmModal";
 
-interface RegisterValues {
-    email:string,
+interface LoginValues {
     password: string,
     confirmPassword: string,
 }
 
 export const RegisterForm = () => {
     const [register, {isLoading, isError}] = useRegisterMutation();
-    const [login] = useLoginMutation();
-    const [response,setResponse]=useState('')
-    const dispatch = useDispatch();
-    const navigator = useNavigate();
+    const[response, setResponse] = useState('')
+    const[modalOn,setModalOn]=useState(true)
     const {userId,registerToken} = useParams()
-
     return <>
         <Formik
             initialValues={{
-                email:"",
                 password: "",
                 confirmPassword: "",
             }
@@ -41,8 +35,8 @@ export const RegisterForm = () => {
             })}
             onSubmit={
                 async (
-                    values: RegisterValues,
-                    {setSubmitting}: FormikHelpers<RegisterValues>
+                    values: LoginValues,
+                    {setSubmitting}: FormikHelpers<LoginValues>
                 ) => {
                     try {
 
@@ -51,9 +45,9 @@ export const RegisterForm = () => {
                         const response = await register(body)
                         // @ts-ignore
                         setResponse(response.data.message)
-                        console.log(response)
                     } catch (e) {
                         console.log('Fail', e);
+                        setResponse('Błąd rejestracji')
                     }
                     setSubmitting(false);
                 }
@@ -76,12 +70,14 @@ export const RegisterForm = () => {
                         type="confirm"
                     />
                 </div>
-                <div className="login-page__login-info">
+                <div className="login-page__login-info-button">
                     {isLoading && <div className={'error'}>zapisywanie...</div>}
-                    {response&&<div>{response}</div>}
+                    {response&&<div className={'error'}>{response}</div>}
                     <SubmitBtn text={'zapisz'}/>
                 </div>
+                {modalOn&&<ConfirmModal/>}
             </Form>
+
         </Formik>
     </>
 }

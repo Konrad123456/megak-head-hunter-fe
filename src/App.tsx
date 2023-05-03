@@ -8,7 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectCurrentUser, setCredentials} from "./store/auth/authSlice";
 import {navigateToDefaultRoute} from "./utils/navigation/navigation";
 import {useNavigate} from "react-router";
-import {RegisterPage} from "./pages/RegisterPage";
+import {RegisterPage} from "./pages/RegisterPage/RegisterPage";
 
 
 function App() {
