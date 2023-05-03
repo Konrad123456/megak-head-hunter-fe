@@ -1,4 +1,4 @@
-import './_login_page.scss';
+import '../pages/LoginPage/_login_page.scss';
 import { Logo } from '../components/Logo/Logo';
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../store/auth/authSlice";
