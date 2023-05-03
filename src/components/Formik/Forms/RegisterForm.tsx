@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import * as Yup from "yup"
 import {Form, Formik, FormikHelpers} from "formik";
 import {useDispatch} from "react-redux";
@@ -15,6 +15,7 @@ interface LoginValues {
 
 export const RegisterForm = () => {
     const [register, {isLoading, isError}] = useRegisterMutation();
+    const[response, setResponse] = useState('')
     const dispatch = useDispatch();
     const navigator = useNavigate();
     const {userId,registerToken} = useParams()
@@ -43,10 +44,11 @@ export const RegisterForm = () => {
                         const body = {...values,userId,registerToken}
                         // @ts-ignore
                         const response = await register(body)
-                        console.log(response)
-
+                        // @ts-ignore
+                        setResponse(response.data.message)
                     } catch (e) {
                         console.log('Fail', e);
+                        setResponse('Błąd rejestracji')
                     }
                     setSubmitting(false);
                 }
@@ -65,12 +67,13 @@ export const RegisterForm = () => {
                         classType="login-page"
                         label=""
                         placeholder={staticText.adminPage.repeatPassword}
-                        name="passwordConfirm"
+                        name="confirmPassword"
                         type="confirm"
                     />
                 </div>
                 <div className="login-page__login-info-button">
                     {isLoading && <div className={'error'}>zapisywanie...</div>}
+                    {response&&<div className={'error'}>{response}</div>}
                     <SubmitBtn text={'zapisz'}/>
                 </div>
             </Form>
