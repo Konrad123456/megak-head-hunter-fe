@@ -1,10 +1,16 @@
 import { apiSlice} from "./apiSlice";
-import {UserRegiserData} from "types";
+
+type UserRegisterData = {
+    userId: string;
+    password: string;
+    confirmPassword: string;
+    registerToken: string | null;
+};
 
 const registerApiSlice = apiSlice.injectEndpoints({
     endpoints:(builder)=>({
         register:builder.mutation({
-            query:(registerData:UserRegiserData)=> ({
+            query:(registerData:UserRegisterData)=> ({
                 url:'/register',
                 method:'POST',
                 body:registerData,
