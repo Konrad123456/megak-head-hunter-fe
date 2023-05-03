@@ -41,7 +41,7 @@ function App() {
             <Route path={'/admin'} element={<AdminViewPage/>}/>
             <Route path='/user/:id' element={<UserPage/>}/>
             <Route path={'/user'} element={<UserPage/>}/>
-            <Route path={'/register/:id/:token'} element={<RegisterPage/>}/>
+            <Route path={'/register/:userId/:registerToken'} element={<RegisterPage/>}/>
             <Route path={'*'} element={<LoginPage/>}/>
         </Routes>
     );
