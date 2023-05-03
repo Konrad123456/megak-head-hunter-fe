@@ -1,23 +1,20 @@
 import React from "react";
 import * as Yup from "yup"
-import {Form,Formik,FormikHelpers} from "formik";
-
-import {useLoginMutation} from "../../../api/authApiSlice";
+import {Form, Formik, FormikHelpers} from "formik";
 import {useDispatch} from "react-redux";
-import {setCredentials} from "../../../store/auth/authSlice";
-import {navigateToDefaultRoute} from "../../../utils/navigation/navigation";
 import {useNavigate} from "react-router";
 import staticText from "../../../languages/en.pl";
 import {Input} from "../Input/Input";
 import {SubmitBtn} from "../../common/SubmitBtn/SubmitBtn";
+import {useRegisterMutation} from "../../../api/registerApiSlice";
 
 interface LoginValues {
-    password:string,
-    passwordConfirm:string,
+    password: string,
+    passwordConfirm: string,
 }
 
 export const RegisterForm = () => {
-    const [login,{isLoading, isError}] = useLoginMutation();
+    const [register, {isLoading, isError}] = useRegisterMutation();
     const dispatch = useDispatch();
     const navigator = useNavigate();
 
@@ -25,16 +22,15 @@ export const RegisterForm = () => {
         <Formik
             initialValues={{
                 password: "",
-                passwordConfirm:"",
+                passwordConfirm: "",
             }
             }
             validationSchema={Yup.object({
-                login: Yup.string()
-                    .required("Pole wymagane")
-                    .min(4, "Login musi mieć minimum 4 znaki"),
                 password: Yup.string()
                     .required("Pole wymagane")
-                    .min(4, "Hasło musi mieć minimum 4 znaki"),
+                    .matches(/(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8}/, 'Hasło musi posiadać co najmniej jeden duży znak, jedną liczbę i jeden znak specjalny'),
+                passwordConfirm: Yup.string().label('Powtórz hasło')
+                    .required("Pole wymagane").oneOf([Yup.ref('password')], 'Hasła muszą być takie same')
             })}
             onSubmit={
                 async (
@@ -42,10 +38,11 @@ export const RegisterForm = () => {
                     {setSubmitting}: FormikHelpers<LoginValues>
                 ) => {
                     try {
+                        const response = await register(values)
+                        console.log(response)
 
-                      console.log(values)
                     } catch (e) {
-                        console.log('Fail');
+                        console.log('Fail', e);
                     }
                     setSubmitting(false);
                 }
@@ -56,28 +53,21 @@ export const RegisterForm = () => {
                     <Input
                         classType="login-page"
                         label=""
-                        placeholder={staticText.loginPage.input.email}
-                        name="login"
-                        type="text"
-                    />
-                    <Input
-                        classType="login-page"
-                        label=""
                         placeholder={staticText.loginPage.input.password}
                         name="password"
                         type="password"
                     />
+                    <Input
+                        classType="login-page"
+                        label=""
+                        placeholder={staticText.adminPage.repeatPassword}
+                        name="passwordConfirm"
+                        type="confirm"
+                    />
                 </div>
-                <p className="login-page__forget-account">
-                    {staticText.loginPage.text.forgetAccount}
-                </p>
-
                 <div className="login-page__login-info">
-                    <p className="login-page__have-account">
-                        {staticText.loginPage.text.haveAccount}{" "}
-                        <a href="src/components/Formik/Forms/LoginForm#">{staticText.loginPage.text.register}</a>
-                    </p>
-                    <SubmitBtn text={staticText.loginPage.button.login}/>
+                    {isLoading && <div className={'error'}>zapisywanie...</div>}
+                    <SubmitBtn text={'zapisz'}/>
                 </div>
             </Form>
         </Formik>
