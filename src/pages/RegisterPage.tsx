@@ -12,11 +12,11 @@ export const RegisterPage = () => {
     const user = useSelector(selectCurrentUser);
     const navigator = useNavigate();
 
-    useEffect(() => {
-        if(user) {
-            navigator(navigateToDefaultRoute(user));
-        }
-    }, []);
+    // useEffect(() => {
+    //     if(user) {
+    //         navigator(navigateToDefaultRoute(user));
+    //     }
+    // }, []);
 
     return (
     <div className='login-page'>
