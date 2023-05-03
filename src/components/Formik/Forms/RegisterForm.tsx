@@ -8,9 +8,10 @@ import {Input} from "../Input/Input";
 import {SubmitBtn} from "../../common/SubmitBtn/SubmitBtn";
 import {useRegisterMutation} from "../../../api/registerApiSlice";
 
-interface LoginValues {
+interface RegisterValues {
+    email:string,
     password: string,
-    passwordConfirm: string,
+    confirmPassword: string,
 }
 
 export const RegisterForm = () => {
@@ -21,8 +22,9 @@ export const RegisterForm = () => {
     return <>
         <Formik
             initialValues={{
+                email:"",
                 password: "",
-                passwordConfirm: "",
+                confirmPassword: "",
             }
             }
             validationSchema={Yup.object({
@@ -34,8 +36,8 @@ export const RegisterForm = () => {
             })}
             onSubmit={
                 async (
-                    values: LoginValues,
-                    {setSubmitting}: FormikHelpers<LoginValues>
+                    values: RegisterValues,
+                    {setSubmitting}: FormikHelpers<RegisterValues>
                 ) => {
                     try {
                         const response = await register(values)
