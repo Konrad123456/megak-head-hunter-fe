@@ -1,6 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import * as Yup from "yup"
-import {Form,Formik,FormikHelpers} from "formik";
+import {Form, Formik, FormikHelpers} from "formik";
 
 import {useLoginMutation} from "../../../api/authApiSlice";
 import {useDispatch} from "react-redux";
@@ -12,12 +12,13 @@ import {Input} from "../Input/Input";
 import {SubmitBtn} from "../../common/SubmitBtn/SubmitBtn";
 
 interface LoginValues {
-    login:string,
-    password:string,
+    login: string,
+    password: string,
 }
 
 export const LoginForm = () => {
-    const [login,{isLoading, isError}] = useLoginMutation();
+    const [login, {isLoading, isError}] = useLoginMutation();
+    const [response, setResponse] = useState('')
     const dispatch = useDispatch();
     const navigator = useNavigate();
 
@@ -46,8 +47,9 @@ export const LoginForm = () => {
                         setSubmitting(true);
                         dispatch(setCredentials(userData));
                         navigator(navigateToDefaultRoute(userData.user));
-                    } catch (e) {
-                        console.log('Fail');
+                    } catch (e: any) {
+
+                        setResponse(e.data.message)
                     }
                     setSubmitting(false);
                 }
@@ -79,9 +81,13 @@ export const LoginForm = () => {
                         {staticText.loginPage.text.haveAccount}{" "}
                         <a href="src/components/Formik/Forms/LoginForm#">{staticText.loginPage.text.register}</a>
                     </p>
+
                     <SubmitBtn text={staticText.loginPage.button.login}/>
                 </div>
+                {isLoading && <div className={'error'}>logowanie...</div>}
+                {response && <div className={'error'}>{response}</div>}
             </Form>
+
         </Formik>
     </>
 }

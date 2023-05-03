@@ -22,6 +22,11 @@ export const RegisterPage = () => {
     <div className='login-page'>
       <div className='login-page__container'>
         <Logo classType='logo' />
+          <h2 style={{
+              fontSize:'18px',
+              textAlign:'center',
+              textTransform:'uppercase'
+          }}>Zarejestruj swoje konto</h2>
         <RegisterForm />
       </div>
     </div>

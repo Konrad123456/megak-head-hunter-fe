@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import * as Yup from "yup"
 import {Form, Formik, FormikHelpers} from "formik";
 import {useDispatch} from "react-redux";
@@ -7,6 +7,8 @@ import staticText from "../../../languages/en.pl";
 import {Input} from "../Input/Input";
 import {SubmitBtn} from "../../common/SubmitBtn/SubmitBtn";
 import {useRegisterMutation} from "../../../api/registerApiSlice";
+import {useLoginMutation} from "../../../api/authApiSlice";
+import {navigateToDefaultRoute} from "../../../utils/navigation/navigation";
 
 interface RegisterValues {
     email:string,
@@ -16,6 +18,8 @@ interface RegisterValues {
 
 export const RegisterForm = () => {
     const [register, {isLoading, isError}] = useRegisterMutation();
+    const [login] = useLoginMutation();
+    const [response,setResponse]=useState('')
     const dispatch = useDispatch();
     const navigator = useNavigate();
     const {userId,registerToken} = useParams()
@@ -45,8 +49,9 @@ export const RegisterForm = () => {
                         const body = {...values,userId,registerToken}
                         // @ts-ignore
                         const response = await register(body)
+                        // @ts-ignore
+                        setResponse(response.data.message)
                         console.log(response)
-
                     } catch (e) {
                         console.log('Fail', e);
                     }
@@ -67,12 +72,13 @@ export const RegisterForm = () => {
                         classType="login-page"
                         label=""
                         placeholder={staticText.adminPage.repeatPassword}
-                        name="passwordConfirm"
+                        name="confirmPassword"
                         type="confirm"
                     />
                 </div>
                 <div className="login-page__login-info">
                     {isLoading && <div className={'error'}>zapisywanie...</div>}
+                    {response&&<div>{response}</div>}
                     <SubmitBtn text={'zapisz'}/>
                 </div>
             </Form>
