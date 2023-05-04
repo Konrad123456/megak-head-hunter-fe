@@ -24,7 +24,8 @@ const maxFilesize = 2097152;
 
 export const AdminViewFormStudentsAdd = (props: Props) => {
     const fileRef = useRef(null)
-const [sendStudentsList,{isLoading,isError,error}]= useSendStudentsListMutation()
+    const [sendStudentsList, {isLoading, isError, error}] = useSendStudentsListMutation()
+    const formData = new FormData()
 
     return (
         <Formik
@@ -62,7 +63,9 @@ const [sendStudentsList,{isLoading,isError,error}]= useSendStudentsListMutation(
                 {setSubmitting}: FormikHelpers<Values>
             ) => {
                 // @ts-ignore
-                await sendStudentsList(fileRef.current.files[0]).unwrap()
+                const dataFile = fileRef.current.files[0]
+                formData.append('students',dataFile)
+                await sendStudentsList(formData).unwrap()
                 setTimeout(() => {
                     setSubmitting(false);
                 }, 500);
@@ -80,8 +83,8 @@ const [sendStudentsList,{isLoading,isError,error}]= useSendStudentsListMutation(
                 {formik.touched.studentsFile && formik.errors.studentsFile ? (
                     <div className={'error'}>{formik.errors.studentsFile}</div>
                 ) : null}
-                {isLoading&&<div className={'error'}>wysyłam...</div>}
-                {isError&&<div className={'error'}>Oh NO !</div>}
+                {isLoading && <div className={'error'}>wysyłam...</div>}
+                {isError && <div className={'error'}>Oh NO !</div>}
                 <SubmitBtn text={staticText.userPage.submitButton.text}/>
                 <div onClick={props.handleModalExit} className={'btn modal'}>{staticText.adminPage.close}</div>
             </Form>)}
