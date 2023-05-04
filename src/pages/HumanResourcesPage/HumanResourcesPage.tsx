@@ -3,6 +3,7 @@ import { HumanResourcesHeader } from '../../components/HumanResources/HumanResou
 import { HumanResourcesSearch } from '../../components/HumanResources/HumanResourcesSearch/HumanResourcesSearch';
 import { HumanResourcesAvailableStudents } from '../../components/HumanResources/HumanResourcesAvailableStudents/HumanResourcesAvailableStudents';
 import { HumanResourcesToTalkStudents } from '../../components/HumanResources/HumanResourcesToTalkStudents/HumanResourcesToTalkStudents';
+import Paggination from '../../components/Paggination/Paggination';
 
 export const HumanResourcesPage = () => {
   const [isAvailableStudents, setIsAvailableStudents] = useState<boolean>(true);
@@ -25,6 +26,8 @@ export const HumanResourcesPage = () => {
           <HumanResourcesToTalkStudents />
         )}
       </div>
+
+      <Paggination />
     </div>
   );
 };

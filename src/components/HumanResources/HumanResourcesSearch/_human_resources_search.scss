@@ -30,8 +30,8 @@
     border: none;
     background-color: transparent;
     outline: none;
-    color: #fff;
-    opacity: 0.3;
+    color: #777777;
+    // opacity: 0.3;
     font-size: 16px;
     min-width: 250px;
   }
@@ -51,10 +51,12 @@
   }
 
   &__filter-icon {
-    opacity: 0.5;
+    // opacity: 0.5;
+    color: #777777;
   }
 
   &__text {
-    opacity: 0.8;
+    // opacity: 0.8;
+    color: #777777;
   }
 }

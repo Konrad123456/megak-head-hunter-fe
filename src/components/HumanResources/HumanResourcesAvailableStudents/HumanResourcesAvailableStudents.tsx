@@ -17,8 +17,8 @@ const people = [
 export const HumanResourcesAvailableStudents = () => {
   return (
     <div className='human-resources-available-students'>
-      {people.map((person, index) => (
-        <HumanResourcesSingleStudent key={index} {...person} />
+      {people.map((person) => (
+        <HumanResourcesSingleStudent key={person.id} {...person} />
       ))}
     </div>
   );
