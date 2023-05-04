@@ -23,8 +23,8 @@ export const adminViewApiSlice = apiSlice.injectEndpoints({
             query:(file)=>({
                 url:'/upload',
                 method:'POST',
-                body:{
-                    file:file},
+                body:file,
+                // file:file,
             })
         })
 

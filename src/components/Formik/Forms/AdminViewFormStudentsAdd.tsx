@@ -63,8 +63,8 @@ export const AdminViewFormStudentsAdd = (props: Props) => {
                 {setSubmitting}: FormikHelpers<Values>
             ) => {
                 // @ts-ignore
-                const dataFile = fileRef.current.files[0]
-                formData.append('students',dataFile)
+                const dataFile = await fileRef.current.files[0]
+                formData.append('students', dataFile)
                 await sendStudentsList(formData).unwrap()
                 setTimeout(() => {
                     setSubmitting(false);
