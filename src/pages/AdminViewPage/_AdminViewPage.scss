@@ -76,6 +76,16 @@
       }
     }
   }
+  &__modal-files{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .btn{
+      margin: 10px auto 55px;
+    }
+  }
+
   &__modal-form {
     position: absolute;
     z-index: 3;
@@ -85,6 +95,8 @@
     width: 95%;
     background-color: $color-blackish-primary;
     overflow: hidden;
+
+
     h3 {
       font-size: $font-size-large;
       text-align: center;
@@ -95,6 +107,7 @@
       margin: 20px auto;
     }
   }
+
   &__modal {
     position: absolute;
     top: 0;
