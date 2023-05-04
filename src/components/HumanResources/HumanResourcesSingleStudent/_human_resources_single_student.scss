@@ -1,0 +1,40 @@
+.human-resources-single-student {
+  margin-top: 20px;
+
+  &__name {
+    font-size: 16px;
+  }
+
+  border-bottom: 10px solid #1e1e1f;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .button {
+      border: none;
+      padding: 8px;
+      font-size: 12px;
+    }
+    margin-bottom: 10px;
+  }
+
+  &__buttons-container {
+    display: flex;
+    align-items: center;
+
+    button {
+      cursor: pointer;
+      background-color: #292a2b;
+      border: none;
+      height: 32px;
+      width: 32px;
+
+      span {
+        color: #fff;
+        opacity: 0.3;
+      }
+    }
+  }
+}

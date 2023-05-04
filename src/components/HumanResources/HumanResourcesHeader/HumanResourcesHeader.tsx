@@ -1,13 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import staticText from '../../../languages/en.pl';
 
-export const HumanResourcesHeader = () => {
+interface Props {
+  shouldDisplayAvailableStudents: (option: boolean) => void;
+}
+
+export const HumanResourcesHeader = ({
+  shouldDisplayAvailableStudents,
+}: Props) => {
   const [isActive, setIsActive] = useState<boolean>(true);
+
+  useEffect(() => {
+    shouldDisplayAvailableStudents(isActive);
+  }, [isActive, setIsActive]);
 
   return (
     <div className='human-resources-header'>
       <button
-        onClick={() => setIsActive(!isActive)}
+        onClick={() => setIsActive(true)}
         className={`human-resources-header__button ${
           isActive && 'human-resources-header__button--active'
         }`}
@@ -15,7 +25,7 @@ export const HumanResourcesHeader = () => {
         {staticText.humanResourcesPage.button.availableStudents}
       </button>
       <button
-        onClick={() => setIsActive(!isActive)}
+        onClick={() => setIsActive(false)}
         className={`human-resources-header__button ${
           !isActive && 'human-resources-header__button--active'
         }`}

@@ -1,0 +1,66 @@
+.human-resources-students-information {
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // width: 100%;
+  // height: 100%;
+  // z-index: 999;
+
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  column-gap: 2px;
+  opacity: 1;
+
+  // border-bottom: 10px solid #1e1e1f;
+
+  &__box {
+    font-size: 10px;
+    padding: 10px;
+    background-color: #222324;
+    font-weight: 100;
+    // min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__title {
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  &__span {
+    display: inline-block;
+    font-weight: 100;
+    color: #777;
+  }
+
+  @media (max-width: 1190px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    &__box {
+      min-height: 70px;
+    }
+  }
+
+  @media (max-width: 680px) {
+    grid-template-columns: 1fr 1fr;
+
+    &__box {
+      min-height: 50px;
+    }
+  }
+
+  @media (max-width: 530px) {
+    grid-template-columns: 1fr;
+
+    &__box {
+      min-height: 50px;
+    }
+  }
+}
