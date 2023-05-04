@@ -99,8 +99,8 @@ export const AdminViewPage = () => {
                         <div className="admin-view__modal-files">
                             <h3>przykładowe pliki</h3>
                             <div className="sample-files">
-                                <a className={'btn'} download={true} href="../utils/files/students.csv">plik csv</a>
-                                <a className={'btn'} download={true} href="../utils/files/students.json">plik json</a>
+                                <a href="./sample-files/students.csv" className={'btn'} download={true} >plik csv</a>
+                                <a href="./sample-files/students.json" className={'btn'} download={true} >plik json</a>
                             </div>
                         </div>
                         <AdminViewFormStudentsAdd handleModalExit={handleModalExit}/>
