@@ -20,10 +20,11 @@ export const adminViewApiSlice = apiSlice.injectEndpoints({
             })
         }),
         sendStudentsList:builder.mutation({
-            query:(file:File)=>({
+            query:(file)=>({
                 url:'/upload',
                 method:'POST',
                 body:file,
+                file:file,
             })
         })
 
