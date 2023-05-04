@@ -1,6 +1,5 @@
 import {apiSlice} from "./apiSlice";
-import {User, withToken} from "../store/auth/types";
-import {authApiSlice} from "./authApiSlice";
+import { ChangePasswordRequest } from 'types';
 
 interface HrRegisterData {
     fullName: string;
@@ -19,11 +18,18 @@ export const adminViewApiSlice = apiSlice.injectEndpoints({
                 body: hrRegisterData,
             })
         }),
-        sendStudentsList:builder.mutation({
-            query:(file)=>({
-                url:'/upload',
-                method:'POST',
-                body:file,
+        sendStudentsList: builder.mutation({
+            query: (file) => ({
+                url: '/upload',
+                method: 'POST',
+                body: file,
+            })
+        }),
+        passwordChange: builder.mutation({
+            query: (passwordChangeData:ChangePasswordRequest) => ({
+                url: 'user/password/',
+                method:"PUT",
+                body:passwordChangeData,
             })
         })
 
@@ -33,4 +39,5 @@ export const adminViewApiSlice = apiSlice.injectEndpoints({
 export const {
     useSendHrMutation,
     useSendStudentsListMutation,
+    usePasswordChangeMutation,
 } = adminViewApiSlice

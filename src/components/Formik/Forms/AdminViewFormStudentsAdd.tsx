@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React, {useRef, useState} from "react";
 import {Form, Formik, FormikHelpers} from "formik";
 import staticText from "../../../languages/en.pl";
 import * as Yup from "yup";
@@ -25,6 +25,7 @@ const maxFilesize = 2097152;
 export const AdminViewFormStudentsAdd = (props: Props) => {
     const fileRef = useRef(null)
     const [sendStudentsList, {isLoading, isError, error}] = useSendStudentsListMutation()
+    const [serverResponse, setServerResponse] = useState('')
     const formData = new FormData()
 
     return (
@@ -62,10 +63,15 @@ export const AdminViewFormStudentsAdd = (props: Props) => {
                 values: Values,
                 {setSubmitting}: FormikHelpers<Values>
             ) => {
-                // @ts-ignore
-                const dataFile = fileRef.current.files[0]
-                formData.append('students',dataFile)
-                await sendStudentsList(formData).unwrap()
+                try {
+                    // @ts-ignore
+                    const dataFile = fileRef.current.files[0]
+                    formData.append('students', dataFile)
+                    const response = await sendStudentsList(formData).unwrap()
+                    setServerResponse(response.message)
+                } catch (e: any) {
+                    setServerResponse(e.data.message)
+                }
                 setTimeout(() => {
                     setSubmitting(false);
                 }, 500);
@@ -84,7 +90,7 @@ export const AdminViewFormStudentsAdd = (props: Props) => {
                     <div className={'error'}>{formik.errors.studentsFile}</div>
                 ) : null}
                 {isLoading && <div className={'error'}>wysyłam...</div>}
-                {isError && <div className={'error'}>Oh NO !</div>}
+                {serverResponse && <div className={'error'}>{serverResponse}</div>}
                 <SubmitBtn text={staticText.userPage.submitButton.text}/>
                 <div onClick={props.handleModalExit} className={'btn modal'}>{staticText.adminPage.close}</div>
             </Form>)}
