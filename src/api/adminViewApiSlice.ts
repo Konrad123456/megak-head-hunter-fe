@@ -14,7 +14,7 @@ export const adminViewApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         sendHr: builder.mutation({
             query: (hrRegisterData: HrRegisterData) => ({
-                url: '/add_hr',
+                url: '/hr',
                 method: 'POST',
                 body: hrRegisterData,
             })
