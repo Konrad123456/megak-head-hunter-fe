@@ -81,6 +81,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    .sample-files{
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
     .btn{
       margin: 10px auto 55px;
     }
@@ -207,6 +213,13 @@
     font-size: $font-size-medium;
   }
   .admin-view {
+
+    &__modal-files{
+      .sample-files{
+        width: 60%;
+      }
+    }
+
     &__form {
       margin: 10px auto;
     }
@@ -263,6 +276,12 @@
   .admin-view {
     max-width: 1200px;
     margin: 0 auto;
+
+    &__modal-files{
+      .sample-files{
+        width: 30%;
+      }
+    }
 
     &__logo {
       justify-content: flex-start;
