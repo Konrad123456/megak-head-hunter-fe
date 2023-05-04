@@ -10,8 +10,6 @@ import {useDispatch} from "react-redux";
 import {logOut} from "../../store/auth/authSlice";
 import {useNavigate} from "react-router";
 
-const userPageText = staticText.userPage;
-
 const userMockupData:OneStudentResponse = {
     firstName: "Katarzyna",
     lastName: "Testowana",
@@ -58,7 +56,7 @@ export const UserPage = () => {
         projectUrls:[''],
         bio:'',
         expectedContractType: ContractType.NO_PREFERENCE,
-        expectedTypeWork: expectedTypeWorkEntity.IRRELAVANT,
+        expectedTypeWork: expectedTypeWorkEntity.IRRELEVANT,
         targetWorkCity:'',
         expectedSalary: 0,
         canTakeApprenticeship: choiceYesNO.NO,
