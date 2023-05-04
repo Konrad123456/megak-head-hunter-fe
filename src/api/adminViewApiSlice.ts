@@ -24,7 +24,6 @@ export const adminViewApiSlice = apiSlice.injectEndpoints({
                 url:'/upload',
                 method:'POST',
                 body:file,
-                file:file,
             })
         })
 
