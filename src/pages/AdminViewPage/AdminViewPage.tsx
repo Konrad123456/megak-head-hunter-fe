@@ -82,19 +82,28 @@ export const AdminViewPage = () => {
         {switches.modalOn ? <div className={'admin-view__modal'}></div> : null}
         {switches.addHr ? (
           <div className={'admin-view__modal-form'}>
-            <h3>{staticText.adminPage.singleHrForm}</h3>
+            <div className="admin-view__logo">
+              <Logo classType={'admin-view__logo-img'}/>
+              <h3>{staticText.adminPage.singleHrForm}
+              </h3></div>
             <AdminViewFormHrAdd handleModalExit={handleModalExit} />
           </div>
         ) : null}
         {switches.addStudents ? (
           <div className={'admin-view__modal-form'}>
-            <h3>{staticText.adminPage.importStudentsFromFile}</h3>
+            <div className="admin-view__logo">
+              <Logo classType={'admin-view__logo-img'}/>
+              <h3>{staticText.adminPage.importStudentsFromFile}
+              </h3></div>
             <AdminViewFormStudentsAdd handleModalExit={handleModalExit} />
           </div>
         ) : null}
         {switches.settings ? (
           <div className={'admin-view__modal-form'}>
-            <h3>{staticText.adminPage.adminSettings}</h3>
+            <div className="admin-view__logo">
+              <Logo classType={'admin-view__logo-img'}/>
+              <h3>{staticText.adminPage.adminSettings}
+              </h3></div>
             <AdminViewPasswordChangeForm handleModalExit={handleModalExit} />
           </div>
         ) : null}
