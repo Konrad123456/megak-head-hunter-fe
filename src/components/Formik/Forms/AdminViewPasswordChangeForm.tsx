@@ -43,10 +43,15 @@ export const AdminViewPasswordChangeForm = (props: Props) => {
                     {setSubmitting}: FormikHelpers<Password>
                 ) => {
                     try {
-                        const response = await passwordChange(values)
-                        // @ts-ignore
-                        setServerResponse(response.message)
-                    } catch (e:any) {
+                        setServerResponse('')
+                        const response: any = await passwordChange(values)
+                        if (response.error) {
+                            setServerResponse(response.error.data.message)
+                        } else {
+                            setServerResponse(response.data.message)
+                        }
+
+                    } catch (e: any) {
                         setServerResponse(e.data.message)
                     }
                     setTimeout(() => {
@@ -58,7 +63,7 @@ export const AdminViewPasswordChangeForm = (props: Props) => {
                        type={'password'} placeholder={'obecne hasło'}/>
                 <Input classType={'admin-view'} label={staticText.adminPage.newPassword} name={'password'}
                        type={'password'} placeholder={staticText.adminPage.newPassword}/>
-                <Input classType={'admin-view'} label={staticText.adminPage.confirmPassword} name={'passwordCheck'}
+                <Input classType={'admin-view'} label={staticText.adminPage.confirmPassword} name={'confirmPassword'}
                        type={'confirm'} placeholder={staticText.adminPage.confirmPassword}/>
                 {isLoading && <div className={'error'}>zapisywanie...</div>}
                 {serverResponse && <div className={'error'}>{serverResponse}</div>}
