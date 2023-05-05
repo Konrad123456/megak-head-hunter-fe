@@ -1,24 +1,32 @@
 import React, {useState} from "react";
 import * as Yup from "yup"
 import {Form, Formik, FormikHelpers} from "formik";
-import {useDispatch} from "react-redux";
-import {useNavigate, useParams} from "react-router";
 import staticText from "../../../languages/en.pl";
 import {Input} from "../Input/Input";
 import {SubmitBtn} from "../../common/SubmitBtn/SubmitBtn";
 import {useRegisterMutation} from "../../../api/registerApiSlice";
 import {ConfirmModal} from "../../ConfirmModal/ConfirmModal";
+import {useSelector} from "react-redux";
+import {selectCurrentUser} from "../../../store/auth/authSlice";
+
 
 interface LoginValues {
     password: string,
     confirmPassword: string,
 }
 
-export const RegisterForm = () => {
+interface Props {
+    userId:string|undefined;
+    registerToken:string|undefined;
+}
+
+export const RegisterForm = (props:Props) => {
     const [register, {isLoading, isError}] = useRegisterMutation();
     const[response, setResponse] = useState('')
     const[modalOn,setModalOn]=useState(false)
-    const {userId,registerToken} = useParams()
+    const user = useSelector(selectCurrentUser);
+    const {userId,registerToken} =props
+
     return <>
         <Formik
             initialValues={{
@@ -40,7 +48,7 @@ export const RegisterForm = () => {
                 ) => {
                     try {
 
-                        const body = {...values,userId,registerToken}
+                        const body = {...values}
                         // @ts-ignore
                         const response = await register(body)
                         // @ts-ignore
