@@ -8,6 +8,14 @@
     margin: 20px auto;
 
   }
+
+  &__error{
+    width: 100%;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: $font-size-medium;
+    margin: 30px auto;
+  }
   &__login-info-button{
     width: 100%;
     display: flex;
