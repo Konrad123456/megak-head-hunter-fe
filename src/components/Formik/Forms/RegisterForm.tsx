@@ -11,21 +11,22 @@ import {selectCurrentUser} from "../../../store/auth/authSlice";
 
 
 interface LoginValues {
-    password: string,
-    confirmPassword: string,
+    password: string;
+    confirmPassword: string;
+
 }
 
 interface Props {
-    userId:string|undefined;
-    registerToken:string|undefined;
+    email:string;
 }
 
 export const RegisterForm = (props:Props) => {
     const [register, {isLoading, isError}] = useRegisterMutation();
     const[response, setResponse] = useState('')
     const[modalOn,setModalOn]=useState(false)
-    const user = useSelector(selectCurrentUser);
-    const {userId,registerToken} =props
+    const {
+        email
+    } =props
 
     return <>
         <Formik
@@ -48,7 +49,7 @@ export const RegisterForm = (props:Props) => {
                 ) => {
                     try {
 
-                        const body = {...values}
+                        const body = {...values,email}
                         // @ts-ignore
                         const response = await register(body)
                         // @ts-ignore
