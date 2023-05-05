@@ -5,6 +5,7 @@
   min-height: 100vh;
   background-color: #0a0a0a;
 }
+
 .admin-view {
   &__logo {
     display: flex;
@@ -14,24 +15,29 @@
     width: 100%;
     background-color: $color-blackish-one;
     padding: 8px;
-    &-img{
+
+    &-img {
       width: 80px;
       display: flex;
       justify-content: center;
       align-items: center;
     }
+
     h3 {
       text-align: center;
     }
-    .logo__image,img {
+
+    .logo__image, img {
       width: 80px;
     }
   }
+
   &__form {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 10px auto;
+
     .input-box {
       display: flex;
       flex-direction: column;
@@ -39,22 +45,26 @@
       align-items: center;
       margin: 15px auto;
     }
+
     p, div.error, label {
       text-align: center;
       font-size: $font-size-small;
       text-transform: uppercase;
       margin-bottom: 20px;
     }
-    label{
+
+    label {
       display: block;
       width: 100%;
     }
+
     div.error {
       color: $color-redish-primary;
       padding: 8px;
       background-color: rgba(0, 0, 0, 0.5);
       font-size: $font-size-small;
     }
+
     input {
       display: flex;
       flex-direction: column;
@@ -76,18 +86,25 @@
       }
     }
   }
-  &__modal-files{
+
+  &__modal-files {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    .sample-files{
+
+    .sample-files {
       width: 100%;
       display: flex;
       justify-content: space-around;
       align-items: center;
+
+      a {
+        text-decoration: none
+      }
     }
-    .btn{
+
+    .btn {
       margin: 10px auto 55px;
     }
   }
@@ -109,6 +126,7 @@
       text-transform: uppercase;
       padding: 20px;
     }
+
     .btn.modal {
       margin: 20px auto;
     }
@@ -123,6 +141,7 @@
     z-index: 2;
     background-color: rgba(0, 0, 0, 0.9);
   }
+
   .btn {
     background-color: $color-redish-four;
     padding: 5px 10px;
@@ -132,8 +151,10 @@
     font-size: $font-size-medium;
     text-transform: uppercase;
     transition: 0.3s;
-    &:hover{
-      filter: brightness(80%);}
+
+    &:hover {
+      filter: brightness(80%);
+    }
   }
 
   position: relative;
@@ -163,19 +184,23 @@
       font-size: $font-size-Xlarge;
       padding: 20px 10px;
     }
+
     button {
       margin-bottom: 20px;
       width: 80%;
     }
   }
+
   &__header-picture {
     overflow: hidden;
     width: 40%;
+
     img {
       width: 100%;
     }
   }
 }
+
 .admin-view__navigation {
   display: flex;
   flex-direction: column;
@@ -203,19 +228,21 @@
     }
   }
 }
+
 .admin-view__go-back-button {
   display: block;
   width: 80%;
   margin-top: 60px;
 }
+
 @media (min-width: 653px) {
   .admin-view__go-back-button {
     font-size: $font-size-medium;
   }
   .admin-view {
 
-    &__modal-files{
-      .sample-files{
+    &__modal-files {
+      .sample-files {
         width: 60%;
       }
     }
@@ -223,28 +250,35 @@
     &__form {
       margin: 10px auto;
     }
+
     &__header {
       flex-direction: row;
       align-items: center;
+
       div.logo {
         width: 80px;
       }
+
       h2 {
         font-size: $font-size-Xlarge;
       }
+
       button {
         font-size: $font-size-medium;
       }
+
       button.btn {
         padding: 8px 16px;
         margin-right: 20px;
         margin-bottom: 0;
         width: auto;
       }
+
       &__form {
         margin: 10px auto;
       }
     }
+
     &__header-picture {
       width: 20%;
     }
@@ -265,6 +299,7 @@
         font-size: $font-size-medium;
         padding: 8px 16px;
       }
+
       button {
         font-size: $font-size-medium;
       }
@@ -277,8 +312,8 @@
     max-width: 1200px;
     margin: 0 auto;
 
-    &__modal-files{
-      .sample-files{
+    &__modal-files {
+      .sample-files {
         width: 30%;
       }
     }
@@ -289,7 +324,7 @@
       width: 100%;
       flex-wrap: nowrap;
 
-      h3{
+      h3 {
         width: 100%;
         margin-right: 80px;
       }
@@ -298,14 +333,17 @@
         width: 80px;
       }
     }
+
     &__header {
       h2 {
         font-size: $font-size-XXlarge;
         background: none;
       }
+
       button {
         font-size: $font-size-medium;
       }
+
       button.btn {
         padding: 8px 16px;
         margin-right: 20px;
@@ -313,6 +351,7 @@
         width: auto;
       }
     }
+
     &__header-picture {
       width: 14%;
       margin-left: 20px;
@@ -323,11 +362,13 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+
     &-buttons {
       width: 100%;
       display: flex;
       flex-direction: row;
       align-items: center;
+
       button {
         width: 40%;
         font-size: $font-size-medium;
