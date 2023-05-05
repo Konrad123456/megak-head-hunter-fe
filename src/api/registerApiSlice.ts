@@ -1,4 +1,4 @@
-import { apiSlice} from "./apiSlice";
+import {apiSlice} from "./apiSlice";
 
 type UserRegisterData = {
     userId: string;
@@ -7,16 +7,28 @@ type UserRegisterData = {
     registerToken: string | null;
 };
 
+type ConfirmUser = {
+    id: string;
+    token: string;
+};
+
 const registerApiSlice = apiSlice.injectEndpoints({
-    endpoints:(builder)=>({
-        register:builder.mutation({
-            query:(registerData:UserRegisterData)=> ({
-                url:'/register',
-                method:'POST',
-                body:registerData,
+    endpoints: (builder) => ({
+        register: builder.mutation({
+            query: (registerData: UserRegisterData) => ({
+                url: '/register',
+                method: 'POST',
+                body: registerData,
+            })
+        }),
+        confirm: builder.mutation({
+            query: (confirmData: ConfirmUser) => ({
+                url: `/confirm-account/${confirmData.id}/${confirmData.token}`,
+                method:'GET',
+
             })
         })
     })
 })
 
-export const {useRegisterMutation}=registerApiSlice
+export const {useRegisterMutation} = registerApiSlice
