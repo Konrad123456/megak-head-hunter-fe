@@ -6,6 +6,9 @@ import {Input} from "../Input/Input";
 import {SubmitBtn} from "../../common/SubmitBtn/SubmitBtn";
 import {useRegisterMutation} from "../../../api/registerApiSlice";
 import {ConfirmModal} from "../../ConfirmModal/ConfirmModal";
+import {useSelector} from "react-redux";
+import {selectCurrentUser} from "../../../store/auth/authSlice";
+
 
 interface LoginValues {
     password: string,
@@ -21,6 +24,7 @@ export const RegisterForm = (props:Props) => {
     const [register, {isLoading, isError}] = useRegisterMutation();
     const[response, setResponse] = useState('')
     const[modalOn,setModalOn]=useState(false)
+    const user = useSelector(selectCurrentUser);
     const {userId,registerToken} =props
 
     return <>
@@ -44,7 +48,7 @@ export const RegisterForm = (props:Props) => {
                 ) => {
                     try {
 
-                        const body = {...values,userId,registerToken}
+                        const body = {...values}
                         // @ts-ignore
                         const response = await register(body)
                         // @ts-ignore
