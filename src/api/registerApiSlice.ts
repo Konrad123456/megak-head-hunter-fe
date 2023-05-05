@@ -24,7 +24,6 @@ const registerApiSlice = apiSlice.injectEndpoints({
             query: (confirmData: ConfirmUser) => ({
                 url: `/confirm-account/${confirmData.id}/${confirmData.token}`,
                 method:'GET',
-
             })
         })
     })
