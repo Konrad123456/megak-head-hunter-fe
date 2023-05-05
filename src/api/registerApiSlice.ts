@@ -31,4 +31,4 @@ const registerApiSlice = apiSlice.injectEndpoints({
     })
 })
 
-export const {useRegisterMutation} = registerApiSlice
+export const {useRegisterMutation,useConfirmMutation} = registerApiSlice

@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import * as Yup from "yup"
 import {Form, Formik, FormikHelpers} from "formik";
-import {useDispatch} from "react-redux";
-import {useNavigate, useParams} from "react-router";
 import staticText from "../../../languages/en.pl";
 import {Input} from "../Input/Input";
 import {SubmitBtn} from "../../common/SubmitBtn/SubmitBtn";
@@ -14,11 +12,17 @@ interface LoginValues {
     confirmPassword: string,
 }
 
-export const RegisterForm = () => {
+interface Props {
+    userId:string|undefined;
+    registerToken:string|undefined;
+}
+
+export const RegisterForm = (props:Props) => {
     const [register, {isLoading, isError}] = useRegisterMutation();
     const[response, setResponse] = useState('')
     const[modalOn,setModalOn]=useState(false)
-    const {userId,registerToken} = useParams()
+    const {userId,registerToken} =props
+
     return <>
         <Formik
             initialValues={{
