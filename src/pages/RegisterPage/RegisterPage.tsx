@@ -12,7 +12,6 @@ export const RegisterPage = () => {
     const [confirmMutation, {isLoading}] = useConfirmMutation()
     const [formOn, setFormOn] = useState(false)
     const [error, setError] = useState('')
-    const [userEmail,setUserEmail]= useState('')
 
     useEffect(() => {
         (async () => {
@@ -28,8 +27,6 @@ export const RegisterPage = () => {
                     if (response.data) {
                         setFormOn(true)
                         setError('')
-                        // @ts-ignore
-                        setUserEmail(response.data.email)
                     }
                 }
             } catch (e: any) {
@@ -45,7 +42,7 @@ export const RegisterPage = () => {
                 {isLoading&&<h2 className={'login-page__error'}>proszę czekać...</h2>}
                 {formOn && <>
                     <h2 className={'login-page__container-header'}>zarejestruj się</h2>
-                    <RegisterForm email={userEmail}/>
+                    <RegisterForm userId={userId} registerToken={registerToken}/>
                 </>}
                 {error&&!formOn&&<h2 className={'login-page__error'}>{error}</h2>}
             </div>

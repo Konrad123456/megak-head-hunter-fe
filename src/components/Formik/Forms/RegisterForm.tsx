@@ -17,7 +17,8 @@ interface LoginValues {
 }
 
 interface Props {
-    email:string;
+    userId:string|undefined;
+    registerToken:string|undefined;
 }
 
 export const RegisterForm = (props:Props) => {
@@ -25,7 +26,8 @@ export const RegisterForm = (props:Props) => {
     const[response, setResponse] = useState('')
     const[modalOn,setModalOn]=useState(false)
     const {
-        email
+        userId,
+        registerToken,
     } =props
 
     return <>
@@ -49,7 +51,7 @@ export const RegisterForm = (props:Props) => {
                 ) => {
                     try {
 
-                        const body = {...values,email}
+                        const body = {...values,userId,registerToken}
                         // @ts-ignore
                         const response = await register(body)
                         // @ts-ignore
