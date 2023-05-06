@@ -1,7 +1,8 @@
 import {apiSlice} from "./apiSlice";
 
 type UserRegisterData = {
-    email: string;
+    userId:string;
+    registerToken:string;
     password: string;
     confirmPassword: string;
 };
