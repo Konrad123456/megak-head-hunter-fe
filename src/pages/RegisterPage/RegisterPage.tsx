@@ -42,6 +42,7 @@ export const RegisterPage = () => {
         <div className='login-page'>
             <div className='login-page__container'>
                 <Logo classType='logo'/>
+                {isLoading&&<h2 className={'login-page__error'}>proszę czekać...</h2>}
                 {formOn && <>
                     <h2 className={'login-page__container-header'}>zarejestruj się</h2>
                     <RegisterForm email={userEmail}/>
