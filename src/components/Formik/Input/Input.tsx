@@ -3,24 +3,26 @@ import React from 'react';
 import '../Input/input.scss';
 
 interface Props {
+  classType: string;
   label: string;
   name: string;
   type: string;
   placeholder: string;
 }
-export const Input = ({ name, type, label, placeholder }: Props) => {
+
+export const Input = ({ classType, label, name, type, placeholder }: Props) => {
   const [field, meta] = useField({
-    name: name,
-    type: type,
+    name,
+    type,
   });
   return (
-    <div className='input-box'>
+    <div className={`${classType}__input-box`}>
       <label htmlFor={name}>{label}</label>
       <input
         className={name}
         id={name}
         {...field}
-        {...{ name, type, label, placeholder }}
+        {...{ label, name, type, placeholder }}
       />
       {meta.touched && meta.error ? (
         <div className='error'>{meta.error}</div>

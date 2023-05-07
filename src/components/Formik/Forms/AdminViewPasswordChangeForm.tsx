@@ -43,8 +43,8 @@ export const AdminViewPasswordChangeForm = (props: Props) => {
                     }, 500);
                 }}>
             <Form className={'admin-view__form'}>
-                <Input label={staticText.adminPage.newPassword} name={'password'} type={'password'} placeholder={staticText.adminPage.newPassword}/>
-                <Input label={staticText.adminPage.confirmPassword} name={'passwordCheck'} type={'confirm'} placeholder={staticText.adminPage.confirmPassword}/>
+                <Input classType={'admin-view'} label={staticText.adminPage.newPassword} name={'password'} type={'password'} placeholder={staticText.adminPage.newPassword}/>
+                <Input classType={'admin-view'} label={staticText.adminPage.confirmPassword} name={'passwordCheck'} type={'confirm'} placeholder={staticText.adminPage.confirmPassword}/>
                 <SubmitBtn text={staticText.userPage.submitButton.text}/>
                 <div onClick={props.handleModalExit} className={'btn modal'}>{staticText.adminPage.close}</div>
             </Form>
