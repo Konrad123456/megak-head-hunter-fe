@@ -10,8 +10,6 @@ import { HumanResourcesPage } from './pages/HumanResourcesPage/HumanResourcesPag
 function App() {
   const location = useLocation();
 
-  console.log(location);
-
   const displayNavigation = () => {
     if (
       location.pathname === '/portfolio' ||
