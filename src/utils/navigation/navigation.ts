@@ -6,7 +6,7 @@ export const navigateToDefaultRoute = (user: User): string => {
             return '/admin';
         }
         case Roles.HR: {
-            return '/hr';
+            return '/human-resources';
         }
         case Roles.STUDENT:
         default: {
