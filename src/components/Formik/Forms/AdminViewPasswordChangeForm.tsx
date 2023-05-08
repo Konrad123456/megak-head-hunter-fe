@@ -44,11 +44,11 @@ export const AdminViewPasswordChangeForm = (props: Props) => {
                 ) => {
                     try {
                         setServerResponse('')
-                        const response: any = await passwordChange(values)
+                        const response:any = await passwordChange(values)
                         if (response.error) {
                             setServerResponse(response.error.data.message)
                         } else {
-                            setServerResponse(response.data.message)
+                            setServerResponse('hasło zmienione')
                         }
 
                     } catch (e: any) {

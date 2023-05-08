@@ -20,6 +20,7 @@ const userMockupData:OneStudentResponse = {
     projectUrls: ["pierwszy link","drugi link","trzeci link","czwarty link"],
     bio: "sialsadlasldaslasldals",
     expectedContractType: ContractType.B2B_POSSIBLE,
+    // @ts-ignore
     expectedTypeWork: expectedTypeWorkEntity.ONLY_REMOTELY,
     targetWorkCity: "Rzeszów",
     expectedSalary: 12000,
@@ -46,6 +47,7 @@ export const UserPage = () => {
       }
     }
 
+
     const [data, setData] = useState<OneStudentResponse>({
         firstName:'',
         lastName:'',
@@ -56,6 +58,7 @@ export const UserPage = () => {
         projectUrls:[''],
         bio:'',
         expectedContractType: ContractType.NO_PREFERENCE,
+        // @ts-ignore
         expectedTypeWork: expectedTypeWorkEntity.IRRELEVANT,
         targetWorkCity:'',
         expectedSalary: 0,
