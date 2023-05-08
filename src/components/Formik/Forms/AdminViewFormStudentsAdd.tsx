@@ -1,10 +1,9 @@
-import React, {useRef} from "react";
-import {Form, Formik, FormikHelpers, useField} from "formik";
-import {Input} from "../Input/Input";
-import {Button} from "../../common/Button/Button";
+import React, {useRef, useState} from "react";
+import {Form, Formik, FormikHelpers} from "formik";
 import staticText from "../../../languages/en.pl";
 import * as Yup from "yup";
 import {SubmitBtn} from "../../common/SubmitBtn/SubmitBtn";
+import {useSendStudentsListMutation} from "../../../api/adminViewApiSlice";
 
 interface Values {
     studentsFile: null;
@@ -23,10 +22,11 @@ const fileTypes = [
 const maxFilesize = 2097152;
 
 
-
 export const AdminViewFormStudentsAdd = (props: Props) => {
     const fileRef = useRef(null)
-
+    const [sendStudentsList, {isLoading, isError, error}] = useSendStudentsListMutation()
+    const [serverResponse, setServerResponse] = useState('')
+    const formData = new FormData()
 
     return (
         <Formik
@@ -40,12 +40,11 @@ export const AdminViewFormStudentsAdd = (props: Props) => {
                         () => {
                             const filesReference: any = fileRef.current;
                             const fileToCheck = filesReference.files[0];
-                            if(fileToCheck){
+                            if (fileToCheck) {
                                 return fileTypes.includes(fileToCheck.type)
-                            }else return true
+                            } else return true
                         }
-                    ).
-                    test(
+                    ).test(
                         "fileSize",
                         staticText.adminPage.fileIsTooBig,
                         () => {
@@ -60,12 +59,20 @@ export const AdminViewFormStudentsAdd = (props: Props) => {
                     )
             })}
 
-            onSubmit={(
+            onSubmit={async (
                 values: Values,
                 {setSubmitting}: FormikHelpers<Values>
             ) => {
+                try {
+                    // @ts-ignore
+                    const dataFile = fileRef.current.files[0]
+                    formData.append('students', dataFile)
+                    const response = await sendStudentsList(formData).unwrap()
+                    setServerResponse(response.message)
+                } catch (e: any) {
+                    setServerResponse(e.data.message)
+                }
                 setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
                     setSubmitting(false);
                 }, 500);
             }}
@@ -82,6 +89,8 @@ export const AdminViewFormStudentsAdd = (props: Props) => {
                 {formik.touched.studentsFile && formik.errors.studentsFile ? (
                     <div className={'error'}>{formik.errors.studentsFile}</div>
                 ) : null}
+                {isLoading && <div className={'error'}>wysyłam...</div>}
+                {serverResponse && <div className={'error'}>{serverResponse}</div>}
                 <SubmitBtn text={staticText.userPage.submitButton.text}/>
                 <div onClick={props.handleModalExit} className={'btn modal'}>{staticText.adminPage.close}</div>
             </Form>)}
