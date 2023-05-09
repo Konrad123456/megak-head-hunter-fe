@@ -38,7 +38,6 @@ export const LoginForm = () => (
       <Form>
         <div className='login-page__inputs-box'>
           <Input
-              classType={''}
             label=''
             placeholder={staticText.loginPage.input.email}
             name='login'
@@ -46,7 +45,6 @@ export const LoginForm = () => (
             classType='login'
           />
           <Input
-              classType={''}
             label=''
             placeholder={staticText.loginPage.input.password}
             name='password'
