@@ -26,6 +26,7 @@ const limit = 10;
 const page = 1;
 
 
+
 export const HumanResourcesToTalkStudents = () => {
   const [toTalk,{isLoading,isError,error}] = useToTalkMutation()
   const [toTalkList,setToTalkList]=useState<StudentsToTalkList>()
@@ -33,7 +34,9 @@ export const HumanResourcesToTalkStudents = () => {
  useEffect(()=>{
    (async ()=>{
      const result = await toTalk({page,limit})
-       console.log(result)
+       // @ts-ignore
+     setToTalkList(result.data)
+
    })()
  },[])
 
