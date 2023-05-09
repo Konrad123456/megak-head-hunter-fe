@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { HumanResourcesSingleDetailedStudent } from '../HumanResourcesSingleDetailedStudent/HumanResourcesSingleDetailedStudent';
 import {useToTalkMutation} from "../../../api/toTalkApiSlice";
 import{StudentsToTalkList}from 'types'
+import {date} from "yup";
 
 
 
@@ -25,18 +26,27 @@ const people = [
 const limit = 10;
 const page = 1;
 
-
+interface ToTalkList {
+  id:string;
+  name:string;
+  reservation:string;
+}
 
 export const HumanResourcesToTalkStudents = () => {
   const [toTalk,{isLoading,isError,error}] = useToTalkMutation()
-  const [toTalkList,setToTalkList]=useState<StudentsToTalkList>()
+  const [toTalkList,setToTalkList]=useState<ToTalkList[]>()
 
  useEffect(()=>{
    (async ()=>{
      const result = await toTalk({page,limit})
-       // @ts-ignore
-     setToTalkList(result.data)
 
+     // @ts-ignore
+     const studentsToTalkList = result.data as StudentsToTalkList[]
+     setToTalkList(studentsToTalkList.map(el=>({
+       id:el.id,
+       name:el.firstName+' '+el.lastName,
+       reservation:String(el.toDate),
+     })))
    })()
  },[])
 
@@ -45,7 +55,7 @@ export const HumanResourcesToTalkStudents = () => {
 
   return (
     <div className='human-resources-to-talk-students'>
-      {people.map((person, index) => (
+      {toTalkList?.map((person, index) => (
         <HumanResourcesSingleDetailedStudent key={index} {...person} />
       ))}
     </div>

@@ -4,7 +4,7 @@ import{StudentsToTalkList}from 'types'
 
 const toTalkApiSlice = apiSlice.injectEndpoints({
     endpoints:(builder)=>({
-toTalk:builder.mutation<{studentsToTalkList:StudentsToTalkList},{page:number,limit:number}>({
+toTalk:builder.mutation<{studentsToTalkList:any},{page:number,limit:number}>({
     query:({page,limit})=>({
         url:`/user/talk/${page}/${limit}`,
         method:'GET',
