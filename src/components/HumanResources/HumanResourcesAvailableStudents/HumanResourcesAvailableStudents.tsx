@@ -1,25 +1,51 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import HumanResourcesSingleStudent from '../HumanResourcesSingleStudent/HumanResourcesSingleStudent';
-
-const people = [
-  { id: '1', name: 'Jan K.' },
-  { id: '2', name: 'Paweł S.' },
-  { id: '3', name: 'Mariusz L.' },
-  { id: '4', name: 'Katarzyna K.' },
-  { id: '5', name: 'Kamil O.' },
-  { id: '6', name: 'Aleksandra M.' },
-  { id: '7', name: 'Marcin P.' },
-  { id: '8', name: 'Marcin R.' },
-  { id: '9', name: 'Łukasz S.' },
-  { id: '10', name: 'Jakub O.' },
-];
+import { useStudentsMutation } from '../../../../src/api/studentsListApi';
+import { StudentsListResponse } from 'types';
 
 export const HumanResourcesAvailableStudents = () => {
+  const [students] = useStudentsMutation();
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [people, setPeople] = useState<StudentsListResponse>([]);
+
+  useEffect(() => {
+    (async () => {
+      setIsLoading(true);
+      try {
+        const response = await students({ pageNumber: 1, limit: 10 });
+
+        // @ts-ignore
+        if (response.error) {
+          // @ts-ignore
+          setError(response.error.data.message);
+          setIsLoading(false);
+        }
+
+        // @ts-ignore
+        if (response.data) {
+          setIsLoading(false);
+          setError('');
+          // @ts-ignore
+          setPeople(response.data);
+          console.log('!!! response: ', response);
+        }
+      } catch (e: any) {
+        setError('Coś poszło nie tak');
+      }
+    })();
+  }, []);
+
   return (
     <div className='human-resources-available-students'>
-      {people.map((person) => (
-        <HumanResourcesSingleStudent key={person.id} {...person} />
-      ))}
+      {error && <h1>Cos poszło nie tak</h1>}
+      {isLoading && <h1>Ładuję stronę</h1>}
+
+      {people.length &&
+        people.map((person) => (
+          <HumanResourcesSingleStudent key={person.id} {...person} />
+        ))}
+      {!people.length && <h1>Brak studentów</h1>}
     </div>
   );
 };

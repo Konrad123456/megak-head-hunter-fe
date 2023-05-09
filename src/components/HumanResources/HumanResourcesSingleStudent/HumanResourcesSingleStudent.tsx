@@ -3,11 +3,13 @@ import HumanResourcesStudentsInformation from '../HumanResourcesStudentsInformat
 import { SubmitButton } from '../../../components/common/Button/SubmitButton';
 
 interface Props {
-  name: string;
+  firstName: string;
+  lastName: string;
 }
 
-const HumanResourcesSingleStudent = ({ name }: Props) => {
+const HumanResourcesSingleStudent = (props: Props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { firstName, lastName } = props;
 
   const handleOpen = () => {
     setIsOpen(!isOpen);
@@ -16,7 +18,9 @@ const HumanResourcesSingleStudent = ({ name }: Props) => {
   return (
     <div className='human-resources-single-student'>
       <div className='human-resources-single-student__header'>
-        <p className='human-resources-single-student__name'>{name}</p>
+        <p className='human-resources-single-student__name'>
+          {firstName} {lastName}
+        </p>
         <div className='human-resources-single-student__buttons-container'>
           <SubmitButton text='Zarezerwuj rozmowę' />
           <button onClick={handleOpen}>
@@ -29,7 +33,7 @@ const HumanResourcesSingleStudent = ({ name }: Props) => {
         </div>
       </div>
 
-      {isOpen && <HumanResourcesStudentsInformation />}
+      {isOpen && <HumanResourcesStudentsInformation {...props} />}
     </div>
   );
 };
