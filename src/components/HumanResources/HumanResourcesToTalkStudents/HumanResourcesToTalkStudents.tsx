@@ -9,6 +9,7 @@ import {StudentsToTalkList} from 'types'
 interface Props {
     page:number;
     limitOnPage:number;
+    setLimitOnPage:Dispatch<SetStateAction<number>>;
     setMaxStudentsNumber:Dispatch<SetStateAction<number>>;
 }
 
@@ -21,15 +22,15 @@ interface ToTalkList {
 
 
 
-export const HumanResourcesToTalkStudents = ({page,limitOnPage,setMaxStudentsNumber}:Props) => {
+export const HumanResourcesToTalkStudents = ({page,limitOnPage,setMaxStudentsNumber,setLimitOnPage}:Props) => {
     const [toTalk, {isLoading, isError, error}] = useToTalkMutation()
     const [toTalkList, setToTalkList] = useState<ToTalkList[]>()
     const [errorResponse,setErrorResponse]=useState('')
     const [removeFromToTalk]=useRemoveFromToTalkMutation()
 
     const handleRemoveStudentFromTalkList =async (id:string)=>{
-        console.log(id)
         await removeFromToTalk(id)
+        setLimitOnPage(prev=>--prev)
     }
     useEffect(() => {
         try{

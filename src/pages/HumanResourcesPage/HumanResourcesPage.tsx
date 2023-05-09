@@ -46,6 +46,7 @@ export const HumanResourcesPage = () => {
                     <HumanResourcesAvailableStudents/>
                 ) : (
                     <HumanResourcesToTalkStudents
+                        setLimitOnPage={setLimitOnPage}
                         page={page}
                         limitOnPage={limitOnPage}
                         setMaxStudentsNumber={setMaxStudentsNumber}
