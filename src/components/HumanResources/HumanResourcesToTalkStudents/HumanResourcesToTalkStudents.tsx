@@ -24,11 +24,12 @@ interface ToTalkList {
 export const HumanResourcesToTalkStudents = ({page,limitOnPage,setMaxStudentsNumber}:Props) => {
     const [toTalk, {isLoading, isError, error}] = useToTalkMutation()
     const [toTalkList, setToTalkList] = useState<ToTalkList[]>()
+    const [errorResponse,setErrorResponse]=useState('')
     useEffect(() => {
+        try{
         (async () => {
             const limit = limitOnPage
             const result = await toTalk({page, limit})
-
             // @ts-ignore
             const studentsToTalkList = result.data as StudentsToTalkList[]
             setMaxStudentsNumber(studentsToTalkList.length)
@@ -38,12 +39,16 @@ export const HumanResourcesToTalkStudents = ({page,limitOnPage,setMaxStudentsNum
                 reservation: String(el.toDate),
                 picture: el.githubUsername + '.png'
             })))
-        })()
+        })()}catch (e) {
+            setErrorResponse('Coś poszło nie tak, spróbuj ponownie później...')
+        }
     }, [limitOnPage,page])
 
 
     return (
         <div className='human-resources-to-talk-students'>
+            {isLoading&&<h2 className={'error'}>wczytywanie listy</h2>}
+            {errorResponse&&<h2 className={'error'}>{errorResponse}</h2>}
             {toTalkList?.map((person, index) => (
                 <HumanResourcesSingleDetailedStudent key={index} {...person} />
             ))}
