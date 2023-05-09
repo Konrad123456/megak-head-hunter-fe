@@ -9,8 +9,17 @@ toTalk:builder.mutation<{studentsToTalkList:any},{page:number,limit:number}>({
         url:`/user/talk/${page}/${limit}`,
         method:'GET',
     })
-})
+}),
+        removeFromToTalk:builder.mutation({
+            query:(id:string)=>({
+                url:'/user/talk',
+                method:'DELETE',
+                body:{
+                    id,
+                }
+            })
+        })
     })
 })
 
-export const {useToTalkMutation} = toTalkApiSlice;
+export const {useToTalkMutation,useRemoveFromToTalkMutation} = toTalkApiSlice;
