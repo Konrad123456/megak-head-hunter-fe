@@ -5,11 +5,13 @@ import HumanResourcesStudentsInformation from '../HumanResourcesStudentsInformat
 interface Props {
   name: string;
   reservation: string;
+  picture:string;
 }
 
 export const HumanResourcesSingleDetailedStudent = ({
   name,
   reservation,
+    picture,
 }: Props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -33,7 +35,7 @@ export const HumanResourcesSingleDetailedStudent = ({
             <div className='human-resources-single-detailed-student__person-container'>
               <img
                 className='human-resources-single-detailed-student__person-image'
-                src='https://github.com/Ami777.png '
+                src={`https://github.com/${picture}`}
                 alt='avatar'
               />
             </div>

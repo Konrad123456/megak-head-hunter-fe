@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react';
 import { HumanResourcesSingleDetailedStudent } from '../HumanResourcesSingleDetailedStudent/HumanResourcesSingleDetailedStudent';
 import {useToTalkMutation} from "../../../api/toTalkApiSlice";
 import{StudentsToTalkList}from 'types'
-import {date} from "yup";
+
+
 
 
 
@@ -30,6 +31,7 @@ interface ToTalkList {
   id:string;
   name:string;
   reservation:string;
+  picture:string;
 }
 
 export const HumanResourcesToTalkStudents = () => {
@@ -46,6 +48,7 @@ export const HumanResourcesToTalkStudents = () => {
        id:el.id,
        name:el.firstName+' '+el.lastName,
        reservation:String(el.toDate),
+       picture:el.githubUsername+'.png'
      })))
    })()
  },[])
