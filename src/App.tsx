@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentUser, setCredentials } from './store/auth/authSlice';
 import { navigateToDefaultRoute } from './utils/navigation/navigation';
 import { useNavigate } from 'react-router';
-import {RegisterPage} from "./pages/RegisterPage/RegisterPage";
+import { RegisterPage } from './pages/RegisterPage/RegisterPage';
 
 import { PortfolioPage } from './pages/PortfolioPage/PortfolioPage';
 import { Navigation } from './components/Navigation/Navigation';
@@ -20,31 +20,25 @@ function App() {
   const navigator = useNavigate();
   const dispatch = useDispatch();
 
-    useEffect(() => {
-        const checkLogIn = async () => {
-            if (user === null) {
-                try {
-                    const userData = await refresh({}).unwrap();
-                    if (userData) {
-                        dispatch(setCredentials(userData));
-                        navigator(navigateToDefaultRoute(userData.user));
-                    }
-                } catch (e) {
-
-                }
-            }
-        }
-        checkLogIn();
-    }, []);
-
+  useEffect(() => {
+    const checkLogIn = async () => {
+      if (user === null) {
+        try {
+          const userData = await refresh({}).unwrap();
+          if (userData) {
+            dispatch(setCredentials(userData));
+            navigator(navigateToDefaultRoute(userData.user));
+          }
+        } catch (e) {}
+      }
+    };
+    checkLogIn();
+  }, []);
 
   const location = useLocation();
 
   const displayNavigation = () => {
-    if (
-      location.pathname === '/portfolio' ||
-      location.pathname === '/human-resources'
-    )
+    if (location.pathname === '/portfolio' || location.pathname === '/hr')
       return <Navigation />;
   };
 
@@ -52,14 +46,17 @@ function App() {
     <>
       {displayNavigation()}
       <Routes>
-          <Route path={'/'} element={<LoginPage />} />
-          <Route path={'/portfolio'} element={<PortfolioPage />} />
-          <Route path={'/human-resources'} element={<HumanResourcesPage />} />
-          <Route path={'/admin'} element={<AdminViewPage />} />
-          <Route path='/user/:id' element={<UserPage />} />
-          <Route path={'/user'} element={<UserPage />} />
-          <Route path={'/register/:userId/:registerToken'} element={<RegisterPage/>}/>
-          <Route path={'*'} element={<LoginPage />} />
+        <Route path={'/'} element={<LoginPage />} />
+        <Route path={'/portfolio'} element={<PortfolioPage />} />
+        <Route path={'/hr'} element={<HumanResourcesPage />} />
+        <Route path={'/admin'} element={<AdminViewPage />} />
+        <Route path='/user/:id' element={<UserPage />} />
+        <Route path={'/user'} element={<UserPage />} />
+        <Route
+          path={'/register/:userId/:registerToken'}
+          element={<RegisterPage />}
+        />
+        <Route path={'*'} element={<LoginPage />} />
       </Routes>
     </>
   );
