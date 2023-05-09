@@ -1,5 +1,9 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { HumanResourcesSingleDetailedStudent } from '../HumanResourcesSingleDetailedStudent/HumanResourcesSingleDetailedStudent';
+import {useToTalkMutation} from "../../../api/toTalkApiSlice";
+import{StudentsToTalkList}from 'types'
+
+
 
 const people = [
   { id: '1', name: 'Jan Kowalski', reservation: '11.07.2023' },
@@ -18,7 +22,24 @@ const people = [
   { id: '14', name: 'Kamil Ostrowski', reservation: '12.11.2023' },
 ];
 
+const limit = 10;
+const page = 1;
+
+
 export const HumanResourcesToTalkStudents = () => {
+  const [toTalk,{isLoading,isError,error}] = useToTalkMutation()
+  const [toTalkList,setToTalkList]=useState<StudentsToTalkList>()
+
+ useEffect(()=>{
+   (async ()=>{
+     const result = await toTalk({page,limit})
+       console.log(result)
+   })()
+ },[])
+
+
+
+
   return (
     <div className='human-resources-to-talk-students'>
       {people.map((person, index) => (
