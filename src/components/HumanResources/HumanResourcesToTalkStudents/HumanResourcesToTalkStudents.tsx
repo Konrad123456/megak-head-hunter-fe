@@ -18,6 +18,17 @@ interface ToTalkList {
     name: string;
     reservation: string;
     picture: string;
+
+    courseCompletion:number;
+    courseEngagment:number;
+    projectDegree:number;
+    teamProjectDegree:number;
+    expectedTypeWork:number;
+    targetWorkCity:string;
+    expectedContractType:number;
+    expectedSalary:number;
+    canTakeApprenticeship:number;
+    monthsOfCommercialExp:number;
 }
 
 
@@ -46,7 +57,17 @@ export const HumanResourcesToTalkStudents = ({page,limitOnPage,setMaxStudentsNum
                 id: el.id,
                 name: el.firstName + ' ' + el.lastName,
                 reservation: String(el.toDate),
-                picture: el.githubUsername + '.png'
+                picture: el.githubUsername + '.png',
+                canTakeApprenticeship:el.canTakeApprenticeship,
+                monthsOfCommercialExp:el.monthsOfCommercialExp,
+                courseEngagment:el.courseEngagment,
+                projectDegree:el.projectDegree,
+                teamProjectDegree:el.teamProjectDegree,
+                targetWorkCity:el.targetWorkCity,
+                expectedTypeWork:el.expectedTypeWork,
+                courseCompletion:el.courseCompletion,
+                expectedContractType:el.expectedContractType,
+                expectedSalary:el.expectedSalary,
             })))
         })()}catch (e) {
             setErrorResponse('Coś poszło nie tak, spróbuj ponownie później...')
@@ -65,7 +86,6 @@ export const HumanResourcesToTalkStudents = ({page,limitOnPage,setMaxStudentsNum
                     {...person}
                     id={person.id}
                     handleRemoveStudentFromTalkList={handleRemoveStudentFromTalkList}
-
                 />
             ))}
         </div>

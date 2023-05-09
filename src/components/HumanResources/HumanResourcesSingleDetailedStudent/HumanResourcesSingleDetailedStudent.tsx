@@ -8,6 +8,17 @@ interface Props {
     reservation: string;
     picture: string;
     handleRemoveStudentFromTalkList: (id: string) => Promise<void>;
+
+    courseCompletion: number;
+    courseEngagment: number;
+    projectDegree: number;
+    teamProjectDegree: number;
+    expectedTypeWork: number;
+    targetWorkCity: string;
+    expectedContractType: number;
+    expectedSalary: number;
+    canTakeApprenticeship: number;
+    monthsOfCommercialExp: number;
 }
 
 export const HumanResourcesSingleDetailedStudent = ({
@@ -16,10 +27,21 @@ export const HumanResourcesSingleDetailedStudent = ({
                                                         reservation,
                                                         picture,
                                                         handleRemoveStudentFromTalkList,
+                                                        expectedTypeWork,
+                                                        targetWorkCity,
+                                                        expectedContractType,
+                                                        expectedSalary,
+                                                        canTakeApprenticeship,
+                                                        monthsOfCommercialExp,
+                                                        courseEngagment,
+                                                        projectDegree,
+                                                        teamProjectDegree,
+                                                        courseCompletion,
+
                                                     }: Props) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const removeStudent =async () => {
-       await handleRemoveStudentFromTalkList(id)
+    const removeStudent = async () => {
+        await handleRemoveStudentFromTalkList(id)
     }
     const handleOpen = () => {
         setIsOpen(!isOpen);
@@ -64,7 +86,20 @@ export const HumanResourcesSingleDetailedStudent = ({
                 </div>
             </div>
 
-            {isOpen && <HumanResourcesStudentsInformation/>}
+            {isOpen && <HumanResourcesStudentsInformation
+                expectedContractType={expectedContractType}
+                courseCompletion={courseCompletion}
+                expectedTypeWork={expectedTypeWork}
+                targetWorkCity={targetWorkCity}
+                teamProjectDegree={teamProjectDegree}
+                projectDegree={projectDegree}
+                courseEngagment={courseEngagment}
+                monthsOfCommercialExp={monthsOfCommercialExp}
+                canTakeApprenticeship={canTakeApprenticeship}
+                expectedSalary={expectedSalary}
+
+
+            />}
         </div>
     );
 };

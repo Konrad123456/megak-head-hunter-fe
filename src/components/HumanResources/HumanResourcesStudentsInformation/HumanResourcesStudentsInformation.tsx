@@ -11,7 +11,7 @@ interface Props {
   monthsOfCommercialExp:number;
 }
 
-const HumanResourcesStudentsInformation = (props: Props) => {
+const HumanResourcesStudentsInformation = (props:Props) => {
   const {
     courseCompletion,
     courseEngagment,

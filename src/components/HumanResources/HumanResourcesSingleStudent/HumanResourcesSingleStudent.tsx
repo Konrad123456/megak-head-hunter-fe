@@ -33,7 +33,10 @@ const HumanResourcesSingleStudent = (props: Props) => {
         </div>
       </div>
 
-      {isOpen && <HumanResourcesStudentsInformation {...props} />}
+      {isOpen && <HumanResourcesStudentsInformation courseCompletion={0} courseEngagment={0} projectDegree={0}
+                                                    teamProjectDegree={0} expectedTypeWork={0} targetWorkCity={''}
+                                                    expectedContractType={0} expectedSalary={0}
+                                                    canTakeApprenticeship={0} monthsOfCommercialExp={0} {...props} />}
     </div>
   );
 };
