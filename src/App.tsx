@@ -48,7 +48,7 @@ function App() {
       <Routes>
         <Route path={'/'} element={<LoginPage />} />
         <Route path={'/hr'} element={<HumanResourcesPage />} />
-        <Route path={'/hr/portfolio/:id'} element={<PortfolioPage />} />
+        <Route path={'/hr/portfolio'} element={<PortfolioPage />} />
         <Route path={'/admin'} element={<AdminViewPage />} />
         <Route path='/user/:id' element={<UserPage />} />
         <Route path={'/user'} element={<UserPage />} />
