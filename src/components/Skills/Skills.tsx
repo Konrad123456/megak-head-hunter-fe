@@ -5,55 +5,75 @@ import { PortfolioLinks } from '../PortfolioLinks/PortfolioLinks';
 import { PortfolioText } from '../PortfolioText/PortfolioText';
 import { PortfolioScores } from '../PortfolioScores/PortfolioScores';
 import { PortfolioWorkExpectations } from '../PortfolioWorkExpectations/PortfolioWorkExpectations';
+import {
+  expectedTypeWorkEntity,
+  ContractType,
+  choiceYesNO,
+} from 'types';
+import { displayContractType } from '../../utils/display/displayContractType';
+import { displayCanTakeApprenticeship } from '../../utils/display/displayCanTakeApprenticeship';
+import { displayExpectedTypeOfWork } from '../../utils/display/displayExpectedTypeOfWork';
 
-const lorem =
-  'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem optio unde pariatur totam, voluptate vel accusamus iure, ab non dignissimos sequi rerum natus quasi repellendus, eius inventore tenetur culpa. Dolorem.';
+type Props = {
+  courseCompletion: number;
+  courseEngagment: number;
+  projectDegree: number;
+  teamProjectDegree: number;
+  portfolioUrls: string[];
+  projectUrls: string[];
+  expectedTypeWork: expectedTypeWorkEntity;
+  targetWorkCity: string;
+  expectedContractType: ContractType;
+  expectedSalary: number;
+  canTakeApprenticeship: choiceYesNO;
+  monthsOfCommercialExp: number;
+  education: string;
+  workExperience: string;
+  courses: string;
+};
 
-const link1 = ['https://Loremipsum/dolor/sit/amet'];
-const link2 = [
-  'https://github.com/Ami777/MegaKurs/Test/commits?author=Ami777',
-  'https://github.com/Ami777/MegaKurs/Test/pulls?q=is%3Apr+reviewed-by%eAAmi777',
-];
-const link3 = [
-  'https://Loremipsum/dolor/sit/amet ',
-  'https://Loremipsum/dolor/sit/amet',
-];
+export const Skills = (props: Props) => {
+  const PortfolioScoresArr = [
+    props.courseCompletion,
+    props.courseEngagment,
+    props.projectDegree,
+    props.teamProjectDegree,
+  ] as number[];
 
-export const Skills = () => {
+  const expectationsArr = [
+    displayExpectedTypeOfWork(props.expectedContractType),
+    props.targetWorkCity,
+    displayContractType(props.expectedContractType),
+    `${props.expectedSalary} zł`,
+    displayCanTakeApprenticeship(props.canTakeApprenticeship),
+    `${props.monthsOfCommercialExp} m.`,
+  ];
+
   return (
     <div className='skills'>
       <PortfolioHeaders text={staticText.mainPages.text.scores} />
-      <PortfolioScores stars={[5, 3, 4, 5]} />
+      <PortfolioScores stars={PortfolioScoresArr} />
 
       <PortfolioHeaders text={staticText.mainPages.text.workExpectations} />
-      <PortfolioWorkExpectations
-        expectations={[
-          'Biuro',
-          'Warszawa',
-          'Umowa o pracę',
-          '8000zł',
-          'TAK',
-          '6 miesięcy',
-        ]}
-      />
+      <PortfolioWorkExpectations expectations={expectationsArr} />
 
       <PortfolioHeaders text={staticText.mainPages.text.education} />
-      <PortfolioText text={lorem} />
+      <PortfolioText text={props.education} />
 
       <PortfolioHeaders text={staticText.mainPages.text.courses} />
-      <PortfolioText text={lorem} />
+      <PortfolioText text={props.courses} />
 
       <PortfolioHeaders text={staticText.mainPages.text.workExperience} />
-      <PortfolioText text={lorem} />
+      <PortfolioText text={props.workExperience} />
 
       <PortfolioHeaders text={staticText.mainPages.text.portfolio} />
-      <PortfolioLinks links={link1} />
+      <PortfolioLinks links={props.portfolioUrls} />
 
       <PortfolioHeaders text={staticText.mainPages.text.scrumProject} />
-      <PortfolioLinks links={link2} />
+      <PortfolioLinks links={props.projectUrls} />
 
       <PortfolioHeaders text={staticText.mainPages.text.completionProject} />
-      <PortfolioLinks links={link3} />
+      <PortfolioLinks links={props.projectUrls} />
     </div>
   );
 };
