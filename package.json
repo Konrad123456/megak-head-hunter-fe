@@ -7,7 +7,6 @@
     "@testing-library/react": "^14.0.0",
     "cra-template-typescript": "1.2.0",
     "formik": "^2.2.9",
-    "gh-account-exists": "^0.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
