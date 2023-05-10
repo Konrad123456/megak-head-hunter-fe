@@ -4,6 +4,7 @@ import {
 } from '../HumanResourcesSingleDetailedStudent/HumanResourcesSingleDetailedStudent';
 import {useRemoveFromToTalkMutation, useToTalkMutation} from "../../../api/toTalkApiSlice";
 import {StudentsToTalkList} from 'types'
+import {checkGitHubAccount} from "../../../utils/checkGitHubAccount/checkGitHubAccount";
 
 
 interface Props {
@@ -46,6 +47,7 @@ export const HumanResourcesToTalkStudents = ({page,limitOnPage,setMaxStudentsNum
     useEffect(() => {
         try{
         (async () => {
+            await checkGitHubAccount('JarekKrolik')
             const limit = limitOnPage
             const result = await toTalk({page, limit})
             // @ts-ignore
