@@ -74,7 +74,7 @@ export const HumanResourcesSingleDetailedStudent = ({
                 </div>
                 <div className='human-resources-single-detailed-student__buttons'>
                     <SubmitButton text='Pokaż CV'/>
-                    <div onClick={removeStudent}>Brak zainteresowania</div>
+                    <SubmitButton handleClick={removeStudent} text={'Brak zainteresowania'}/>
                     <SubmitButton text='Zatrudniony'/>
                     <button onClick={handleOpen}>
                         {isOpen ? (
