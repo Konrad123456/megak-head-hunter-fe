@@ -20,7 +20,6 @@ interface ToTalkList {
     name: string;
     reservation: string;
     picture: string;
-
     courseCompletion: number;
     courseEngagment: number;
     projectDegree: number;
@@ -49,8 +48,6 @@ export const HumanResourcesToTalkStudents = ({page, limitOnPage, setMaxStudentsN
             (async () => {
                 const limit = limitOnPage
                 const result = await toTalk({page, limit})
-                // @ts-ignore
-                console.log(result.data)
                 // @ts-ignore
                 const studentsToTalkList = result.data as StudentsToTalkList[]
                 setMaxStudentsNumber(studentsToTalkList.length)
