@@ -60,8 +60,8 @@ export const HumanResourcesSingleDetailedStudent = ({
     })();
   }, []);
 
-  const handleShowCv = () => {
-    navigate('/hr/portfolio/1');
+  const handleShowCv = (id: string) => {
+    navigate(`/hr/portfolio`, { state: { id } });
   };
 
   return (
@@ -94,7 +94,7 @@ export const HumanResourcesSingleDetailedStudent = ({
           </div>
         </div>
         <div className='human-resources-single-detailed-student__buttons'>
-          <SubmitButton handleClick={handleShowCv} text='Pokaż CV' />
+          <SubmitButton handleClick={() => handleShowCv(id)} text='Pokaż CV' />
           <SubmitButton
             handleClick={removeStudent}
             text={'Brak zainteresowania'}
