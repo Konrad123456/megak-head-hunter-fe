@@ -55,7 +55,7 @@ export const HumanResourcesToTalkStudents = ({page, limitOnPage, setMaxStudentsN
                     id: el.id,
                     name: `${el.firstName} ${el.lastName}`,
                     reservation: String(el.toDate),
-                    picture: el.githubUsername + '.png',
+                    picture: `${el.githubUsername}.png`,
                     canTakeApprenticeship: el.canTakeApprenticeship,
                     monthsOfCommercialExp: el.monthsOfCommercialExp,
                     courseEngagment: el.courseEngagment,
