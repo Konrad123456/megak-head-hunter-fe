@@ -1,4 +1,17 @@
-const HumanResourcesStudentsInformation = (props: any) => {
+interface Props {
+  courseCompletion:number;
+  courseEngagment:number;
+  projectDegree:number;
+  teamProjectDegree:number;
+  expectedTypeWork:number;
+  targetWorkCity:string;
+  expectedContractType:number;
+  expectedSalary:number;
+  canTakeApprenticeship:number;
+  monthsOfCommercialExp:number;
+}
+
+const HumanResourcesStudentsInformation = (props:Props) => {
   const {
     courseCompletion,
     courseEngagment,

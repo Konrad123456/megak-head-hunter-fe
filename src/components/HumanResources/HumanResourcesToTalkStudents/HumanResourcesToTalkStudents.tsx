@@ -1,29 +1,92 @@
-import React from 'react';
-import { HumanResourcesSingleDetailedStudent } from '../HumanResourcesSingleDetailedStudent/HumanResourcesSingleDetailedStudent';
+import React, {Dispatch, SetStateAction, useEffect, useState} from 'react';
+import {
+    HumanResourcesSingleDetailedStudent
+} from '../HumanResourcesSingleDetailedStudent/HumanResourcesSingleDetailedStudent';
+import {useRemoveFromToTalkMutation, useToTalkMutation} from "../../../api/toTalkApiSlice";
+import {StudentsToTalkList} from 'types'
 
-const people = [
-  { id: '1', name: 'Jan Kowalski', reservation: '11.07.2023' },
-  { id: '2', name: 'Paweł Słoma', reservation: '12.12.2024' },
-  { id: '3', name: 'Mariusz Lukier', reservation: '06.06.2023' },
-  { id: '4', name: 'Katarzyna Konieczny', reservation: '11.11.2023' },
-  { id: '5', name: 'Kamil Ostrowski', reservation: '12.11.2023' },
-  { id: '6', name: 'Aleksandra Machi', reservation: '23.10.2023' },
-  { id: '7', name: 'Marcin Pawlak', reservation: '27.06.2023' },
-  { id: '8', name: 'Marcin Robak', reservation: '23.06.2023' },
-  { id: '9', name: 'Łukasz Skibicki', reservation: '12.12.2023' },
-  { id: '10', name: 'Jakub Oleśnicki', reservation: '06.12.2023' },
-  { id: '11', name: 'Paweł Słoma', reservation: '12.12.2024' },
-  { id: '12', name: 'Mariusz Lukier', reservation: '06.06.2023' },
-  { id: '13', name: 'Katarzyna Konieczny', reservation: '11.11.2023' },
-  { id: '14', name: 'Kamil Ostrowski', reservation: '12.11.2023' },
-];
 
-export const HumanResourcesToTalkStudents = () => {
-  return (
-    <div className='human-resources-to-talk-students'>
-      {people.map((person, index) => (
-        <HumanResourcesSingleDetailedStudent key={index} {...person} />
-      ))}
-    </div>
-  );
+
+interface Props {
+    page: number;
+    limitOnPage: number;
+    setLimitOnPage: Dispatch<SetStateAction<number>>;
+    setMaxStudentsNumber: Dispatch<SetStateAction<number>>;
+}
+
+interface ToTalkList {
+    githubUsername: string;
+    id: string;
+    name: string;
+    reservation: string;
+    picture: string;
+    courseCompletion: number;
+    courseEngagment: number;
+    projectDegree: number;
+    teamProjectDegree: number;
+    expectedTypeWork: number;
+    targetWorkCity: string;
+    expectedContractType: number;
+    expectedSalary: number;
+    canTakeApprenticeship: number;
+    monthsOfCommercialExp: number;
+}
+
+
+export const HumanResourcesToTalkStudents = ({page, limitOnPage, setMaxStudentsNumber, setLimitOnPage}: Props) => {
+    const [toTalk, {isLoading, isError, error}] = useToTalkMutation()
+    const [toTalkList, setToTalkList] = useState<ToTalkList[]>()
+    const [errorResponse, setErrorResponse] = useState('')
+    const [removeFromToTalk] = useRemoveFromToTalkMutation()
+
+    const handleRemoveStudentFromTalkList = async (id: string) => {
+        await removeFromToTalk(id)
+        setLimitOnPage(prev => --prev)
+    }
+    useEffect(() => {
+        try {
+            (async () => {
+                const limit = limitOnPage
+                const result = await toTalk({page, limit})
+                // @ts-ignore
+                const studentsToTalkList = result.data as StudentsToTalkList[]
+                setMaxStudentsNumber(studentsToTalkList.length)
+                setToTalkList(studentsToTalkList.map(el => ({
+                    id: el.id,
+                    name: `${el.firstName} ${el.lastName}`,
+                    reservation: String(el.toDate),
+                    picture: `${el.githubUsername}.png`,
+                    canTakeApprenticeship: el.canTakeApprenticeship,
+                    monthsOfCommercialExp: el.monthsOfCommercialExp,
+                    courseEngagment: el.courseEngagment,
+                    projectDegree: el.projectDegree,
+                    teamProjectDegree: el.teamProjectDegree,
+                    targetWorkCity: el.targetWorkCity,
+                    expectedTypeWork: el.expectedTypeWork,
+                    courseCompletion: el.courseCompletion,
+                    expectedContractType: el.expectedContractType,
+                    expectedSalary: el.expectedSalary,
+                    githubUsername: el.githubUsername,
+                })))
+            })()
+        } catch (e) {
+            setErrorResponse('Coś poszło nie tak, spróbuj ponownie później...')
+        }
+    }, [limitOnPage, page])
+
+
+    return (
+        <div className='human-resources-to-talk-students'>
+            {isLoading && <h2 className={'error'}>wczytywanie listy</h2>}
+            {errorResponse && <h2 className={'error'}>{errorResponse}</h2>}
+            {setToTalkList.length === 0 && <h2 className={'error'}>Brak kursantów do wyświetlenia...</h2>}
+            {toTalkList?.map((person, index) => (
+                <HumanResourcesSingleDetailedStudent
+                    key={index}
+                    {...person}
+                    id={person.id}
+                    handleRemoveStudentFromTalkList={handleRemoveStudentFromTalkList}/>
+            ))}
+        </div>
+    );
 };
