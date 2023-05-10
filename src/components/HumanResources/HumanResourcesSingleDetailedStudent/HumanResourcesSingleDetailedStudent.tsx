@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { SubmitButton } from '../../common/Button/SubmitButton';
 import HumanResourcesStudentsInformation from '../HumanResourcesStudentsInformation/HumanResourcesStudentsInformation';
 import { checkGitHubAccount } from '../../../utils/checkGitHubAccount/checkGitHubAccount';
+import { useNavigate } from 'react-router';
 
 interface Props {
   id: string;
@@ -42,6 +43,9 @@ export const HumanResourcesSingleDetailedStudent = ({
 }: Props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [gitHubAccountTrue, setGitHubAccountTrue] = useState(false);
+
+  const navigate = useNavigate();
+
   const removeStudent = async () => {
     await handleRemoveStudentFromTalkList(id);
   };
@@ -55,6 +59,11 @@ export const HumanResourcesSingleDetailedStudent = ({
       checkGitHub === 200 && setGitHubAccountTrue(true);
     })();
   }, []);
+
+  const handleShowCv = () => {
+    navigate('/hr/portfolio/1');
+  };
+
   return (
     <div className='human-resources-single-detailed-student'>
       <div className='human-resources-single-detailed-student__header'>
@@ -85,7 +94,7 @@ export const HumanResourcesSingleDetailedStudent = ({
           </div>
         </div>
         <div className='human-resources-single-detailed-student__buttons'>
-          <SubmitButton text='Pokaż CV' />
+          <SubmitButton handleClick={handleShowCv} text='Pokaż CV' />
           <SubmitButton
             handleClick={removeStudent}
             text={'Brak zainteresowania'}
