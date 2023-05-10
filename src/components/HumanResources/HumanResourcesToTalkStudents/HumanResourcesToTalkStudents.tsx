@@ -53,7 +53,7 @@ export const HumanResourcesToTalkStudents = ({page, limitOnPage, setMaxStudentsN
                 setMaxStudentsNumber(studentsToTalkList.length)
                 setToTalkList(studentsToTalkList.map(el => ({
                     id: el.id,
-                    name: el.firstName + ' ' + el.lastName,
+                    name: `${el.firstName} ${el.lastName}`,
                     reservation: String(el.toDate),
                     picture: el.githubUsername + '.png',
                     canTakeApprenticeship: el.canTakeApprenticeship,
