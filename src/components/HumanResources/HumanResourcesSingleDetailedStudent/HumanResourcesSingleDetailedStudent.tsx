@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {SubmitButton} from '../../common/Button/SubmitButton';
 import HumanResourcesStudentsInformation from '../HumanResourcesStudentsInformation/HumanResourcesStudentsInformation';
+import {checkGitHubAccount} from "../../../utils/checkGitHubAccount/checkGitHubAccount";
 
 interface Props {
     id: string;
@@ -8,7 +9,7 @@ interface Props {
     reservation: string;
     picture: string;
     handleRemoveStudentFromTalkList: (id: string) => Promise<void>;
-
+    githubUsername: string;
     courseCompletion: number;
     courseEngagment: number;
     projectDegree: number;
@@ -37,9 +38,13 @@ export const HumanResourcesSingleDetailedStudent = ({
                                                         projectDegree,
                                                         teamProjectDegree,
                                                         courseCompletion,
+                                                        githubUsername,
+
 
                                                     }: Props) => {
+
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [gitHubAccountTrue, setGitHubAccountTrue] = useState(false)
     const removeStudent = async () => {
         await handleRemoveStudentFromTalkList(id)
     }
@@ -47,6 +52,12 @@ export const HumanResourcesSingleDetailedStudent = ({
         setIsOpen(!isOpen);
     };
 
+    useEffect(() => {
+        (async () => {
+            const checkGitHub = await checkGitHubAccount(githubUsername)
+            checkGitHub === 200 && setGitHubAccountTrue(true)
+        })()
+    }, [])
     return (
         <div className='human-resources-single-detailed-student'>
             <div className='human-resources-single-detailed-student__header'>
@@ -63,7 +74,7 @@ export const HumanResourcesSingleDetailedStudent = ({
                         <div className='human-resources-single-detailed-student__person-container'>
                             <img
                                 className='human-resources-single-detailed-student__person-image'
-                                src={`https://github.com/${picture}`}
+                                src={gitHubAccountTrue ? `https://github.com/${picture}` : require('../../../utils/img/github.png')}
                                 alt='avatar'
                             />
                         </div>
@@ -97,8 +108,6 @@ export const HumanResourcesSingleDetailedStudent = ({
                 monthsOfCommercialExp={monthsOfCommercialExp}
                 canTakeApprenticeship={canTakeApprenticeship}
                 expectedSalary={expectedSalary}
-
-
             />}
         </div>
     );
