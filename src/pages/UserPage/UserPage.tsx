@@ -6,8 +6,8 @@ import staticText from "../../languages/en.pl";
 import {UserViewForm} from "../../components/Formik/Forms/UserViewForm";
 import {choiceYesNO, ContractType, expectedTypeWorkEntity, OneStudentResponse} from "types";
 import {useLogoutMutation} from "../../api/authApiSlice";
-import {useDispatch} from "react-redux";
-import {logOut} from "../../store/auth/authSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {logOut, selectCurrentUser} from "../../store/auth/authSlice";
 import {useNavigate} from "react-router";
 
 const userMockupData:OneStudentResponse = {
@@ -36,7 +36,8 @@ export const UserPage = () => {
     const [logout] = useLogoutMutation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
+    const user = useSelector(selectCurrentUser);
+    console.log(user)
     const onLogOutHandler = async () => {
       try {
         await logout({}).unwrap();
