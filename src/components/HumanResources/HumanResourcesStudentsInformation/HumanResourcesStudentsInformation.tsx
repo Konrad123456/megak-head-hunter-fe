@@ -1,3 +1,7 @@
+import { displayCanTakeApprenticeship } from '../../../utils/display/displayCanTakeApprenticeship';
+import { displayContractType } from '../../../utils/display/displayContractType';
+import { displayExpectedTypeOfWork } from '../../../utils/display/displayExpectedTypeOfWork';
+
 interface Props {
   courseCompletion:number;
   courseEngagment:number;
@@ -24,43 +28,6 @@ const HumanResourcesStudentsInformation = (props:Props) => {
     canTakeApprenticeship,
     monthsOfCommercialExp,
   } = props;
-
-  const displayExpectedTypeOfWork = (num: number) => {
-    switch (num) {
-      case 1:
-        return 'Na miejscu';
-      case 2:
-        return 'Gotowość do przeprowadzki';
-      case 3:
-        return 'Wyłącznie zdalnie';
-      case 4:
-        return 'Hybrydowo';
-      default:
-        return 'Bez znaczenia';
-    }
-  };
-
-  const displayContractType = (num: number) => {
-    switch (num) {
-      case 1:
-        return 'Tylko UoP';
-      case 2:
-        return 'Możliwe B2B';
-      case 3:
-        return 'Możliwe UZ/UoD';
-      default:
-        return 'Brak preferencji';
-    }
-  };
-
-  const displayCanTakeApprenticeship = (num: number) => {
-    switch (num) {
-      case 1:
-        return 'TAK';
-      default:
-        return 'NIE';
-    }
-  };
 
   return (
     <div className='human-resources-students-information'>
