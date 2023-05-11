@@ -76,7 +76,8 @@ export const UserPage = () => {
             const response = await getStudent('id')
             // @ts-ignore
             const data = response.data as OneStudentResponse
-            const userData = {
+            // @ts-ignore
+            const userData = response.data.length>0?{
                 firstName: data.firstName,
                 lastName: data.lastName,
                 email: data.email,
@@ -95,6 +96,25 @@ export const UserPage = () => {
                 education: data.education,
                 workExperience: data.workExperience,
                 courses: data.courses,
+            }:{
+                firstName: '',
+                lastName: '',
+                email: '',
+                tel: '',
+                githubUsername: '',
+                portfolioUrls: [''],
+                projectUrls: [''],
+                bio: '',
+                expectedContractType: ContractType.NO_PREFERENCE,
+                // @ts-ignore
+                expectedTypeWork: expectedTypeWorkEntity.IRRELEVANT,
+                targetWorkCity: '',
+                expectedSalary: 0,
+                canTakeApprenticeship: choiceYesNO.NO,
+                monthsOfCommercialExp: 0,
+                education: '',
+                workExperience: '',
+                courses: '',
             }
             setData(userData);
             setLoading(false);
