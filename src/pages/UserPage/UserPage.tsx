@@ -41,6 +41,7 @@ export const UserPage = () => {
       try {
         await logout({}).unwrap();
         dispatch(logOut());
+
         navigate('/');
       } catch (e) {
         console.log(e);
