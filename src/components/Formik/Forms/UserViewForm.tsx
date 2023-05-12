@@ -100,6 +100,7 @@ export const UserViewForm = (props:Props) => {
                             expectedContractType:0,
                             canTakeApprenticeship:values.canTakeApprenticeship?1:0,
                         }as StudentsDataInterface
+                        console.log(values)
                         const response = await sendStudentData(sendData)
                         console.log(response)
 

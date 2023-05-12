@@ -68,7 +68,7 @@ export const AdminViewPasswordChangeForm = (props: Props) => {
                 {isLoading && <div className={'error'}>zapisywanie...</div>}
                 {serverResponse && <div className={'error'}>{serverResponse}</div>}
                 <SubmitBtn text={staticText.userPage.submitButton.text}/>
-                <div onClick={props.handleModalExit} className={'btn modal'}>{staticText.adminPage.close}</div>
+                <div onClick={props.handleModalExit} style={{margin:'20px auto'}} className={'btn modal'}>{staticText.adminPage.close}</div>
             </Form>
         </Formik>
     )
