@@ -89,6 +89,7 @@ export const UserViewForm = (props:Props) => {
                         values:userFullData,
                         {setSubmitting}:FormikHelpers<userFullData>
                     ) => {
+                        console.log(values)
                         const response = await sendStudentData(values)
                         console.log(response)
 

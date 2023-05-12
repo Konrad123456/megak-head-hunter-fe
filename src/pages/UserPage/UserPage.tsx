@@ -77,7 +77,7 @@ export const UserPage = () => {
             // @ts-ignore
             const data = response.data as OneStudentResponse
             // @ts-ignore
-            const userData = response.data.length>0?{
+            const userData = response.data?{
                 firstName: data.firstName,
                 lastName: data.lastName,
                 email: data.email,
