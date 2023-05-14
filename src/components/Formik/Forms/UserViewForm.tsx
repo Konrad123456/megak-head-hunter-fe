@@ -1,7 +1,7 @@
 import React,{useState} from "react";
-import {Form,Formik,FormikHelpers} from "formik";
+import {Form,Formik,FormikHelpers, validateYupSchema} from "formik";
 import * as Yup from "yup";
-import {OneStudentResponse} from 'types'
+import {OneStudentResponse, ContractType, expectedTypeWorkEntity} from 'types'
 
 import staticText from "../../../languages/en.pl";
 import {SubmitBtn} from "../../common/SubmitBtn/SubmitBtn";
@@ -9,7 +9,7 @@ import {UserPersonalDataInputs} from "../../UserPersonalDataInputs/UserPersonalD
 import {UserEmploymentDataInputs} from "../../UserEmploymentDataInputs/UserEmploymentDataInputs";
 import {UserAboutMeInputs} from "../../UserAboutMeInputs/UserAboutMeInputs";
 import {UserExperienceInputs} from "../../UserExperienceInputs/UserExperienceInputs";
-import {expectedContractTypesValues,expectedTypeWorkValues} from "../../../utils/enumKeys/enumKeys";
+import {expectedContractTypesValues,expectedTypeWorkValues, expectedTypeWorkValuesNum, expectedContractTypesValuesNum} from "../../../utils/enumKeys/enumKeys";
 import {useSendStudentDataMutation} from "../../../api/updateStudentDataApiSlice";
 
 
@@ -19,16 +19,16 @@ export interface userFullData{
     email:string;
     tel:string;
     githubUsername:string;
-    portfolioUrls:string;
-    projectUrls:string;
+    // portfolioUrls:string;
+    // projectUrls:string;
     bio:string;
-    expectedContractType: string,
-    expectedTypeWork: string,
+    expectedContractType: ContractType,
+    expectedTypeWork: expectedTypeWorkEntity,
     targetWorkCity:string;
     expectedSalary: number;
-    canTakeApprenticeship: boolean;
+    // canTakeApprenticeship: boolean;
     monthsOfCommercialExp: number;
-    education: string;
+    // education: string;
     workExperience: string;
     courses:string;
 }
@@ -41,13 +41,13 @@ export const UserViewForm = (props:Props) => {
     const [sendStudentData,{isLoading}]=useSendStudentDataMutation()
     const [userFEData, setUserFEData] = useState<userFullData>({
         ...props.userData,
-        portfolioUrls:props.userData.portfolioUrls.reduce((prev,curr) => prev + curr + "\n" ,""),
-        projectUrls:props.userData.projectUrls.reduce((prev,curr) => prev + curr + "\n" ,""),
-        expectedContractType:expectedContractTypesValues[props.userData.expectedContractType],
-        expectedTypeWork:expectedTypeWorkValues[props.userData.expectedTypeWork],
-        canTakeApprenticeship: !!props.userData.canTakeApprenticeship
+        // portfolioUrls:props.userData.portfolioUrls.reduce((prev,curr) => prev + curr + "\n" ,""),
+        // projectUrls:props.userData.projectUrls.reduce((prev,curr) => prev + curr + "\n" ,""),
+        // expectedContractType:expectedContractTypesValues[props.userData.expectedContractType],
+        // expectedTypeWork:expectedTypeWorkValues[props.userData.expectedTypeWork],
+        // canTakeApprenticeship: !!props.userData.canTakeApprenticeship
     })
-
+    
     return(
         <>
             <Formik
@@ -65,17 +65,27 @@ export const UserViewForm = (props:Props) => {
                     githubUsername: Yup.string()
                         .required("Pole wymagane"),
                     tel:Yup.string(),
-                    portfolioUrls:Yup.string(),
-                    projectUrls:Yup.string()
-                        .required("Pole wymagane"),
+                    portfolioUrls:Yup.array()
+                        .notRequired()
+                        .ensure()
+                        .default([]),
+                    projectUrls:Yup.array()
+                        .notRequired()
+                        .ensure()
+                        .default([]),
+                        // .required("Pole wymagane"),
                     bio:Yup.string(),
-                    expectedTypeWork: Yup.string()
-                        .required("Pole wymagane")
-                        .oneOf(expectedTypeWorkValues, "Niepoprawna wartość"),
+                    expectedTypeWork: Yup
+                        .mixed<expectedTypeWorkEntity>()
+                        .oneOf(expectedTypeWorkValuesNum, "Niepoprawna wartość")
+                        .transform(v => Number(v))
+                        .required("Pole wymagane"),
                     targetWorkCity:Yup.string(),
-                    expectedContractType: Yup.string()
-                        .required("Pole wymagane")
-                        .oneOf(expectedContractTypesValues),
+                    expectedContractType: Yup
+                        .mixed<ContractType>()
+                        .oneOf(expectedContractTypesValuesNum)
+                        .transform(v => Number(v))
+                        .required(),
                     expectedSalary:Yup.string(),
                     canTakeApprenticeship: Yup.boolean(),
                     monthsOfCommercialExp: Yup.number()
