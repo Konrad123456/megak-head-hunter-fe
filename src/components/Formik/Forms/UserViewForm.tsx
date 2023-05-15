@@ -10,6 +10,11 @@ import {UserEmploymentDataInputs} from "../../UserEmploymentDataInputs/UserEmplo
 import {UserAboutMeInputs} from "../../UserAboutMeInputs/UserAboutMeInputs";
 import {UserExperienceInputs} from "../../UserExperienceInputs/UserExperienceInputs";
 import {expectedContractTypesValues,expectedTypeWorkValues} from "../../../utils/enumKeys/enumKeys";
+import {
+    expectedTypeWorkEntity,
+    StudentsDataInterface,
+    useSendStudentDataMutation
+} from "../../../api/updateStudentDataApiSlice";
 
 
 export interface userFullData{
@@ -37,6 +42,7 @@ interface Props {
 }
 
 export const UserViewForm = (props:Props) => {
+    const [sendStudentData,{isLoading}]=useSendStudentDataMutation()
     const [userFEData, setUserFEData] = useState<userFullData>({
         ...props.userData,
         portfolioUrls:props.userData.portfolioUrls.reduce((prev,curr) => prev + curr + "\n" ,""),
@@ -45,12 +51,11 @@ export const UserViewForm = (props:Props) => {
         expectedTypeWork:expectedTypeWorkValues[props.userData.expectedTypeWork],
         canTakeApprenticeship: !!props.userData.canTakeApprenticeship
     })
-
     return(
         <>
             <Formik
                 initialValues={{
-                    ...userFEData
+                    ...userFEData,
                 }}
                 validationSchema={Yup.object({
                     email:Yup.string()
@@ -87,16 +92,28 @@ export const UserViewForm = (props:Props) => {
                         values:userFullData,
                         {setSubmitting}:FormikHelpers<userFullData>
                     ) => {
-                        console.log(values);
+                        const sendData = {
+                            ...values,
+                            portfolioUrls: values.portfolioUrls.split('/'),
+                            projectUrls: values.projectUrls.split('/'),
+                            expectedTypeWork: 0,
+                            expectedContractType:0,
+                            canTakeApprenticeship:values.canTakeApprenticeship?1:0,
+                        }as StudentsDataInterface
+                        console.log(values)
+                        const response = await sendStudentData(sendData)
+                        console.log(response)
+
+                        // console.log(values);
                         //Github account validation, in future result should be displayed in toast
-                        const res = await fetch(`https://api.github.com/users/${values.githubUsername}`);
-                        if(res.status === 200){
-                            console.log("Istnieje")
-                        } else if (res.status === 404) {
-                            console.log("Nie istnieje")
-                        } else {
-                            console.log("Błąd inny")
-                        }
+                        // const res = await fetch(`https://api.github.com/users/${values.githubUsername}`);
+                        // if(res.status === 200){
+                        //     console.log("Istnieje")
+                        // } else if (res.status === 404) {
+                        //     console.log("Nie istnieje")
+                        // } else {
+                        //     console.log("Błąd inny")
+                        // }
                         setSubmitting(false);
                     }
                 }
