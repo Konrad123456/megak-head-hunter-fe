@@ -1,32 +1,49 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import staticText from '../../languages/en.pl';
+import {logOut} from "../../store/auth/authSlice";
+import {useLogoutMutation} from "../../api/authApiSlice";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router";
 
 export const LoginUser = () => {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-  return (
-    <div className='login-user'>
-      <div className='login-user__img'>
-        <img src={require('../../utils/img/default_user.png')} alt='avatar' />
-      </div>
-      {/* name has to be provide from backend */}
-      <p className='login-user__name'>Mateusz Kowalski</p>
-      <span
-        onClick={() => setIsVisible(!isVisible)}
-        className='login-user__arrow material-symbols-outlined'
-      >
+    const [isVisible, setIsVisible] = useState<boolean>(false);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const [logout] = useLogoutMutation();
+    const handleLogout = async () => {
+        try {
+            await logout({}).unwrap();
+            dispatch(logOut());
+            navigate('/');
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    return (
+        <div className='login-user'>
+            <div className='login-user__img'>
+                <img src={require('../../utils/img/default_user.png')} alt='avatar'/>
+            </div>
+            {/* name has to be provide from backend */}
+            <p className='login-user__name'>Mateusz Kowalski</p>
+            <span
+                onClick={() => setIsVisible(!isVisible)}
+                className='login-user__arrow material-symbols-outlined'
+            >
         arrow_drop_down
       </span>
 
-      {isVisible && (
-        <ul className='login-user__list'>
-          <li className='login-user__list-item'>
-            {staticText.navigation.account}
-          </li>
-          <li className='login-user__list-item'>
-            {staticText.navigation.logout}
-          </li>
-        </ul>
-      )}
-    </div>
-  );
+            {isVisible && (
+                <ul className='login-user__list'>
+                    <li className='login-user__list-item'>
+                        {staticText.navigation.account}
+                    </li>
+                    <li onClick={handleLogout} className='login-user__list-item'>
+                        {staticText.navigation.logout}
+                    </li>
+                </ul>
+            )}
+        </div>
+    );
 };
