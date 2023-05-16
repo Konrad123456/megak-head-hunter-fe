@@ -52,13 +52,23 @@ export interface StudentsDataInterface {
 const updateStudentDataApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         sendStudentData: builder.mutation({
-            query: (userData:StudentsDataInterface) => ({
+            query: (userData: StudentsDataInterface) => ({
                 url: '/user',
                 method: 'PUT',
-                body:userData,
+                body: userData,
+            })
+        }),
+        studentChangeStatus: builder.mutation({
+            query: (status: number) => ({
+                url: '/user',
+                method:'PUT',
+                body:{
+                    status:status,
+                }
+
             })
         })
     })
 })
 
-export const {useSendStudentDataMutation}= updateStudentDataApiSlice
+export const {useSendStudentDataMutation,useStudentChangeStatusMutation} = updateStudentDataApiSlice
