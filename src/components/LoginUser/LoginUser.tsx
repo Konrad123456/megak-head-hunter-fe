@@ -6,7 +6,7 @@ export const LoginUser = () => {
   return (
     <div className='login-user'>
       <div className='login-user__img'>
-        <img src='https://github.com/Ami777.png ' alt='avatar' />
+        <img src={require('../../utils/img/default_user.png')} alt='avatar' />
       </div>
       {/* name has to be provide from backend */}
       <p className='login-user__name'>Mateusz Kowalski</p>
