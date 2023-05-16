@@ -53,7 +53,7 @@ export const Bio = (props: Props) => {
       <div className='bio__details'>
         <p className='bio__name'>{`${props.firstName} ${props.lastName}`}</p>
         <a
-          href='https://github.com'
+          href={`https://github.com/${gitHubAccountTrue?props.githubUsername:null}`}
           className='bio__link'
           target='_blank'
           rel='noreferrer'
