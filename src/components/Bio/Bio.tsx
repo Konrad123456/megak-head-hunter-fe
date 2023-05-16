@@ -8,6 +8,7 @@ import {SubmitBtn} from "../common/SubmitBtn/SubmitBtn";
 import {SubmitButton} from "../common/Button/SubmitButton";
 import {useRemoveFromToTalkMutation} from "../../api/toTalkApiSlice";
 import {useNavigate} from "react-router";
+import {useSendStudentDataMutation} from "../../api/updateStudentDataApiSlice";
 
 type Props = {
     id: string;
@@ -35,10 +36,17 @@ export const Bio = (props: Props) => {
     const navigate = useNavigate()
     const [gitHubAccountTrue, setGitHubAccountTrue] = useState(false);
     const [removeFromToTalk] = useRemoveFromToTalkMutation()
+    // const [studentChangeStatus] = useSendStudentDataMutation()
     const handleRemoveFromToTalkList = async () => {
         await removeFromToTalk(props.id)
         navigate('/hr')
-
+    }
+    // const handleStudentStatusChange = async () => {
+    //     await studentChangeStatus(2);
+    //     navigate('/hr')
+    // }
+    const handleReturnToMainPage = ()=>{
+        navigate('/hr')
     }
     useEffect(() => {
         (async () => {
@@ -103,6 +111,7 @@ export const Bio = (props: Props) => {
             <div className='bio__buttons'>
                 <SubmitButton handleClick={handleRemoveFromToTalkList} text={staticText.mainPages.button.noInterest}/>
                 <Button endpoint='#' text={staticText.mainPages.button.employed}/>
+                <SubmitButton handleClick={handleReturnToMainPage} text={'powrót'} />
             </div>
         </div>
     );
