@@ -16,6 +16,7 @@ const staticText = {
     },
     button: {
       login: 'Zaloguj się',
+      changePass: 'Zmień hasło',
     },
     text: {
       forgetAccount: 'Zapomniałeś hasła?',
@@ -25,13 +26,14 @@ const staticText = {
   },
   userPage: {
     header: {
-      title: 'Widok użytkownika',
+      title: 'Panel użytkownika',
     },
     columnTitle: {
       personalData: 'Dane osobowe:',
       employmentData: 'Dane na temat zatrudnienia:',
       aboutMe: 'O sobie:',
       experience: 'Wykształcenie i doświadczenie:',
+      changePass: 'Zmień hasło:',
     },
     input: {
       firstName: {
@@ -72,7 +74,7 @@ const staticText = {
         label: 'Preferowane miejsce pracy',
         option: {
           IRRELEVANT: 'Bez znaczenia',
-          ATLOCATION: 'Na miejscu',
+          ATLOCATIION: 'Na miejscu',
           READY_TO_CARRYOUT: 'Gotowość do przeprowadzki',
           ONLY_REMOTELY: 'Wyłączenie zdalnie',
           HYBRID: 'Hybrydowo',
@@ -95,11 +97,11 @@ const staticText = {
       },
       portfolioUrls: {
         label: 'Linki do portfolio',
-        placeholder: 'linki rozdzielane enterem...',
+        placeholder: 'link do Twojego portfolio',
       },
       projectUrls: {
         label: 'Linki do projektu',
-        placeholder: 'linki rozdzielane enterem...',
+        placeholder: 'link do projektu',
       },
       education: {
         label: 'Wykształcenie',
@@ -129,7 +131,7 @@ const staticText = {
     singleHrForm: 'Formularz dodawania pojedyńczego HR',
     importStudentsFromFile: 'importuj kursantów z pliku',
     adminSettings: 'ustawienia konta administratora',
-    close: 'zamknij',
+    close: 'Zamknij',
     newPassword: 'nowe hasło',
     confirmPassword: 'powtórz hasło',
     fileIsTooBig: 'Plik jest zbyt duży',
