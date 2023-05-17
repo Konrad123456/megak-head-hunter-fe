@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import staticText from '../../languages/en.pl';
-import {logOut} from "../../store/auth/authSlice";
+import {logOut, selectCurrentUser} from "../../store/auth/authSlice";
 import {useLogoutMutation} from "../../api/authApiSlice";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router";
 import {AdminViewPasswordChangeForm} from "../Formik/Forms/AdminViewPasswordChangeForm";
 
@@ -12,6 +12,7 @@ export const LoginUser = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [logout] = useLogoutMutation();
+    const user = useSelector(selectCurrentUser);
     const handleLogout = async () => {
         try {
             await logout({}).unwrap();
@@ -36,7 +37,7 @@ export const LoginUser = () => {
                     <img src={require('../../utils/img/default_user.png')} alt='avatar'/>
                 </div>
                 {/* name has to be provide from backend */}
-                <p className='login-user__name'>Mateusz Kowalski</p>
+                <p className='login-user__name'>{user.email}</p>
                 <span
                     onClick={() => setIsVisible(!isVisible)}
                     className='login-user__arrow material-symbols-outlined'
