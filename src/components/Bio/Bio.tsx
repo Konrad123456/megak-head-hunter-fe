@@ -39,7 +39,7 @@ export const Bio = (props: Props) => {
         await removeFromToTalk(props.id)
         navigate('/hr')
     }
-    const handleStudentStatusChange = async () => {
+   const handleStudentStatusChange = async () => {
         await studentHired(props.id);
         navigate('/hr')
     }
