@@ -1,9 +1,10 @@
-import {apiSlice} from "./apiSlice";
+import { apiSlice } from './apiSlice';
+import { OneStudentResponse } from 'types';
 
 const getOneStudentApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
-        getStudent: builder.mutation({
-            query: (id:string) => ({
+        getStudent: builder.mutation<OneStudentResponse, {}>({
+            query: () => ({
                 url: '/user',
                 method: 'GET',
             })
@@ -11,4 +12,4 @@ const getOneStudentApi = apiSlice.injectEndpoints({
     })
 })
 
-export const {useGetStudentMutation} = getOneStudentApi
+export const { useGetStudentMutation } = getOneStudentApi
