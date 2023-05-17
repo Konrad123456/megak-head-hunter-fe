@@ -16,6 +16,7 @@ import {
   StudentsDataInterface,
   useSendStudentDataMutation,
 } from '../../../api/updateStudentDataApiSlice';
+import { toast } from "react-toastify";
 
 interface Props {
   userData: OneStudentResponse;
@@ -64,7 +65,9 @@ export const UserViewForm = (props: Props) => {
             ...values,
           } as StudentsDataInterface;
 
-          const response = await sendStudentData(sendData);
+          await sendStudentData(sendData);
+
+          toast.success('Dane zapisane.')
 
           setSubmitting(false);
         }}

@@ -15,6 +15,8 @@ import { logOut } from '../../store/auth/authSlice';
 import { useGetStudentMutation } from '../../api/getOneStudentApi';
 import { AdminViewPasswordChangeForm } from '../../components/Formik/Forms/AdminViewPasswordChangeForm';
 import './_user_page.scss';
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 export const UserPage = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -114,6 +116,7 @@ export const UserPage = () => {
           {loading ? null : <UserViewForm userData={data} />}
         </div>
       </div>
+      <ToastContainer autoClose={5000} style={{fontSize: '1.6rem'}}/>
     </>
   );
 };
