@@ -1,14 +1,12 @@
 import {useEffect, useState} from 'react';
 import staticText from '../../languages/en.pl';
 import logoGithub from '../../utils/img/github.png';
-import {Button} from '../common/Button/Button';
 import {ContractType, choiceYesNO} from 'types';
 import {checkGitHubAccount} from '../../utils/checkGitHubAccount/checkGitHubAccount';
-import {SubmitBtn} from "../common/SubmitBtn/SubmitBtn";
 import {SubmitButton} from "../common/Button/SubmitButton";
 import {useRemoveFromToTalkMutation} from "../../api/toTalkApiSlice";
 import {useNavigate} from "react-router";
-import {useSendStudentDataMutation} from "../../api/updateStudentDataApiSlice";
+import {useStudentHiredMutation} from "../../api/updateStudentDataApiSlice";
 
 type Props = {
     id: string;
@@ -36,15 +34,15 @@ export const Bio = (props: Props) => {
     const navigate = useNavigate()
     const [gitHubAccountTrue, setGitHubAccountTrue] = useState(false);
     const [removeFromToTalk] = useRemoveFromToTalkMutation()
-    // const [studentChangeStatus] = useSendStudentDataMutation()
+    const [studentHired] = useStudentHiredMutation()
     const handleRemoveFromToTalkList = async () => {
         await removeFromToTalk(props.id)
         navigate('/hr')
     }
-    // const handleStudentStatusChange = async () => {
-    //     await studentChangeStatus(2);
-    //     navigate('/hr')
-    // }
+    const handleStudentStatusChange = async () => {
+        await studentHired(props.id);
+        navigate('/hr')
+    }
     const handleReturnToMainPage = ()=>{
         navigate('/hr')
     }
@@ -110,8 +108,8 @@ export const Bio = (props: Props) => {
 
             <div className='bio__buttons'>
                 <SubmitButton handleClick={handleRemoveFromToTalkList} text={staticText.mainPages.button.noInterest}/>
-                <Button endpoint='#' text={staticText.mainPages.button.employed}/>
-                <SubmitButton handleClick={handleReturnToMainPage} text={'powrót'} />
+                <SubmitButton handleClick={handleStudentStatusChange} text={staticText.mainPages.button.employed}/>
+                <SubmitButton handleClick={handleReturnToMainPage} text={'Powrót'} />
             </div>
         </div>
     );

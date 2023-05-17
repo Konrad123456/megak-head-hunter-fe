@@ -58,17 +58,15 @@ const updateStudentDataApiSlice = apiSlice.injectEndpoints({
                 body: userData,
             })
         }),
-        // studentChangeStatus: builder.mutation({
-        //     query: (status: number) => ({
-        //         url: '/user',
-        //         method:'PUT',
-        //         body:{
-        //             status:status,
-        //         }
-        //
-        //     })
-        // })
+        studentHired: builder.mutation({
+            query: (id: string) => ({
+                url: `/user/hired/${id}`,
+                method:'PUT',
+
+
+            })
+        })
     })
 })
 
-export const {useSendStudentDataMutation} = updateStudentDataApiSlice
+export const {useSendStudentDataMutation,useStudentHiredMutation} = updateStudentDataApiSlice
