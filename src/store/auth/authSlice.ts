@@ -4,11 +4,13 @@ import { User } from "./types";
 interface InitialAuthState {
     user: User | null;
     token: string | null;
+    fullName: string | null;
 }
 
 export const initialAuthStateValues: InitialAuthState = {
     user: null,
     token: null,
+    fullName: null,
 }
 
 const authSlice = createSlice({
@@ -16,9 +18,10 @@ const authSlice = createSlice({
     initialState: initialAuthStateValues,
     reducers: {
         setCredentials: (state, action) => {
-            const { user, access_token } = action.payload;
+            const { accessToken, user, fullName } = action.payload;
             state.user = user;
-            state.token = access_token;
+            state.token = accessToken;
+            state.fullName = fullName;
         },
         logOut: (state) => {
             state.user = null;

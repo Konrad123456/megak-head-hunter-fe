@@ -1,0 +1,28 @@
+.human-resources-header {
+  width: 100%;
+  margin-bottom: 2px;
+  background-color: #292a2b;
+
+  @media (max-width: 500px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__button {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 15px 20px;
+    border: none;
+    color: $color-greyish-five;
+    background-color: transparent;
+    flex-grow: 1;
+    color: #777777;
+
+    &--active {
+      border-bottom: 2px solid $color-redish-four;
+      color: #fff;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "email": "testowy.email@gmail.com",
+    "courseCompletion": 5,
+    "courseEngagment": 5,
+    "projectDegree": 5,
+    "teamProjectDegree": 5,
+    "bonusProjectUrls": "https://google.com"
+  },
+  {
+    "email": "testowy121.email@gmail.com",
+    "courseCompletion": 1,
+    "courseEngagment": 2,
+    "projectDegree": 3,
+    "teamProjectDegree": 4,
+    "bonusProjectUrls": "https://google.com"
+  },
+  {
+    "email": "testowy121121.email@gmail.com",
+    "courseCompletion": 4,
+    "courseEngagment": 2,
+    "projectDegree": 5,
+    "teamProjectDegree": 4,
+    "bonusProjectUrls": "https://google12.com"
+  }
+]

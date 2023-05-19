@@ -1,8 +1,14 @@
 export interface User {
-    id: string,
     email: string;
+    role: Roles;
 }
 
 export interface withToken {
     access_token: string,
+}
+
+export enum Roles {
+    STUDENT,
+    HR,
+    ADMIN,
 }

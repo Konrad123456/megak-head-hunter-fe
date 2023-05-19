@@ -40,7 +40,8 @@
     width: 98%;
     text-align: center;
   }
-  &__input-box {
+
+  &__input-box,&__select-box,&__checkbox-box,&__textarea-box  {
     display: flex;
     flex-direction: column;
     margin: 5px 0;
@@ -50,41 +51,58 @@
     color: $color-greyish-two;
     outline: none;
   }
-  .input-container {
-    flex-direction: column;
+
+  &__checkbox-box{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    label{
+      text-align: center
+    }
+  }
+
+  &__submit-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .input-container{
+    display: flex;
+
     .input_col1, {
       width: 98%;
+      margin-right: 2%;
     }
-    .input_col2 {
+    .input_col2{
       display: flex;
       width: 98%;
-      .checkbox {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        width: 100%;
-      }
     }
   }
   label {
-    font-size: 14px;
+    font-size: $font-size-Xsmall;
   }
   input, select, textarea {
     margin: 5px 0;
     background-color: $color-blackish-three;
     padding: 10px;
     border: 0;
-    color: #7e7e7e;
+    color: $color-greyish-two;
     outline: none;
-    min-width: 100%;
+  }
+
+  textarea{
     max-width: 100%;
-    text-align: center;
+    min-width: 100%;
   }
   h1 {
-    font-size: 2rem;
+    font-size: $font-size-large;
   }
   h2 {
-    font-size: 1.4rem;
+    font-size: $font-size-Xsmall;
   }
   .logo {
     margin: 0;
@@ -100,10 +118,14 @@
     padding: 4px 8px;
     font-weight: 100;
   }
-  .user-submit-btn {
-    font-size: 2rem;
+
+  .user-submit-btn{
+    font-size: $font-size-large;
     padding: 5px 20px;
     margin: 10px auto;
+  }
+  .user-btn{
+    margin: 10px;
   }
 }
 @media (min-width: 1024px) {
@@ -141,6 +163,14 @@
     }
     input, select, textarea {
       text-align: left;
+    }
+    
+  }
+}
+@media (max-width: 1023.98px) {
+  .user-page{
+    .user-btn {
+      width: 100%;
     }
   }
 }

@@ -1,27 +1,43 @@
 import { useField } from 'formik';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import '../Input/input.scss';
 
 interface Props {
+  classType: string;
   label: string;
   name: string;
   type: string;
   placeholder: string;
+  disabled?: boolean;
+  children?: ReactElement[] | null;
 }
-export const Input = ({ name, type, label, placeholder }: Props) => {
+
+export const Input = ({
+  classType,
+  label,
+  name,
+  type,
+  placeholder,
+  disabled = false,
+  children,
+}: Props) => {
   const [field, meta] = useField({
-    name: name,
-    type: type,
+    name,
+    type,
   });
   return (
-    <div className='input-box'>
+    <div className={`${classType}__input-box`}>
       <label htmlFor={name}>{label}</label>
-      <input
-        className={name}
-        id={name}
-        {...field}
-        {...{ name, type, label, placeholder }}
-      />
+      <div className={`${classType}__container`}>
+        <input
+          className={name}
+          id={name}
+          {...field}
+          {...{ label, name, type, placeholder }}
+          disabled={disabled}
+        />
+        {children ? children : null}
+      </div>
       {meta.touched && meta.error ? (
         <div className='error'>{meta.error}</div>
       ) : null}

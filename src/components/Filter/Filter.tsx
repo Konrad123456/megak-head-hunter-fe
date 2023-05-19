@@ -7,7 +7,11 @@ import { FilterFreePracticeAgreement } from './FilterFreePracticeAgreement/Filte
 import { SubmitButton } from '../common/Button/SubmitButton';
 import staticText from '../../languages/en.pl';
 
-export const Filter = () => {
+interface Props {
+  handleClose: () => void;
+}
+
+export const Filter = ({ handleClose }: Props) => {
   return (
     <div className='filter'>
       <div className='filter__container'>
@@ -44,7 +48,10 @@ export const Filter = () => {
         />
 
         <div className='filter__buttons'>
-          <SubmitButton text={staticText.mainPages.button.cancel} />
+          <SubmitButton
+            handleClick={handleClose}
+            text={staticText.mainPages.button.cancel}
+          />
           <SubmitButton text={staticText.mainPages.button.showResults} />
         </div>
       </div>

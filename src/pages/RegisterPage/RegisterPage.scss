@@ -1,0 +1,29 @@
+@import '../../utils/scss/index';
+
+.login-page{
+  &__container-header{
+    font-size: $font-size-Xlarge;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 20px auto;
+
+  }
+
+  &__error{
+    width: 100%;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: $font-size-medium;
+    margin: 30px auto;
+  }
+  &__login-info-button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 15px auto;
+
+    button{
+      flex-grow: 1;
+    }
+  }
+}

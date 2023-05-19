@@ -1,0 +1,57 @@
+.human-resources-students-information {
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  column-gap: 2px;
+  opacity: 1;
+
+  &__box {
+    font-size: 10px;
+    padding: 10px;
+    background-color: #222324;
+    font-weight: 100;
+    // min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__title {
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  &__span {
+    display: inline-block;
+    font-weight: 100;
+    color: #777;
+  }
+
+  @media (max-width: 1190px) {
+    grid-template-columns: repeat(5, 1fr);
+
+    &__box {
+      min-height: 70px;
+    }
+  }
+
+  @media (max-width: 680px) {
+    grid-template-columns: repeat(2, 1fr);
+
+    &__box {
+      min-height: 50px;
+    }
+  }
+
+  @media (max-width: 530px) {
+    grid-template-columns: 1fr;
+
+    &__box {
+      min-height: 50px;
+    }
+  }
+}

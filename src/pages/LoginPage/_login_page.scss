@@ -18,16 +18,16 @@
     flex-direction: column;
   }
 
-  &__forget-account {
-    margin-top: 10px;
-    font-size: $font-size-Xsmall;
-    text-align: right;
-  }
+  // &__forget-account {
+  //   margin-top: 10px;
+  //   font-size: $font-size-Xsmall;
+  //   text-align: right;
+  // }
 
   &__login-info {
     margin-top: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
   }
 
@@ -38,4 +38,15 @@
       color: inherit;
     }
   }
+
+  input {
+      width: 100%;
+      margin: 5px 0;
+      background-color: $color-blackish-three;
+      padding: 10px;
+      border: 0;
+      color: $color-greyish-two;
+      outline: none;
+  }
+
 }

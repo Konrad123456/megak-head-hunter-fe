@@ -3,6 +3,12 @@ const staticText = {
     account: 'Konto',
     logout: 'Wyloguj',
   },
+  humanResourcesPage: {
+    button: {
+      availableStudents: 'Dostępni kursanci',
+      toTalk: 'Do rozmowy',
+    },
+  },
   loginPage: {
     input: {
       email: 'E-mail',
@@ -10,6 +16,7 @@ const staticText = {
     },
     button: {
       login: 'Zaloguj się',
+      changePass: 'Zmień hasło',
     },
     text: {
       forgetAccount: 'Zapomniałeś hasła?',
@@ -19,13 +26,14 @@ const staticText = {
   },
   userPage: {
     header: {
-      title: 'Widok użytkownika',
+      title: 'Panel użytkownika',
     },
     columnTitle: {
       personalData: 'Dane osobowe:',
       employmentData: 'Dane na temat zatrudnienia:',
       aboutMe: 'O sobie:',
       experience: 'Wykształcenie i doświadczenie:',
+      changePass: 'Zmień hasło:',
     },
     input: {
       firstName: {
@@ -65,20 +73,20 @@ const staticText = {
       expectedTypeWork: {
         label: 'Preferowane miejsce pracy',
         option: {
-          main: 'Bez znaczenia',
-          onSite: 'Na miejscu',
-          move: 'Gotowość do przeprowadzki',
-          remote: 'Wyłączenie zdalnie',
-          partiallyRemote: 'Hybrydowo',
+          IRRELEVANT: 'Bez znaczenia',
+          ATLOCATIION: 'Na miejscu',
+          READY_TO_CARRYOUT: 'Gotowość do przeprowadzki',
+          ONLY_REMOTELY: 'Wyłączenie zdalnie',
+          HYBRID: 'Hybrydowo',
         },
       },
       expectedContractType: {
         label: 'Preferowana forma zatrudnienia',
         option: {
-          main: 'Brak preferencji',
-          coe: 'Umowa o pracę',
-          b2b: 'B2B',
-          mandate: 'Umowa zlecenie / umowa o dzieło',
+          NO_PREFERENCE: 'Brak preferencji',
+          UOP_ONLY: 'Umowa o pracę',
+          B2B_POSSIBLE: 'B2B',
+          UZ_UOD_POSSIBLE: 'Umowa zlecenie / umowa o dzieło',
         },
       },
     },
@@ -89,11 +97,11 @@ const staticText = {
       },
       portfolioUrls: {
         label: 'Linki do portfolio',
-        placeholder: 'linki rozdzielane enterem...',
+        placeholder: 'link do Twojego portfolio',
       },
       projectUrls: {
         label: 'Linki do projektu',
-        placeholder: 'linki rozdzielane enterem...',
+        placeholder: 'link do projektu',
       },
       education: {
         label: 'Wykształcenie',
@@ -123,7 +131,7 @@ const staticText = {
     singleHrForm: 'Formularz dodawania pojedyńczego HR',
     importStudentsFromFile: 'importuj kursantów z pliku',
     adminSettings: 'ustawienia konta administratora',
-    close: 'zamknij',
+    close: 'Zamknij',
     newPassword: 'nowe hasło',
     confirmPassword: 'powtórz hasło',
     fileIsTooBig: 'Plik jest zbyt duży',

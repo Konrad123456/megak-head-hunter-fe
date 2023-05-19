@@ -5,8 +5,48 @@
   min-height: 100vh;
   background-color: $color-blackish-six;
 }
+.btn {
+  background-color: $color-redish-four;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
+  color: $color-greyish-five;
+  font-size: $font-size-medium;
+  text-transform: uppercase;
+  transition: 0.3s;
+
+  &:hover {
+    filter: brightness(80%);
+  }
+}
 
 .admin-view {
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: $color-blackish-one;
+    padding: 8px;
+
+    &-img {
+      width: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h3 {
+      text-align: center;
+    }
+
+    .logo__image,
+    img {
+      width: 80px;
+    }
+  }
+
   &__form {
     display: flex;
     flex-direction: column;
@@ -30,6 +70,11 @@
       margin-bottom: 20px;
     }
 
+    label {
+      display: block;
+      width: 100%;
+    }
+
     div.error {
       color: $color-redish-primary;
       padding: 8px;
@@ -38,9 +83,14 @@
     }
 
     input {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       margin: 10px auto;
       padding: 5px;
       text-align: center;
+      background-color: $color-blackish-three;
+      color: $color-greyish-two;
 
       &::file-selector-button {
         background-color: $color-redish-four;
@@ -54,6 +104,28 @@
     }
   }
 
+  &__modal-files {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .sample-files {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    .btn {
+      margin: 10px auto 55px;
+    }
+  }
+
   &__modal-form {
     position: absolute;
     z-index: 3;
@@ -61,7 +133,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 95%;
-    background-color: $color-greyish-primary;
+    background-color: $color-blackish-primary;
     overflow: hidden;
 
     h3 {
@@ -69,7 +141,6 @@
       text-align: center;
       text-transform: uppercase;
       padding: 20px;
-      background-color: $color-blackish-one;
     }
 
     .btn.modal {
@@ -83,24 +154,11 @@
     left: 0;
     width: 100%;
     min-height: 100vh;
-    z-index: 2;
+    z-index: 901;
     background-color: rgba(0, 0, 0, 0.9);
   }
 
-  .btn {
-    background-color: $color-redish-four;
-    padding: 5px 10px;
-    cursor: pointer;
-    border: none;
-    color: $color-greyish-five;
-    font-size: $font-size-medium;
-    text-transform: uppercase;
-    transition: 0.3s;
-  }
 
-  .btn:hover {
-    filter: brightness(80%);
-  }
 
   position: relative;
   z-index: 1;
@@ -139,7 +197,6 @@
   &__header-picture {
     overflow: hidden;
     width: 40%;
-    margin-left: 20px;
 
     img {
       width: 100%;
@@ -185,8 +242,13 @@
   .admin-view__go-back-button {
     font-size: $font-size-medium;
   }
-
   .admin-view {
+    &__modal-files {
+      .sample-files {
+        width: 60%;
+      }
+    }
+
     &__form {
       margin: 10px auto;
     }
@@ -194,6 +256,10 @@
     &__header {
       flex-direction: row;
       align-items: center;
+
+      div.logo {
+        width: 80px;
+      }
 
       h2 {
         font-size: $font-size-Xlarge;
@@ -219,7 +285,6 @@
       width: 20%;
     }
   }
-
   .admin-view__navigation {
     flex-grow: 2;
     background-color: $color-blackish-primary;
@@ -248,6 +313,28 @@
     max-width: 1200px;
     margin: 0 auto;
 
+    &__modal-files {
+      .sample-files {
+        width: 30%;
+      }
+    }
+
+    &__logo {
+      justify-content: flex-start;
+      flex-direction: row;
+      width: 100%;
+      flex-wrap: nowrap;
+
+      h3 {
+        width: 100%;
+        margin-right: 80px;
+      }
+
+      .logo__image {
+        width: 80px;
+      }
+    }
+
     &__header {
       h2 {
         font-size: $font-size-XXlarge;
@@ -271,7 +358,6 @@
       margin-left: 20px;
     }
   }
-
   .admin-view__navigation {
     display: flex;
     flex-direction: row;
