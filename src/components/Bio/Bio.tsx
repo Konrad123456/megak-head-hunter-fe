@@ -30,17 +30,17 @@ type Props = {
     workExperience: string;
 };
 
-export const Bio = (props: Props) => {
+export const Bio = ({id,githubUsername,firstName,lastName,tel,email,bio}: Props) => {
     const navigate = useNavigate()
     const [gitHubAccountTrue, setGitHubAccountTrue] = useState(false);
     const [removeFromToTalk] = useRemoveFromToTalkMutation()
     const [studentHired] = useStudentHiredMutation()
     const handleRemoveFromToTalkList = async () => {
-        await removeFromToTalk(props.id)
+        await removeFromToTalk(id)
         navigate('/hr')
     }
    const handleStudentStatusChange = async () => {
-        await studentHired(props.id);
+        await studentHired(id);
         navigate('/hr')
     }
     const handleReturnToMainPage = ()=>{
@@ -48,7 +48,7 @@ export const Bio = (props: Props) => {
     }
     useEffect(() => {
         (async () => {
-            const checkGitHub = await checkGitHubAccount(props.githubUsername);
+            const checkGitHub = await checkGitHubAccount(githubUsername);
             checkGitHub === 200 && setGitHubAccountTrue(true);
         })();
     }, []);
@@ -59,7 +59,7 @@ export const Bio = (props: Props) => {
                 <img
                     src={
                         gitHubAccountTrue
-                            ? `https://github.com/${props.githubUsername}.png`
+                            ? `https://github.com/${githubUsername}.png`
                             : require('../../utils/img/github.png')
                     }
                     alt='avatar'
@@ -67,28 +67,28 @@ export const Bio = (props: Props) => {
             </div>
 
             <div className='bio__details'>
-                <p className='bio__name'>{`${props.firstName} ${props.lastName}`}</p>
+                <p className='bio__name'>{`${firstName} ${lastName}`}</p>
                 <a
-                    href={`https://github.com/${gitHubAccountTrue ? props.githubUsername : null}`}
+                    href={`https://github.com/${gitHubAccountTrue ? githubUsername : null}`}
                     className='bio__link'
                     target='_blank'
                     rel='noreferrer'
                 >
                     <img src={logoGithub} alt='logo' className='bio__logo'/>
                     {/* name to take from backend */}
-                    <span className='bio__link-name'>{props.githubUsername}</span>
+                    <span className='bio__link-name'>{githubUsername}</span>
                 </a>
             </div>
 
             <div className='bio__contact'>
                 <p className='bio__contact-details'>
                     <span className='material-symbols-outlined'>call</span>
-                    {props.tel}
+                    {tel}
                     {/* +48 566 972 227 */}
                 </p>
                 <p className='bio__contact-details'>
                     <span className='material-symbols-outlined'>mail</span>
-                    {props.email}
+                    {email}
                     {/* jankowalski@gmail.com */}
                 </p>
             </div>
@@ -98,7 +98,7 @@ export const Bio = (props: Props) => {
                     {staticText.mainPages.text.aboutMe}
                 </p>
                 <p>
-                    {props.bio}
+                    {bio}
                     {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
           quisquam architecto mollitia reprehenderit Aut, doloremque eum
           repellendus, minus quis corrupti laudantium laborum sit nostrum
