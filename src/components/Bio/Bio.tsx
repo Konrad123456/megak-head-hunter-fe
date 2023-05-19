@@ -30,7 +30,7 @@ type Props = {
     workExperience: string;
 };
 
-export const Bio = ({id,githubUsername,firstName,lastName,tel,email,bio}: Props) => {
+export const Bio = ({id,githubUsername='',firstName,lastName,tel,email,bio}: Props) => {
     const navigate = useNavigate()
     const [gitHubAccountTrue, setGitHubAccountTrue] = useState(false);
     const [removeFromToTalk] = useRemoveFromToTalkMutation()
@@ -69,7 +69,7 @@ export const Bio = ({id,githubUsername,firstName,lastName,tel,email,bio}: Props)
             <div className='bio__details'>
                 <p className='bio__name'>{`${firstName} ${lastName}`}</p>
                 <a
-                    href={`https://github.com/${gitHubAccountTrue ? githubUsername : null}`}
+                    href={`https://github.com/${gitHubAccountTrue}`}
                     className='bio__link'
                     target='_blank'
                     rel='noreferrer'
