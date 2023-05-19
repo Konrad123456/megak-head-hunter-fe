@@ -1,47 +1,48 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import staticText from '../../languages/en.pl';
-import {logOut, selectCurrentUser} from "../../store/auth/authSlice";
-import {useLogoutMutation} from "../../api/authApiSlice";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
+import {selectCurrentUser} from "../../store/auth/authSlice";
 import {useNavigate} from "react-router";
 import {AdminViewPasswordChangeForm} from "../Formik/Forms/AdminViewPasswordChangeForm";
 
 export const LoginUser = () => {
-    const [isVisible, setIsVisible] = useState<boolean>(false);
-    const [modalOn, setModalOn] = useState(false)
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const [logout] = useLogoutMutation();
-    const user = useSelector(selectCurrentUser);
-    const handleLogout = async () => {
-        try {
-            await logout({}).unwrap();
-            dispatch(logOut());
-            navigate('/');
-        } catch (e) {
-            console.log(e)
-        }
-    }
-    const handlePasswordChangeModal = () => {
-        setModalOn(prev => !prev)
-    }
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const user = useSelector(selectCurrentUser);
+  const fullName = user ? user.fullName : '';
+  const [modalOn, setModalOn] = useState(false)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [logout] = useLogoutMutation();
 
-    return (
-            <div className='login-user'>
-                {modalOn && <div style={{
-                    minHeight:'50vh'
-                }} className={'admin-view__modal'}>
-                    <AdminViewPasswordChangeForm handleModalExit={handlePasswordChangeModal}/>
-                </div>}
-                <div className='login-user__img'>
-                    <img src={require('../../utils/img/default_user.png')} alt='avatar'/>
-                </div>
-                {/* name has to be provide from backend */}
-                <p className='login-user__name'>{user.email}</p>
-                <span
-                    onClick={() => setIsVisible(!isVisible)}
-                    className='login-user__arrow material-symbols-outlined'
-                >
+  const handleLogout = async () => {
+      try {
+          await logout({}).unwrap();
+          dispatch(logOut());
+          navigate('/');
+      } catch (e) {
+          console.log(e)
+      }
+  }
+  const handlePasswordChangeModal = () => {
+      setModalOn(prev => !prev)
+  }
+
+  return (
+      <div className='login-user'>
+          {modalOn && <div style={{
+              minHeight:'50vh'
+          }} className={'admin-view__modal'}>
+              <AdminViewPasswordChangeForm handleModalExit={handlePasswordChangeModal}/>
+          </div>}
+          <div className='login-user__img'>
+              <img src={require('../../utils/img/default_user.png')} alt='avatar'/>
+          </div>
+          {/* name has to be provide from backend */}
+          <p className='login-user__name'>{user.email}</p>
+          <span
+              onClick={() => setIsVisible(!isVisible)}
+              className='login-user__arrow material-symbols-outlined'
+          >
         arrow_drop_down
       </span>
 
