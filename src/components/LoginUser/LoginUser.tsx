@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import staticText from '../../languages/en.pl';
-import {useSelector} from "react-redux";
-import {selectCurrentUser} from "../../store/auth/authSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {logOut, selectCurrentUser} from "../../store/auth/authSlice";
 import {useNavigate} from "react-router";
 import {AdminViewPasswordChangeForm} from "../Formik/Forms/AdminViewPasswordChangeForm";
+import {useLogoutMutation} from "../../api/authApiSlice";
 
 export const LoginUser = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -38,7 +39,7 @@ export const LoginUser = () => {
               <img src={require('../../utils/img/default_user.png')} alt='avatar'/>
           </div>
           {/* name has to be provide from backend */}
-          <p className='login-user__name'>{user.email}</p>
+          <p className='login-user__name'>{fullName}</p>
           <span
               onClick={() => setIsVisible(!isVisible)}
               className='login-user__arrow material-symbols-outlined'

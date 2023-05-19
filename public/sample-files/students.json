@@ -1,6 +1,6 @@
 [
   {
-    "email": "konrad.cencelewicz@gmail.com",
+    "email": "testowy.email@gmail.com",
     "courseCompletion": 5,
     "courseEngagment": 5,
     "projectDegree": 5,
@@ -8,7 +8,7 @@
     "bonusProjectUrls": "https://google.com"
   },
   {
-    "email": "konrad121.cencelewicz@gmail.com",
+    "email": "testowy121.email@gmail.com",
     "courseCompletion": 1,
     "courseEngagment": 2,
     "projectDegree": 3,
@@ -16,7 +16,7 @@
     "bonusProjectUrls": "https://google.com"
   },
   {
-    "email": "konrad121121.cencelewicz@gmail.com",
+    "email": "testowy121121.email@gmail.com",
     "courseCompletion": 4,
     "courseEngagment": 2,
     "projectDegree": 5,
