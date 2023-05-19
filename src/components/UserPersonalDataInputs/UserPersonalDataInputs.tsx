@@ -24,6 +24,7 @@ export const UserPersonalDataInputs = () => (
             label={userPageText.input.email.label}
             name={"email"} type={"email"}
             placeholder={userPageText.input.email.placeholder}
+            disabled={true}
         />
         <Input
             classType={"user-page"}

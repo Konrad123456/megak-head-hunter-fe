@@ -1,5 +1,5 @@
 import { useField } from 'formik';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import '../Input/input.scss';
 
 interface Props {
@@ -8,9 +8,19 @@ interface Props {
   name: string;
   type: string;
   placeholder: string;
+  disabled?: boolean;
+  children?: ReactElement[] | null;
 }
 
-export const Input = ({ classType, label, name, type, placeholder }: Props) => {
+export const Input = ({
+  classType,
+  label,
+  name,
+  type,
+  placeholder,
+  disabled = false,
+  children,
+}: Props) => {
   const [field, meta] = useField({
     name,
     type,
@@ -18,12 +28,16 @@ export const Input = ({ classType, label, name, type, placeholder }: Props) => {
   return (
     <div className={`${classType}__input-box`}>
       <label htmlFor={name}>{label}</label>
-      <input
-        className={name}
-        id={name}
-        {...field}
-        {...{ label, name, type, placeholder }}
-      />
+      <div className={`${classType}__container`}>
+        <input
+          className={name}
+          id={name}
+          {...field}
+          {...{ label, name, type, placeholder }}
+          disabled={disabled}
+        />
+        {children ? children : null}
+      </div>
       {meta.touched && meta.error ? (
         <div className='error'>{meta.error}</div>
       ) : null}
