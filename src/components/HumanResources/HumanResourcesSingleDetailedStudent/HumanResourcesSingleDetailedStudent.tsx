@@ -3,6 +3,7 @@ import { SubmitButton } from '../../common/Button/SubmitButton';
 import HumanResourcesStudentsInformation from '../HumanResourcesStudentsInformation/HumanResourcesStudentsInformation';
 import { checkGitHubAccount } from '../../../utils/checkGitHubAccount/checkGitHubAccount';
 import { useNavigate } from 'react-router';
+import {useStudentHiredMutation} from "../../../api/updateStudentDataApiSlice";
 
 interface Props {
   id: string;
@@ -43,8 +44,14 @@ export const HumanResourcesSingleDetailedStudent = ({
 }: Props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [gitHubAccountTrue, setGitHubAccountTrue] = useState(false);
-
+  const [studentHired] = useStudentHiredMutation()
   const navigate = useNavigate();
+
+  const handleStudentStatusChange = async () => {
+    await studentHired(id);
+    await handleRemoveStudentFromTalkList(id)
+    navigate('/hr')
+  }
 
   const removeStudent = async () => {
     await handleRemoveStudentFromTalkList(id);
@@ -99,7 +106,7 @@ export const HumanResourcesSingleDetailedStudent = ({
             handleClick={removeStudent}
             text={'Brak zainteresowania'}
           />
-          <SubmitButton text='Zatrudniony' />
+          <SubmitButton handleClick={handleStudentStatusChange} text='Zatrudniony' />
           <button onClick={handleOpen}>
             {isOpen ? (
               <span className='material-symbols-outlined'>expand_less</span>

@@ -7,28 +7,22 @@ export enum expectedTypeWorkEntity {
     ONLY_REMOTELY,
     HYBRID,
 }
-
-
 export enum ContractType {
     NO_PREFERENCE,
     UOP_ONLY,
     B2B_POSSIBLE,
     UZ_UOD_POSSIBLE,
 }
-
 export enum choiceYesNO {
     NO,
     YES,
 }
-
 export enum StudentStatus {
     AVAILABLE,
     DURING_CONVERSATION,
     HIRED,
 }
-
 export interface StudentsDataInterface {
-    // id: string;
     tel: string;
     firstName: string;
     lastName: string;
@@ -45,20 +39,23 @@ export interface StudentsDataInterface {
     education: string;
     workExperience: string;
     courses: string;
-    // status: StudentStatus;
 }
-
-
 const updateStudentDataApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         sendStudentData: builder.mutation({
-            query: (userData:StudentsDataInterface) => ({
+            query: (userData: StudentsDataInterface) => ({
                 url: '/user',
                 method: 'PUT',
-                body:userData,
+                body: userData,
+            })
+        }),
+        studentHired: builder.mutation({
+            query: (id: string) => ({
+                url: `/user/hired/${id}`,
+                method: 'PUT',
             })
         })
     })
 })
 
-export const {useSendStudentDataMutation}= updateStudentDataApiSlice
+export const {useSendStudentDataMutation, useStudentHiredMutation} = updateStudentDataApiSlice

@@ -5,6 +5,20 @@
   min-height: 100vh;
   background-color: $color-blackish-six;
 }
+.btn {
+  background-color: $color-redish-four;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
+  color: $color-greyish-five;
+  font-size: $font-size-medium;
+  text-transform: uppercase;
+  transition: 0.3s;
+
+  &:hover {
+    filter: brightness(80%);
+  }
+}
 
 .admin-view {
   &__logo {
@@ -140,24 +154,11 @@
     left: 0;
     width: 100%;
     min-height: 100vh;
-    z-index: 2;
+    z-index: 901;
     background-color: rgba(0, 0, 0, 0.9);
   }
 
-  .btn {
-    background-color: $color-redish-four;
-    padding: 5px 10px;
-    cursor: pointer;
-    border: none;
-    color: $color-greyish-five;
-    font-size: $font-size-medium;
-    text-transform: uppercase;
-    transition: 0.3s;
 
-    &:hover {
-      filter: brightness(80%);
-    }
-  }
 
   position: relative;
   z-index: 1;
